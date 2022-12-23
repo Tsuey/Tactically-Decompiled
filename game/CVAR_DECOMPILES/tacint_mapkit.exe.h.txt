@@ -1,0 +1,2519 @@
+typedef unsigned char   undefined;
+
+typedef unsigned long long    GUID;
+typedef unsigned int    ImageBaseOffset32;
+typedef unsigned char    bool;
+typedef unsigned char    byte;
+typedef unsigned int    dword;
+float10
+typedef long long    longlong;
+typedef unsigned char    uchar;
+typedef unsigned int    uint;
+typedef unsigned int    uint3;
+typedef unsigned long    ulong;
+typedef unsigned long long    ulonglong;
+typedef unsigned char    undefined1;
+typedef unsigned short    undefined2;
+typedef unsigned int    undefined4;
+typedef unsigned long long    undefined6;
+typedef unsigned long long    undefined8;
+typedef unsigned short    ushort;
+typedef short    wchar_t;
+typedef unsigned short    word;
+#define unkbyte9   unsigned long long
+#define unkbyte10   unsigned long long
+#define unkbyte11   unsigned long long
+#define unkbyte12   unsigned long long
+#define unkbyte13   unsigned long long
+#define unkbyte14   unsigned long long
+#define unkbyte15   unsigned long long
+#define unkbyte16   unsigned long long
+
+#define unkuint9   unsigned long long
+#define unkuint10   unsigned long long
+#define unkuint11   unsigned long long
+#define unkuint12   unsigned long long
+#define unkuint13   unsigned long long
+#define unkuint14   unsigned long long
+#define unkuint15   unsigned long long
+#define unkuint16   unsigned long long
+
+#define unkint9   long long
+#define unkint10   long long
+#define unkint11   long long
+#define unkint12   long long
+#define unkint13   long long
+#define unkint14   long long
+#define unkint15   long long
+#define unkint16   long long
+
+#define unkfloat1   float
+#define unkfloat2   float
+#define unkfloat3   float
+#define unkfloat5   double
+#define unkfloat6   double
+#define unkfloat7   double
+#define unkfloat9   long double
+#define unkfloat11   long double
+#define unkfloat12   long double
+#define unkfloat13   long double
+#define unkfloat14   long double
+#define unkfloat15   long double
+#define unkfloat16   long double
+
+#define BADSPACEBASE   void
+#define code   void
+
+typedef struct _s__RTTIBaseClassDescriptor _s__RTTIBaseClassDescriptor, *P_s__RTTIBaseClassDescriptor;
+
+typedef struct _s__RTTIBaseClassDescriptor RTTIBaseClassDescriptor;
+
+typedef struct TypeDescriptor TypeDescriptor, *PTypeDescriptor;
+
+typedef struct PMD PMD, *PPMD;
+
+typedef struct _s__RTTIClassHierarchyDescriptor _s__RTTIClassHierarchyDescriptor, *P_s__RTTIClassHierarchyDescriptor;
+
+typedef struct _s__RTTIClassHierarchyDescriptor RTTIClassHierarchyDescriptor;
+
+typedef int ptrdiff_t;
+
+struct TypeDescriptor {
+    void * pVFTable;
+    void * spare;
+    char name[0];
+};
+
+struct PMD {
+    ptrdiff_t mdisp;
+    ptrdiff_t pdisp;
+    ptrdiff_t vdisp;
+};
+
+struct _s__RTTIBaseClassDescriptor {
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    dword numContainedBases; // count of extended classes in BaseClassArray (RTTI 2)
+    struct PMD where; // member displacement structure
+    dword attributes; // bit flags
+    RTTIClassHierarchyDescriptor * pClassHierarchyDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3) for class
+};
+
+struct _s__RTTIClassHierarchyDescriptor {
+    dword signature;
+    dword attributes; // bit flags
+    dword numBaseClasses; // number of base classes (i.e. rtti1Count)
+    RTTIBaseClassDescriptor * * pBaseClassArray; // ref to BaseClassArray (RTTI 2)
+};
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion;
+
+typedef struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
+
+struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct {
+    dword OffsetToDirectory;
+    dword DataIsDirectory;
+};
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {
+    dword OffsetToData;
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
+};
+
+typedef unsigned short    wchar16;
+typedef struct type_info type_info, *Ptype_info;
+
+struct type_info { // PlaceHolder Class Structure
+};
+
+typedef struct _s__RTTICompleteObjectLocator _s__RTTICompleteObjectLocator, *P_s__RTTICompleteObjectLocator;
+
+typedef struct _s__RTTICompleteObjectLocator RTTICompleteObjectLocator;
+
+struct _s__RTTICompleteObjectLocator {
+    dword signature;
+    dword offset; // offset of vbtable within class
+    dword cdOffset; // constructor displacement offset
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    RTTIClassHierarchyDescriptor * pClassDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3)
+};
+
+typedef struct _cpinfo _cpinfo, *P_cpinfo;
+
+typedef uint UINT;
+
+typedef uchar BYTE;
+
+struct _cpinfo {
+    UINT MaxCharSize;
+    BYTE DefaultChar[2];
+    BYTE LeadByte[12];
+};
+
+typedef struct _cpinfo * LPCPINFO;
+
+typedef struct _OVERLAPPED _OVERLAPPED, *P_OVERLAPPED;
+
+typedef ulong ULONG_PTR;
+
+typedef union _union_518 _union_518, *P_union_518;
+
+typedef void * HANDLE;
+
+typedef struct _struct_519 _struct_519, *P_struct_519;
+
+typedef void * PVOID;
+
+typedef ulong DWORD;
+
+struct _struct_519 {
+    DWORD Offset;
+    DWORD OffsetHigh;
+};
+
+union _union_518 {
+    struct _struct_519 s;
+    PVOID Pointer;
+};
+
+struct _OVERLAPPED {
+    ULONG_PTR Internal;
+    ULONG_PTR InternalHigh;
+    union _union_518 u;
+    HANDLE hEvent;
+};
+
+typedef struct _SECURITY_ATTRIBUTES _SECURITY_ATTRIBUTES, *P_SECURITY_ATTRIBUTES;
+
+typedef void * LPVOID;
+
+typedef int BOOL;
+
+struct _SECURITY_ATTRIBUTES {
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+};
+
+typedef struct _STARTUPINFOW _STARTUPINFOW, *P_STARTUPINFOW;
+
+typedef wchar_t WCHAR;
+
+typedef WCHAR * LPWSTR;
+
+typedef ushort WORD;
+
+typedef BYTE * LPBYTE;
+
+struct _STARTUPINFOW {
+    DWORD cb;
+    LPWSTR lpReserved;
+    LPWSTR lpDesktop;
+    LPWSTR lpTitle;
+    DWORD dwX;
+    DWORD dwY;
+    DWORD dwXSize;
+    DWORD dwYSize;
+    DWORD dwXCountChars;
+    DWORD dwYCountChars;
+    DWORD dwFillAttribute;
+    DWORD dwFlags;
+    WORD wShowWindow;
+    WORD cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput;
+    HANDLE hStdOutput;
+    HANDLE hStdError;
+};
+
+typedef struct _STARTUPINFOW * LPSTARTUPINFOW;
+
+typedef struct _OVERLAPPED * LPOVERLAPPED;
+
+typedef struct _SECURITY_ATTRIBUTES * LPSECURITY_ATTRIBUTES;
+
+typedef struct _STARTUPINFOA _STARTUPINFOA, *P_STARTUPINFOA;
+
+typedef char CHAR;
+
+typedef CHAR * LPSTR;
+
+struct _STARTUPINFOA {
+    DWORD cb;
+    LPSTR lpReserved;
+    LPSTR lpDesktop;
+    LPSTR lpTitle;
+    DWORD dwX;
+    DWORD dwY;
+    DWORD dwXSize;
+    DWORD dwYSize;
+    DWORD dwXCountChars;
+    DWORD dwYCountChars;
+    DWORD dwFillAttribute;
+    DWORD dwFlags;
+    WORD wShowWindow;
+    WORD cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput;
+    HANDLE hStdOutput;
+    HANDLE hStdError;
+};
+
+typedef struct _PROCESS_INFORMATION _PROCESS_INFORMATION, *P_PROCESS_INFORMATION;
+
+struct _PROCESS_INFORMATION {
+    HANDLE hProcess;
+    HANDLE hThread;
+    DWORD dwProcessId;
+    DWORD dwThreadId;
+};
+
+typedef struct _STARTUPINFOA * LPSTARTUPINFOA;
+
+typedef enum _GET_FILEEX_INFO_LEVELS {
+    GetFileExInfoStandard=0,
+    GetFileExMaxInfoLevel=1
+} _GET_FILEEX_INFO_LEVELS;
+
+typedef enum _GET_FILEEX_INFO_LEVELS GET_FILEEX_INFO_LEVELS;
+
+typedef struct _PROCESS_INFORMATION * LPPROCESS_INFORMATION;
+
+typedef struct _RTL_CRITICAL_SECTION _RTL_CRITICAL_SECTION, *P_RTL_CRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION * PRTL_CRITICAL_SECTION;
+
+typedef PRTL_CRITICAL_SECTION LPCRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG _RTL_CRITICAL_SECTION_DEBUG, *P_RTL_CRITICAL_SECTION_DEBUG;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG * PRTL_CRITICAL_SECTION_DEBUG;
+
+typedef long LONG;
+
+typedef struct _LIST_ENTRY _LIST_ENTRY, *P_LIST_ENTRY;
+
+typedef struct _LIST_ENTRY LIST_ENTRY;
+
+struct _RTL_CRITICAL_SECTION {
+    PRTL_CRITICAL_SECTION_DEBUG DebugInfo;
+    LONG LockCount;
+    LONG RecursionCount;
+    HANDLE OwningThread;
+    HANDLE LockSemaphore;
+    ULONG_PTR SpinCount;
+};
+
+struct _LIST_ENTRY {
+    struct _LIST_ENTRY * Flink;
+    struct _LIST_ENTRY * Blink;
+};
+
+struct _RTL_CRITICAL_SECTION_DEBUG {
+    WORD Type;
+    WORD CreatorBackTraceIndex;
+    struct _RTL_CRITICAL_SECTION * CriticalSection;
+    LIST_ENTRY ProcessLocksList;
+    DWORD EntryCount;
+    DWORD ContentionCount;
+    DWORD Flags;
+    WORD CreatorBackTraceIndexHigh;
+    WORD SpareWORD;
+};
+
+typedef struct _EXCEPTION_POINTERS _EXCEPTION_POINTERS, *P_EXCEPTION_POINTERS;
+
+typedef LONG (* PTOP_LEVEL_EXCEPTION_FILTER)(struct _EXCEPTION_POINTERS *);
+
+typedef struct _EXCEPTION_RECORD _EXCEPTION_RECORD, *P_EXCEPTION_RECORD;
+
+typedef struct _EXCEPTION_RECORD EXCEPTION_RECORD;
+
+typedef EXCEPTION_RECORD * PEXCEPTION_RECORD;
+
+typedef struct _CONTEXT _CONTEXT, *P_CONTEXT;
+
+typedef struct _CONTEXT CONTEXT;
+
+typedef CONTEXT * PCONTEXT;
+
+typedef struct _FLOATING_SAVE_AREA _FLOATING_SAVE_AREA, *P_FLOATING_SAVE_AREA;
+
+typedef struct _FLOATING_SAVE_AREA FLOATING_SAVE_AREA;
+
+struct _FLOATING_SAVE_AREA {
+    DWORD ControlWord;
+    DWORD StatusWord;
+    DWORD TagWord;
+    DWORD ErrorOffset;
+    DWORD ErrorSelector;
+    DWORD DataOffset;
+    DWORD DataSelector;
+    BYTE RegisterArea[80];
+    DWORD Cr0NpxState;
+};
+
+struct _CONTEXT {
+    DWORD ContextFlags;
+    DWORD Dr0;
+    DWORD Dr1;
+    DWORD Dr2;
+    DWORD Dr3;
+    DWORD Dr6;
+    DWORD Dr7;
+    FLOATING_SAVE_AREA FloatSave;
+    DWORD SegGs;
+    DWORD SegFs;
+    DWORD SegEs;
+    DWORD SegDs;
+    DWORD Edi;
+    DWORD Esi;
+    DWORD Ebx;
+    DWORD Edx;
+    DWORD Ecx;
+    DWORD Eax;
+    DWORD Ebp;
+    DWORD Eip;
+    DWORD SegCs;
+    DWORD EFlags;
+    DWORD Esp;
+    DWORD SegSs;
+    BYTE ExtendedRegisters[512];
+};
+
+struct _EXCEPTION_RECORD {
+    DWORD ExceptionCode;
+    DWORD ExceptionFlags;
+    struct _EXCEPTION_RECORD * ExceptionRecord;
+    PVOID ExceptionAddress;
+    DWORD NumberParameters;
+    ULONG_PTR ExceptionInformation[15];
+};
+
+struct _EXCEPTION_POINTERS {
+    PEXCEPTION_RECORD ExceptionRecord;
+    PCONTEXT ContextRecord;
+};
+
+typedef PTOP_LEVEL_EXCEPTION_FILTER LPTOP_LEVEL_EXCEPTION_FILTER;
+
+typedef struct DotNetPdbInfo DotNetPdbInfo, *PDotNetPdbInfo;
+
+struct DotNetPdbInfo {
+    char signature[4];
+    GUID guid;
+    dword age;
+    char pdbname[17];
+};
+
+typedef struct _iobuf _iobuf, *P_iobuf;
+
+struct _iobuf {
+    char * _ptr;
+    int _cnt;
+    char * _base;
+    int _flag;
+    int _file;
+    int _charbuf;
+    int _bufsiz;
+    char * _tmpfname;
+};
+
+typedef struct _iobuf FILE;
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL _CONSOLE_READCONSOLE_CONTROL, *P_CONSOLE_READCONSOLE_CONTROL;
+
+typedef ulong ULONG;
+
+struct _CONSOLE_READCONSOLE_CONTROL {
+    ULONG nLength;
+    ULONG nInitialChars;
+    ULONG dwCtrlWakeupMask;
+    ULONG dwControlKeyState;
+};
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL * PCONSOLE_READCONSOLE_CONTROL;
+
+typedef char * va_list;
+
+typedef uint uintptr_t;
+
+typedef struct lconv lconv, *Plconv;
+
+struct lconv {
+    char * decimal_point;
+    char * thousands_sep;
+    char * grouping;
+    char * int_curr_symbol;
+    char * currency_symbol;
+    char * mon_decimal_point;
+    char * mon_thousands_sep;
+    char * mon_grouping;
+    char * positive_sign;
+    char * negative_sign;
+    char int_frac_digits;
+    char frac_digits;
+    char p_cs_precedes;
+    char p_sep_by_space;
+    char n_cs_precedes;
+    char n_sep_by_space;
+    char p_sign_posn;
+    char n_sign_posn;
+    wchar_t * _W_decimal_point;
+    wchar_t * _W_thousands_sep;
+    wchar_t * _W_int_curr_symbol;
+    wchar_t * _W_currency_symbol;
+    wchar_t * _W_mon_decimal_point;
+    wchar_t * _W_mon_thousands_sep;
+    wchar_t * _W_positive_sign;
+    wchar_t * _W_negative_sign;
+};
+
+typedef ushort wint_t;
+
+typedef struct localerefcount localerefcount, *Plocalerefcount;
+
+typedef struct localerefcount locrefcount;
+
+struct localerefcount {
+    char * locale;
+    wchar_t * wlocale;
+    int * refcount;
+    int * wrefcount;
+};
+
+typedef uint size_t;
+
+typedef int errno_t;
+
+typedef struct localeinfo_struct localeinfo_struct, *Plocaleinfo_struct;
+
+typedef struct localeinfo_struct * _locale_t;
+
+typedef struct threadlocaleinfostruct threadlocaleinfostruct, *Pthreadlocaleinfostruct;
+
+typedef struct threadlocaleinfostruct * pthreadlocinfo;
+
+typedef struct threadmbcinfostruct threadmbcinfostruct, *Pthreadmbcinfostruct;
+
+typedef struct threadmbcinfostruct * pthreadmbcinfo;
+
+typedef struct __lc_time_data __lc_time_data, *P__lc_time_data;
+
+struct threadlocaleinfostruct {
+    int refcount;
+    uint lc_codepage;
+    uint lc_collate_cp;
+    uint lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    ushort * ctype1;
+    ushort * pctype;
+    uchar * pclmap;
+    uchar * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
+};
+
+struct threadmbcinfostruct {
+    int refcount;
+    int mbcodepage;
+    int ismbcodepage;
+    ushort mbulinfo[6];
+    uchar mbctype[257];
+    uchar mbcasemap[256];
+    wchar_t * mblocalename;
+};
+
+struct localeinfo_struct {
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
+};
+
+struct __lc_time_data {
+    char * wday_abbr[7];
+    char * wday[7];
+    char * month_abbr[12];
+    char * month[12];
+    char * ampm[2];
+    char * ww_sdatefmt;
+    char * ww_ldatefmt;
+    char * ww_timefmt;
+    int ww_caltype;
+    int refcount;
+    wchar_t * _W_wday_abbr[7];
+    wchar_t * _W_wday[7];
+    wchar_t * _W_month_abbr[12];
+    wchar_t * _W_month[12];
+    wchar_t * _W_ampm[2];
+    wchar_t * _W_ww_sdatefmt;
+    wchar_t * _W_ww_ldatefmt;
+    wchar_t * _W_ww_timefmt;
+    wchar_t * _W_ww_locale_name;
+};
+
+typedef size_t rsize_t;
+
+typedef int intptr_t;
+
+typedef struct _IMAGE_SECTION_HEADER _IMAGE_SECTION_HEADER, *P_IMAGE_SECTION_HEADER;
+
+typedef union _union_226 _union_226, *P_union_226;
+
+union _union_226 {
+    DWORD PhysicalAddress;
+    DWORD VirtualSize;
+};
+
+struct _IMAGE_SECTION_HEADER {
+    BYTE Name[8];
+    union _union_226 Misc;
+    DWORD VirtualAddress;
+    DWORD SizeOfRawData;
+    DWORD PointerToRawData;
+    DWORD PointerToRelocations;
+    DWORD PointerToLinenumbers;
+    WORD NumberOfRelocations;
+    WORD NumberOfLinenumbers;
+    DWORD Characteristics;
+};
+
+typedef WCHAR * PCNZWCH;
+
+typedef struct _EXCEPTION_POINTERS EXCEPTION_POINTERS;
+
+typedef CHAR * LPCSTR;
+
+typedef DWORD ACCESS_MASK;
+
+typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
+
+typedef struct _struct_19 _struct_19, *P_struct_19;
+
+typedef struct _struct_20 _struct_20, *P_struct_20;
+
+typedef double LONGLONG;
+
+struct _struct_20 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+struct _struct_19 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+union _LARGE_INTEGER {
+    struct _struct_19 s;
+    struct _struct_20 u;
+    LONGLONG QuadPart;
+};
+
+typedef union _LARGE_INTEGER LARGE_INTEGER;
+
+typedef struct _IMAGE_SECTION_HEADER * PIMAGE_SECTION_HEADER;
+
+typedef WCHAR * LPWCH;
+
+typedef WCHAR * LPCWSTR;
+
+typedef long HRESULT;
+
+typedef LARGE_INTEGER * PLARGE_INTEGER;
+
+typedef DWORD LCID;
+
+typedef struct IMAGE_DOS_HEADER IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
+
+struct IMAGE_DOS_HEADER {
+    char e_magic[2]; // Magic number
+    word e_cblp; // Bytes of last page
+    word e_cp; // Pages in file
+    word e_crlc; // Relocations
+    word e_cparhdr; // Size of header in paragraphs
+    word e_minalloc; // Minimum extra paragraphs needed
+    word e_maxalloc; // Maximum extra paragraphs needed
+    word e_ss; // Initial (relative) SS value
+    word e_sp; // Initial SP value
+    word e_csum; // Checksum
+    word e_ip; // Initial IP value
+    word e_cs; // Initial (relative) CS value
+    word e_lfarlc; // File address of relocation table
+    word e_ovno; // Overlay number
+    word e_res[4][4]; // Reserved words
+    word e_oemid; // OEM identifier (for e_oeminfo)
+    word e_oeminfo; // OEM information; e_oemid specific
+    word e_res2[10][10]; // Reserved words
+    dword e_lfanew; // File address of new exe header
+    byte e_program[64]; // Actual DOS program
+};
+
+typedef ULONG_PTR DWORD_PTR;
+
+typedef uint UINT_PTR;
+
+typedef ushort USHORT;
+
+typedef USHORT ADDRESS_FAMILY;
+
+typedef struct HKEY__ HKEY__, *PHKEY__;
+
+struct HKEY__ {
+    int unused;
+};
+
+typedef DWORD * LPDWORD;
+
+typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
+
+typedef struct HINSTANCE__ * HINSTANCE;
+
+struct HINSTANCE__ {
+    int unused;
+};
+
+typedef struct HWND__ HWND__, *PHWND__;
+
+typedef struct HWND__ * HWND;
+
+struct HWND__ {
+    int unused;
+};
+
+typedef HINSTANCE HMODULE;
+
+typedef struct _FILETIME _FILETIME, *P_FILETIME;
+
+typedef struct _FILETIME * LPFILETIME;
+
+struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+
+typedef int (* FARPROC)(void);
+
+typedef WORD * LPWORD;
+
+typedef struct HKEY__ * HKEY;
+
+typedef HKEY * PHKEY;
+
+typedef int INT;
+
+typedef BOOL * LPBOOL;
+
+typedef BYTE * PBYTE;
+
+typedef void * LPCVOID;
+
+typedef struct IMAGE_OPTIONAL_HEADER32 IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
+
+typedef struct IMAGE_DATA_DIRECTORY IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;
+
+struct IMAGE_DATA_DIRECTORY {
+    ImageBaseOffset32 VirtualAddress;
+    dword Size;
+};
+
+struct IMAGE_OPTIONAL_HEADER32 {
+    word Magic;
+    byte MajorLinkerVersion;
+    byte MinorLinkerVersion;
+    dword SizeOfCode;
+    dword SizeOfInitializedData;
+    dword SizeOfUninitializedData;
+    ImageBaseOffset32 AddressOfEntryPoint;
+    ImageBaseOffset32 BaseOfCode;
+    ImageBaseOffset32 BaseOfData;
+    pointer32 ImageBase;
+    dword SectionAlignment;
+    dword FileAlignment;
+    word MajorOperatingSystemVersion;
+    word MinorOperatingSystemVersion;
+    word MajorImageVersion;
+    word MinorImageVersion;
+    word MajorSubsystemVersion;
+    word MinorSubsystemVersion;
+    dword Win32VersionValue;
+    dword SizeOfImage;
+    dword SizeOfHeaders;
+    dword CheckSum;
+    word Subsystem;
+    word DllCharacteristics;
+    dword SizeOfStackReserve;
+    dword SizeOfStackCommit;
+    dword SizeOfHeapReserve;
+    dword SizeOfHeapCommit;
+    dword LoaderFlags;
+    dword NumberOfRvaAndSizes;
+    struct IMAGE_DATA_DIRECTORY DataDirectory[16];
+};
+
+typedef struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct;
+
+struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct {
+    dword NameOffset;
+    dword NameIsString;
+};
+
+typedef struct IMAGE_DEBUG_DIRECTORY IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;
+
+struct IMAGE_DEBUG_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Type;
+    dword SizeOfData;
+    dword AddressOfRawData;
+    dword PointerToRawData;
+};
+
+typedef struct IMAGE_FILE_HEADER IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
+
+struct IMAGE_FILE_HEADER {
+    word Machine; // 332
+    word NumberOfSections;
+    dword TimeDateStamp;
+    dword PointerToSymbolTable;
+    dword NumberOfSymbols;
+    word SizeOfOptionalHeader;
+    word Characteristics;
+};
+
+typedef struct IMAGE_NT_HEADERS32 IMAGE_NT_HEADERS32, *PIMAGE_NT_HEADERS32;
+
+struct IMAGE_NT_HEADERS32 {
+    char Signature[4];
+    struct IMAGE_FILE_HEADER FileHeader;
+    struct IMAGE_OPTIONAL_HEADER32 OptionalHeader;
+};
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY IMAGE_RESOURCE_DIRECTORY_ENTRY, *PIMAGE_RESOURCE_DIRECTORY_ENTRY;
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion;
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion {
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct;
+    dword Name;
+    word Id;
+};
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY {
+    union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion NameUnion;
+    union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion DirectoryUnion;
+};
+
+typedef struct IMAGE_SECTION_HEADER IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
+
+typedef union Misc Misc, *PMisc;
+
+typedef enum SectionFlags {
+    IMAGE_SCN_TYPE_NO_PAD=8,
+    IMAGE_SCN_RESERVED_0001=16,
+    IMAGE_SCN_CNT_CODE=32,
+    IMAGE_SCN_CNT_INITIALIZED_DATA=64,
+    IMAGE_SCN_CNT_UNINITIALIZED_DATA=128,
+    IMAGE_SCN_LNK_OTHER=256,
+    IMAGE_SCN_LNK_INFO=512,
+    IMAGE_SCN_RESERVED_0040=1024,
+    IMAGE_SCN_LNK_REMOVE=2048,
+    IMAGE_SCN_LNK_COMDAT=4096,
+    IMAGE_SCN_GPREL=32768,
+    IMAGE_SCN_MEM_16BIT=131072,
+    IMAGE_SCN_MEM_PURGEABLE=131072,
+    IMAGE_SCN_MEM_LOCKED=262144,
+    IMAGE_SCN_MEM_PRELOAD=524288,
+    IMAGE_SCN_ALIGN_1BYTES=1048576,
+    IMAGE_SCN_ALIGN_2BYTES=2097152,
+    IMAGE_SCN_ALIGN_4BYTES=3145728,
+    IMAGE_SCN_ALIGN_8BYTES=4194304,
+    IMAGE_SCN_ALIGN_16BYTES=5242880,
+    IMAGE_SCN_ALIGN_32BYTES=6291456,
+    IMAGE_SCN_ALIGN_64BYTES=7340032,
+    IMAGE_SCN_ALIGN_128BYTES=8388608,
+    IMAGE_SCN_ALIGN_256BYTES=9437184,
+    IMAGE_SCN_ALIGN_512BYTES=10485760,
+    IMAGE_SCN_ALIGN_1024BYTES=11534336,
+    IMAGE_SCN_ALIGN_2048BYTES=12582912,
+    IMAGE_SCN_ALIGN_4096BYTES=13631488,
+    IMAGE_SCN_ALIGN_8192BYTES=14680064,
+    IMAGE_SCN_LNK_NRELOC_OVFL=16777216,
+    IMAGE_SCN_MEM_DISCARDABLE=33554432,
+    IMAGE_SCN_MEM_NOT_CACHED=67108864,
+    IMAGE_SCN_MEM_NOT_PAGED=134217728,
+    IMAGE_SCN_MEM_SHARED=268435456,
+    IMAGE_SCN_MEM_EXECUTE=536870912,
+    IMAGE_SCN_MEM_READ=1073741824,
+    IMAGE_SCN_MEM_WRITE=2147483648
+} SectionFlags;
+
+union Misc {
+    dword PhysicalAddress;
+    dword VirtualSize;
+};
+
+struct IMAGE_SECTION_HEADER {
+    char Name[8];
+    union Misc Misc;
+    ImageBaseOffset32 VirtualAddress;
+    dword SizeOfRawData;
+    dword PointerToRawData;
+    dword PointerToRelocations;
+    dword PointerToLinenumbers;
+    word NumberOfRelocations;
+    word NumberOfLinenumbers;
+    enum SectionFlags Characteristics;
+};
+
+typedef struct IMAGE_RESOURCE_DATA_ENTRY IMAGE_RESOURCE_DATA_ENTRY, *PIMAGE_RESOURCE_DATA_ENTRY;
+
+struct IMAGE_RESOURCE_DATA_ENTRY {
+    dword OffsetToData;
+    dword Size;
+    dword CodePage;
+    dword Reserved;
+};
+
+typedef struct IMAGE_RESOURCE_DIRECTORY IMAGE_RESOURCE_DIRECTORY, *PIMAGE_RESOURCE_DIRECTORY;
+
+struct IMAGE_RESOURCE_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    word NumberOfNamedEntries;
+    word NumberOfIdEntries;
+};
+
+typedef struct IMAGE_DIRECTORY_ENTRY_EXPORT IMAGE_DIRECTORY_ENTRY_EXPORT, *PIMAGE_DIRECTORY_ENTRY_EXPORT;
+
+struct IMAGE_DIRECTORY_ENTRY_EXPORT {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Name;
+    dword Base;
+    dword NumberOfFunctions;
+    dword NumberOfNames;
+    dword AddressOfFunctions;
+    dword AddressOfNames;
+    dword AddressOfNameOrdinals;
+};
+
+typedef struct IMAGE_LOAD_CONFIG_DIRECTORY32 IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
+
+struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
+    dword Size;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword GlobalFlagsClear;
+    dword GlobalFlagsSet;
+    dword CriticalSectionDefaultTimeout;
+    dword DeCommitFreeBlockThreshold;
+    dword DeCommitTotalFreeThreshold;
+    pointer32 LockPrefixTable;
+    dword MaximumAllocationSize;
+    dword VirtualMemoryThreshold;
+    dword ProcessHeapFlags;
+    dword ProcessAffinityMask;
+    word CsdVersion;
+    word DependentLoadFlags;
+    pointer32 EditList;
+    pointer32 SecurityCookie;
+    pointer32 SEHandlerTable;
+    dword SEHandlerCount;
+};
+
+typedef ACCESS_MASK REGSAM;
+
+typedef LONG LSTATUS;
+
+typedef struct WSAData WSAData, *PWSAData;
+
+typedef struct WSAData WSADATA;
+
+typedef WSADATA * LPWSADATA;
+
+struct WSAData {
+    WORD wVersion;
+    WORD wHighVersion;
+    char szDescription[257];
+    char szSystemStatus[129];
+    ushort iMaxSockets;
+    ushort iMaxUdpDg;
+    char * lpVendorInfo;
+};
+
+typedef struct sockaddr sockaddr, *Psockaddr;
+
+struct sockaddr {
+    ADDRESS_FAMILY sa_family;
+    CHAR sa_data[14];
+};
+
+typedef UINT_PTR SOCKET;
+
+typedef ulong u_long;
+
+typedef struct timeval timeval, *Ptimeval;
+
+struct timeval {
+    long tv_sec;
+    long tv_usec;
+};
+
+typedef struct fd_set fd_set, *Pfd_set;
+
+typedef uint u_int;
+
+struct fd_set {
+    u_int fd_count;
+    SOCKET fd_array[64];
+};
+
+typedef struct setloc_struct setloc_struct, *Psetloc_struct;
+
+typedef struct _is_ctype_compatible _is_ctype_compatible, *P_is_ctype_compatible;
+
+struct _is_ctype_compatible {
+    ulong id;
+    int is_clike;
+};
+
+struct setloc_struct {
+    wchar_t * pchLanguage;
+    wchar_t * pchCountry;
+    int iLocState;
+    int iPrimaryLen;
+    BOOL bAbbrevLanguage;
+    BOOL bAbbrevCountry;
+    UINT _cachecp;
+    wchar_t _cachein[131];
+    wchar_t _cacheout[131];
+    struct _is_ctype_compatible _Loc_c[5];
+    wchar_t _cacheLocaleName[85];
+};
+
+typedef struct _tiddata _tiddata, *P_tiddata;
+
+typedef struct setloc_struct _setloc_struct;
+
+struct _tiddata {
+    ulong _tid;
+    uintptr_t _thandle;
+    int _terrno;
+    ulong _tdoserrno;
+    uint _fpds;
+    ulong _holdrand;
+    char * _token;
+    wchar_t * _wtoken;
+    uchar * _mtoken;
+    char * _errmsg;
+    wchar_t * _werrmsg;
+    char * _namebuf0;
+    wchar_t * _wnamebuf0;
+    char * _namebuf1;
+    wchar_t * _wnamebuf1;
+    char * _asctimebuf;
+    wchar_t * _wasctimebuf;
+    void * _gmtimebuf;
+    char * _cvtbuf;
+    uchar _con_ch_buf[5];
+    ushort _ch_buf_used;
+    void * _initaddr;
+    void * _initarg;
+    void * _pxcptacttab;
+    void * _tpxcptinfoptrs;
+    int _tfpecode;
+    pthreadmbcinfo ptmbcinfo;
+    pthreadlocinfo ptlocinfo;
+    int _ownlocale;
+    ulong _NLG_dwCode;
+    void * _terminate;
+    void * _unexpected;
+    void * _translator;
+    void * _purecall;
+    void * _curexception;
+    void * _curcontext;
+    int _ProcessingThrow;
+    void * _curexcspec;
+    void * _pFrameInfoChain;
+    _setloc_struct _setloc_data;
+    void * _reserved1;
+    void * _reserved2;
+    void * _reserved3;
+    void * _reserved4;
+    void * _reserved5;
+    int _cxxReThrow;
+    ulong __initDomain;
+    int _initapartment;
+};
+
+typedef struct _tiddata * _ptiddata;
+
+typedef struct __crt_multibyte_data __crt_multibyte_data, *P__crt_multibyte_data;
+
+struct __crt_multibyte_data { // PlaceHolder Structure
+};
+
+typedef struct Color Color, *PColor;
+
+struct Color { // PlaceHolder Structure
+};
+
+
+// WARNING! conflicting data type names: /Demangler/wchar_t - /wchar_t
+
+typedef struct CThreadFastMutex CThreadFastMutex, *PCThreadFastMutex;
+
+struct CThreadFastMutex { // PlaceHolder Structure
+};
+
+
+
+
+void FUN_00401220(void);
+void FUN_00401340(void);
+void FUN_00401370(void);
+void FUN_004013d0(void);
+int __fastcall FUN_004016ee(undefined4 param_1,uint param_2);
+undefined4 * __cdecl FUN_004017b0(undefined4 *param_1,byte *param_2);
+undefined * __fastcall FUN_00401830(undefined *param_1);
+undefined4 * __fastcall FUN_00401850(undefined4 *param_1);
+uint __cdecl FUN_00401870(char *param_1,uint param_2);
+undefined4 __cdecl FUN_00401980(char *param_1,uint param_2,undefined *param_3);
+void __cdecl FUN_004019e0(int param_1);
+undefined4 __cdecl FUN_00401a20(int *param_1);
+void __cdecl FUN_00401ae0(undefined4 param_1);
+undefined4 __cdecl FUN_00401af0(int param_1);
+void __thiscall FUN_00401b50(void *this,int param_1);
+void __fastcall FUN_00401be0(int param_1);
+void FUN_00401bf0(void);
+undefined4 __cdecl FUN_00401c70(char param_1,undefined4 param_2,byte *param_3);
+undefined * __fastcall FUN_00401d20(undefined *param_1);
+void __fastcall FUN_00401db0(int param_1);
+void __fastcall FUN_00401e20(int param_1);
+bool __cdecl FUN_00401eb0(undefined4 *param_1,undefined4 *param_2);
+uint __fastcall FUN_00401ef0(void *param_1);
+void FUN_004021c0(void);
+void FUN_004021f0(void);
+undefined * __thiscall FUN_00402200(void *this,undefined4 param_1);
+void __thiscall FUN_00402270(void *this,undefined4 param_1,undefined **param_2,undefined *param_3);
+uint * FUN_004022d0(void);
+uint FUN_00402320(void);
+void __thiscall FUN_00402360(void *this,int param_1);
+void __fastcall FUN_00402400(undefined *param_1);
+uint __thiscall FUN_00402630(void *this,int param_1,char param_2);
+void __thiscall FUN_004026c0(void *this,int param_1);
+undefined4 __cdecl FUN_004028d0(undefined4 param_1);
+void FUN_00402ff0(int *param_1,LPCSTR param_2);
+void __cdecl FUN_00403070(char *param_1);
+void __thiscall FUN_00403090(void *this,char *param_1);
+void __thiscall FUN_004031d0(void *this,char *param_1);
+void FUN_004032a0(void);
+uint __fastcall FUN_004032c0(int param_1);
+void FUN_00403380(void);
+uint __fastcall FUN_004033b0(int param_1);
+void __fastcall FUN_00403550(void *param_1);
+void __fastcall FUN_004035c0(int param_1);
+void __thiscall FUN_00403690(void *this,int param_1);
+void __thiscall FUN_004037b0(void *this,int param_1);
+void __fastcall FUN_004038d0(char *param_1);
+void FUN_004039f0(void);
+undefined ** FUN_00403ac0(void);
+undefined1 * __cdecl FUN_00403ad0(char *param_1);
+undefined4 FUN_00403b60(HMODULE param_1);
+void __cdecl FUN_00403c10(undefined4 param_1);
+void __cdecl FUN_00403c30(undefined4 param_1);
+void FUN_00403c50(void);
+bool FUN_00403c70(void);
+void __cdecl FUN_00403c80(undefined4 param_1);
+void __cdecl FUN_00403ca0(undefined4 param_1,undefined4 param_2);
+uint * __cdecl FUN_00403cc0(undefined4 param_1,int param_2,int param_3);
+void * __cdecl FUN_00403cf0(char *param_1);
+uint * __cdecl FUN_00403d40(int param_1,int param_2);
+undefined4 * __fastcall FUN_00403d70(undefined4 *param_1);
+void __fastcall FUN_00403e70(int *param_1);
+void __fastcall FUN_00403ed0(int *param_1);
+void __fastcall FUN_00403f30(int param_1);
+void __fastcall FUN_004040d0(int *param_1);
+void __fastcall FUN_00404100(int *param_1);
+void __fastcall FUN_00404140(int *param_1);
+void __fastcall FUN_004041b0(int param_1);
+void __fastcall FUN_00404270(int param_1,undefined param_2,undefined4 param_3);
+void __thiscall FUN_00404440(void *this,int param_1);
+void __thiscall FUN_004044e0(void *this,char *param_1,char *param_2);
+uint __thiscall FUN_004045b0(void *this,undefined4 param_1,char *param_2);
+int __thiscall FUN_00404aa0(void *this,int param_1,char **param_2);
+undefined __fastcall FUN_00404b20(int param_1);
+void FUN_00404b40(undefined4 param_1,int *param_2);
+void __cdecl FUN_00404d00(void *param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl FUN_00404ea0(int *param_1,undefined4 param_2,undefined4 param_3);
+int __thiscall FUN_00404f50(void *this,int param_1);
+void __fastcall FUN_00404fe0(int *param_1);
+void __fastcall FUN_00405020(int *param_1);
+void __fastcall FUN_00405090(int *param_1);
+undefined4 __cdecl FUN_00405130(void *param_1,undefined4 param_2,undefined4 param_3);
+undefined __fastcall FUN_00405230(int param_1);
+void __cdecl FUN_00405250(undefined4 param_1,undefined4 param_2);
+undefined __fastcall FUN_004052b0(int param_1);
+uint FUN_00405570(int *param_1,void *param_2,uint param_3,byte *param_4,uint param_5,int param_6);
+void FUN_00405600(int *param_1,void *param_2,uint param_3,byte *param_4,uint param_5,int param_6);
+undefined4 FUN_00405610(void);
+undefined FUN_00405620(void);
+int WSAStartup(WORD wVersionRequired,LPWSADATA lpWSAData);
+int WSACleanup(void);
+undefined4 * __thiscall FUN_00405640(void *this,undefined4 param_1);
+undefined4 * __thiscall FUN_00405710(void *this,undefined4 param_1);
+int __thiscall FUN_00405740(void *this,uint param_1,char *param_2);
+void __thiscall FUN_00405840(void *this,int param_1,char *param_2);
+uint __thiscall FUN_00405880(void *this,char **param_1);
+int __thiscall FUN_004058e0(void *this,undefined4 *param_1);
+int __fastcall FUN_00405940(int *param_1);
+void __cdecl FUN_00405990(int param_1,uint *param_2);
+void FUN_004059c0(int *param_1);
+undefined4 __fastcall FUN_00405b20(int param_1);
+int FUN_00405bf0(undefined4 param_1,undefined4 param_2,int param_3,int param_4,int param_5,int param_6);
+int __thiscall FUN_00405c80(void *this,int param_1);
+undefined4 __thiscall FUN_00405d30(void *this,int param_1);
+undefined4 __fastcall FUN_00405dc0(int param_1);
+undefined * FUN_00405dd0(void);
+void __thiscall FUN_00405de0(void *this,int param_1);
+int __fastcall FUN_00405e90(int param_1);
+int __thiscall FUN_00405f70(void *this,int param_1,int param_2);
+uint __fastcall FUN_00406030(void *param_1);
+int __thiscall FUN_00406230(void *this,int param_1);
+int __thiscall FUN_004062b0(void *this,char *param_1);
+void FUN_004063b0(char *param_1);
+void __thiscall FUN_004063d0(void *this,undefined4 param_1);
+int __cdecl FUN_004063f0(char *param_1);
+void __fastcall FUN_00406440(int *param_1);
+undefined4 __fastcall FUN_00406500(int *param_1);
+undefined4 __fastcall FUN_00406590(int *param_1);
+void __thiscall FUN_004065d0(void *this,undefined4 param_1,undefined4 param_2);
+void __fastcall thunk_FUN_00406440(int *param_1);
+void __thiscall FUN_00406600(void *this,int *param_1);
+undefined4 __fastcall thunk_FUN_00406500(int *param_1);
+uint __cdecl FUN_00406950(byte **param_1,byte **param_2);
+void __fastcall FUN_004069b0(int param_1);
+undefined4 * __thiscall FUN_00406a00(void *this,undefined4 param_1);
+uint __fastcall FUN_00406a30(int *param_1);
+void __fastcall FUN_00406ad0(int param_1);
+undefined4 FUN_00406ae0(void);
+bool FUN_00406af0(char *param_1,uint param_2,undefined *param_3);
+void __thiscall FUN_00406b10(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 __fastcall FUN_00406b50(int param_1);
+undefined FUN_00406b80(void);
+void __cdecl FUN_00406b90(undefined4 param_1);
+void __fastcall FUN_00406ba0(int *param_1);
+undefined4 __fastcall FUN_00406bc0(int *param_1);
+undefined4 * __thiscall FUN_00406c10(void *this,byte param_1);
+undefined FUN_00406c50(void);
+undefined4 FUN_00406c60(void);
+undefined4 __fastcall FUN_00406c70(int param_1);
+undefined __fastcall FUN_00406d10(int param_1);
+undefined __fastcall FUN_00406d20(int param_1);
+void FUN_00406d30(undefined4 param_1);
+void FUN_00406d50(undefined *param_1,byte *param_2);
+void __fastcall FUN_00406d70(int param_1);
+void __fastcall FUN_00406da0(int param_1);
+undefined ** FUN_00406df0(void);
+void FUN_00406e00(undefined4 param_1);
+undefined4 * __fastcall FUN_00406e20(undefined4 *param_1);
+undefined4 * __fastcall FUN_00406f20(undefined4 *param_1);
+void __fastcall FUN_00407370(undefined4 *param_1);
+void __fastcall FUN_00407450(int param_1);
+void __fastcall FUN_004074c0(undefined4 *param_1);
+undefined4 * __thiscall FUN_004076d0(void *this,byte param_1);
+undefined4 * __thiscall FUN_00407740(void *this,byte param_1);
+undefined4 * __thiscall FUN_004077b0(void *this,byte param_1);
+undefined4 * __thiscall FUN_00407820(void *this,byte param_1);
+undefined4 * __thiscall FUN_00407850(void *this,byte param_1);
+undefined4 * __thiscall FUN_00407880(void *this,byte param_1);
+undefined4 * __thiscall FUN_004078b0(void *this,byte param_1);
+void __thiscall FUN_004078e0(void *this,int param_1);
+undefined4 __thiscall FUN_00407940(void *this,int param_1);
+void __fastcall FUN_004079a0(int *param_1);
+void __fastcall FUN_00407ab0(undefined4 *param_1);
+uint __fastcall FUN_00407b40(int param_1);
+undefined4 __fastcall FUN_00407b60(int param_1);
+undefined2 __fastcall FUN_00407dd0(int param_1);
+void __thiscall FUN_00407de0(void *this,ushort param_1);
+void FUN_00407e00(int *param_1);
+void __thiscall FUN_00407e20(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8,undefined4 param_9);
+void __thiscall FUN_00407e70(void *this,undefined4 param_1);
+void __fastcall FUN_00407eb0(int *param_1);
+undefined4 __fastcall FUN_00407f20(int *param_1);
+void __thiscall FUN_00408150(void *this,undefined4 *param_1);
+void __thiscall FUN_004081b0(void *this,int *param_1);
+uint __thiscall FUN_00408230(void *this,int *param_1);
+undefined4 __fastcall FUN_004082a0(int param_1);
+uint __thiscall FUN_004082b0(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 __fastcall FUN_004083b0(int param_1);
+undefined4 FUN_004083c0(void);
+undefined4 FUN_004083d0(void);
+undefined4 FUN_004083e0(void);
+undefined4 __fastcall FUN_004083f0(int param_1);
+undefined4 __fastcall FUN_00408400(int param_1);
+undefined4 FUN_00408410(void);
+undefined4 __fastcall FUN_00408420(int param_1);
+undefined4 __fastcall FUN_00408430(int param_1);
+undefined4 __thiscall FUN_00408440(void *this,uint param_1,undefined4 param_2,char param_3);
+int * __thiscall FUN_00408590(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 thunk_FUN_004114a0(void);
+void FUN_00408660(void);
+undefined __thiscall FUN_00408670(void *this,undefined4 param_1,float *param_2,float *param_3);
+undefined4 __thiscall FUN_00408730(void *this,int param_1,char param_2);
+undefined2 __fastcall FUN_00408810(int param_1);
+undefined4 __fastcall FUN_00408820(int param_1);
+void FUN_00408840(void);
+void __fastcall FUN_00408860(int *param_1);
+undefined4 __fastcall FUN_00408880(int param_1);
+void __fastcall FUN_004088f0(int param_1);
+int * FUN_00408900(undefined4 param_1);
+void __thiscall FUN_00408950(void *this,int param_1);
+void __fastcall FUN_00408a00(int *param_1);
+uint __fastcall FUN_00408ca0(uint *param_1);
+bool __fastcall FUN_00408f10(int param_1);
+undefined FUN_00408f20(void);
+void FUN_00408f30(void);
+bool __cdecl FUN_00408f40(int *param_1,int *param_2);
+void __thiscall FUN_00408f60(void *this,int *param_1,int param_2);
+uint __thiscall FUN_004090b0(void *this,uint param_1);
+uint __fastcall FUN_00409140(int param_1);
+undefined2 __thiscall FUN_00409160(void *this,ushort param_1);
+void __thiscall FUN_00409190(void *this,undefined param_1);
+void __fastcall FUN_004091f0(int *param_1);
+size_t __thiscall FUN_00409230(void *this,undefined4 param_1,undefined4 param_2,void *param_3,size_t param_4);
+void __thiscall FUN_004092c0(void *this,int param_1);
+void __fastcall FUN_004092e0(int param_1);
+void __thiscall FUN_00409300(void *this,undefined4 param_1);
+void __thiscall FUN_00409330(void *this,undefined4 param_1,undefined4 param_2,int param_3,int param_4);
+void __fastcall FUN_00409370(int param_1);
+void __thiscall FUN_00409390(void *this,undefined4 param_1);
+void __thiscall FUN_004093a0(void *this,undefined4 param_1);
+void __thiscall FUN_004093b0(void *this,undefined4 param_1);
+void __thiscall FUN_004093c0(void *this,undefined4 param_1);
+void FUN_004093d0(undefined4 param_1);
+void __thiscall FUN_004093e0(void *this,char *param_1);
+void __thiscall FUN_00409400(void *this,undefined4 param_1);
+void __thiscall FUN_00409410(void *this,undefined4 param_1,undefined4 param_2);
+void __thiscall FUN_00409430(void *this,undefined4 param_1);
+void __thiscall FUN_00409440(void *this,undefined4 param_1);
+void __thiscall FUN_00409450(void *this,int param_1);
+void __fastcall FUN_00409480(int *param_1);
+void __fastcall FUN_004094c0(int *param_1);
+void __thiscall FUN_00409630(void *this,int *param_1);
+void __thiscall FUN_00409740(void *this,undefined4 *param_1);
+void __thiscall FUN_004097c0(void *this,longlong *param_1);
+void __thiscall FUN_00409850(void *this,undefined4 *param_1);
+void __thiscall FUN_004098e0(void *this,undefined4 *param_1);
+void __thiscall FUN_00409cb0(void *this,uint *param_1);
+undefined __fastcall FUN_00409d00(int param_1);
+undefined4 * FUN_00409d10(undefined4 param_1);
+int __thiscall FUN_00409da0(void *this,uint param_1,undefined4 param_2);
+int __fastcall FUN_00409df0(int param_1);
+int __fastcall FUN_00409e10(int param_1);
+void __fastcall FUN_00409e17(int param_1);
+undefined4 __thiscall FUN_00409e30(void *this,int param_1,int param_2);
+void FUN_00409e80(int *param_1);
+undefined4 __fastcall FUN_00409ec0(int param_1);
+undefined4 * FUN_00409f30(void);
+undefined4 * __fastcall FUN_00409f50(undefined4 *param_1);
+undefined4 * __fastcall FUN_0040a050(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040a1d0(void *this,undefined4 param_1,undefined4 param_2);
+void __fastcall FUN_0040a270(undefined4 *param_1);
+void __fastcall FUN_0040a350(int *param_1);
+void __fastcall FUN_0040a3b0(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040a480(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040a4f0(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040a520(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040a550(void *this,byte param_1);
+void __thiscall FUN_0040a580(void *this,int param_1);
+uint __fastcall FUN_0040a5e0(int param_1);
+void __thiscall FUN_0040a600(void *this,int *param_1,undefined4 param_2);
+void FUN_0040a650(void);
+undefined4 __fastcall FUN_0040a660(int param_1);
+undefined4 __fastcall FUN_0040a670(int param_1);
+int __fastcall FUN_0040a680(int param_1);
+int __fastcall FUN_0040a690(int param_1);
+int * FUN_0040a6a0(undefined4 param_1);
+undefined4 __fastcall FUN_0040a6f0(int param_1);
+undefined4 __fastcall FUN_0040a700(int param_1);
+void __thiscall FUN_0040a710(void *this,int param_1);
+void __fastcall FUN_0040a7c0(int param_1);
+void __fastcall FUN_0040a7e0(int param_1);
+int __thiscall FUN_0040a810(void *this,int param_1,int param_2);
+uint __fastcall FUN_0040a880(int param_1);
+undefined4 FUN_0040a8a0(undefined param_1,undefined param_2,undefined param_3,undefined4 param_4);
+void __thiscall FUN_0040a8b0(void *this,int param_1);
+undefined4 __thiscall FUN_0040a8d0(void *this,int param_1);
+void FUN_0040a8f0(undefined4 param_1);
+void __fastcall FUN_0040a900(int *param_1);
+void __fastcall FUN_0040a940(int *param_1);
+undefined4 * __thiscall FUN_0040aa60(void *this,undefined4 param_1);
+void __thiscall FUN_0040aab0(void *this,uint param_1,undefined4 param_2);
+int __fastcall FUN_0040aad0(int param_1);
+void FUN_0040aaed(void);
+bool __thiscall FUN_0040ab00(void *this,uint param_1,int param_2);
+void __thiscall FUN_0040ab60(void *this,int *param_1);
+undefined4 FUN_0040abd0(void);
+undefined4 * FUN_0040abe0(void);
+void __cdecl FUN_0040ac00(SOCKET param_1);
+SOCKET __cdecl FUN_0040ac10(undefined4 param_1,undefined4 param_2);
+int WSAGetLastError(void);
+void FUN_0040ad00(void);
+undefined4 __cdecl FUN_0040ad20(int param_1);
+void __cdecl FUN_0040ad50(SOCKET param_1,char *param_2,int param_3);
+int WSACleanup(void);
+void __cdecl FUN_0040ad80(SOCKET param_1,char *param_2,int param_3);
+undefined4 * __fastcall FUN_0040ada0(undefined4 *param_1);
+void __fastcall FUN_0040af20(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040af70(void *this,byte param_1);
+void __cdecl FUN_0040afe0(int param_1,int param_2,int param_3);
+uint __thiscall FUN_0040b090(void *this,undefined4 param_1);
+void __thiscall FUN_0040b110(void *this,undefined4 param_1,ushort *param_2,undefined *param_3);
+undefined4 __thiscall FUN_0040b180(void *this,int param_1);
+undefined2 __fastcall FUN_0040b210(int param_1);
+undefined4 __thiscall FUN_0040b220(void *this,int param_1);
+undefined4 __fastcall FUN_0040b230(int param_1);
+undefined4 __thiscall FUN_0040b240(void *this,int param_1);
+undefined4 __fastcall FUN_0040b260(int param_1);
+undefined4 __thiscall FUN_0040b270(void *this,undefined4 param_1);
+undefined4 __thiscall FUN_0040b2b0(void *this,uint param_1);
+undefined2 __fastcall FUN_0040b2e0(int param_1);
+undefined4 __thiscall FUN_0040b2f0(void *this,uint param_1);
+undefined4 __thiscall FUN_0040b320(void *this,undefined4 param_1);
+undefined4 __thiscall FUN_0040b3a0(void *this,int param_1,void *param_2,int param_3);
+int __fastcall FUN_0040b470(int param_1);
+undefined4 __thiscall FUN_0040b480(void *this,int param_1,uint param_2);
+uint __thiscall FUN_0040b4f0(void *this,int param_1);
+undefined4 __thiscall FUN_0040b550(void *this,int param_1);
+undefined4 __fastcall FUN_0040b570(int param_1);
+void __thiscall FUN_0040b580(void *this,int param_1);
+void __fastcall FUN_0040b620(void *param_1);
+uint __thiscall FUN_0040b650(void *this,undefined4 *param_1,undefined4 *param_2);
+void __thiscall FUN_0040b6d0(void *this,uint param_1);
+void __thiscall FUN_0040b930(void *this,uint param_1,ushort param_2,char param_3);
+uint __fastcall FUN_0040b9b0(int param_1);
+uint __cdecl FUN_0040baf0(uint *param_1);
+uint __thiscall FUN_0040bbe0(void *this,undefined4 param_1,int *param_2);
+uint __fastcall FUN_0040be80(void *param_1);
+uint __fastcall FUN_0040c000(int param_1);
+void __fastcall FUN_0040c100(int param_1);
+void __thiscall FUN_0040c1a0(void *this,ushort param_1);
+void __thiscall FUN_0040c2e0(void *this,int *param_1);
+undefined4 * __fastcall FUN_0040c450(undefined4 *param_1);
+void __fastcall FUN_0040c4a0(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040c500(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040c530(void *this,byte param_1);
+void __fastcall FUN_0040c560(int param_1);
+void __fastcall FUN_0040c5e0(void *param_1);
+undefined4 __fastcall FUN_0040c610(int *param_1);
+uint __thiscall FUN_0040c630(void *this,int param_1,int param_2);
+void __fastcall FUN_0040c740(int param_1);
+undefined4 FUN_0040c7b0(void);
+undefined4 FUN_0040c7c0(void);
+undefined4 __fastcall FUN_0040c7d0(int param_1);
+undefined ** FUN_0040c820(void);
+undefined4 __fastcall FUN_0040c830(int param_1);
+undefined4 __thiscall FUN_0040c840(void *this,undefined4 param_1);
+bool __fastcall FUN_0040c850(int param_1);
+size_t __thiscall FUN_0040c860(void *this,void *param_1,size_t param_2);
+size_t __thiscall FUN_0040c950(void *this,void *param_1,size_t param_2);
+int __fastcall FUN_0040c990(int *param_1);
+int __thiscall FUN_0040cda0(void *this,int *param_1);
+void __fastcall FUN_0040ce30(int param_1);
+void __thiscall FUN_0040cfa0(void *this,undefined2 *param_1);
+void __thiscall FUN_0040d020(void *this,undefined2 *param_1);
+undefined4 * __fastcall FUN_0040d080(undefined4 *param_1);
+undefined4 * __fastcall FUN_0040d100(undefined4 *param_1);
+void __fastcall FUN_0040d1b0(undefined4 *param_1);
+void __fastcall FUN_0040d1f0(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040d280(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040d2d0(void *this,byte param_1);
+undefined4 * __thiscall FUN_0040d300(void *this,byte param_1);
+void __thiscall FUN_0040d330(void *this,int *param_1,undefined4 param_2,undefined4 *param_3);
+void __fastcall FUN_0040d400(int param_1);
+void __fastcall FUN_0040d420(int param_1);
+int __fastcall FUN_0040d4b0(int param_1);
+undefined4 __fastcall FUN_0040d4c0(int param_1);
+void __fastcall FUN_0040d4d0(int param_1);
+undefined4 __thiscall FUN_0040d4e0(void *this,int param_1,char param_2);
+undefined2 __fastcall FUN_0040d5a0(int param_1);
+undefined4 __thiscall FUN_0040d5b0(void *this,int param_1,char param_2);
+undefined2 __fastcall FUN_0040d670(int param_1);
+void __thiscall FUN_0040d680(void *this,int *param_1);
+undefined4 __fastcall FUN_0040d6a0(int param_1);
+undefined4 __fastcall FUN_0040d6b0(int param_1);
+undefined4 __fastcall FUN_0040d6c0(int param_1);
+undefined4 __fastcall FUN_0040d6d0(int param_1);
+int __fastcall FUN_0040d6e0(int param_1);
+undefined4 FUN_0040d6f0(void);
+int __fastcall FUN_0040d700(int param_1);
+undefined4 __fastcall FUN_0040d710(int param_1);
+undefined4 __fastcall FUN_0040d720(int param_1);
+int __fastcall FUN_0040d730(int param_1);
+int __fastcall FUN_0040d740(int param_1);
+undefined4 __fastcall FUN_0040d750(int param_1);
+undefined4 __fastcall FUN_0040d760(int param_1);
+undefined4 __fastcall FUN_0040d770(int *param_1);
+void __thiscall FUN_0040da70(void *this,undefined4 param_1,undefined4 param_2);
+uint __thiscall FUN_0040da90(void *this,undefined2 *param_1,undefined4 *param_2);
+bool __cdecl FUN_0040db10(byte *param_1,byte *param_2);
+bool __cdecl FUN_0040db30(ushort *param_1,ushort *param_2);
+void __thiscall FUN_0040db50(void *this,int *param_1,int *param_2);
+bool __thiscall FUN_0040dc60(void *this,undefined2 param_1,int **param_2);
+void __fastcall FUN_0040dd30(int param_1);
+void __fastcall FUN_0040ddd0(int param_1);
+void __thiscall FUN_0040de70(void *this,int *param_1,undefined4 param_2,int *param_3);
+void __thiscall FUN_0040e2e0(void *this,int *param_1,int *param_2);
+void __fastcall FUN_0040e600(int param_1);
+void __thiscall FUN_0040e6c0(void *this,ushort param_1);
+void __thiscall FUN_0040e7f0(void *this,undefined param_1,int param_2,int *param_3);
+void __thiscall FUN_0040e850(void *this,undefined4 param_1);
+void __thiscall FUN_0040e860(void *this,char *param_1);
+void __thiscall FUN_0040e870(void *this,undefined4 param_1);
+void __thiscall FUN_0040e880(void *this,undefined4 param_1);
+void __thiscall FUN_0040e890(void *this,undefined4 param_1);
+void __thiscall FUN_0040e8a0(void *this,int *param_1,char param_2);
+void __thiscall FUN_0040e940(void *this,void *param_1,int *param_2);
+undefined4 __cdecl FUN_0040eaa0(undefined4 param_1,int param_2);
+void __cdecl FUN_0040eac0(undefined4 param_1,undefined4 param_2);
+void __thiscall FUN_0040eae0(void *this,undefined4 *param_1);
+void __thiscall FUN_0040eb60(void *this,undefined4 *param_1);
+void __thiscall FUN_0040ebe0(void *this,float *param_1);
+void __thiscall FUN_0040ec80(void *this,undefined4 *param_1);
+void __thiscall FUN_0040ece0(void *this,undefined8 *param_1);
+void __cdecl FUN_0040ed80(void *param_1,undefined *param_2);
+void __thiscall FUN_0040edf0(void *this,undefined2 param_1);
+void __thiscall FUN_0040ee60(void *this,undefined4 param_1);
+void __thiscall FUN_0040eed0(void *this,void *param_1,void *param_2,int param_3);
+void __thiscall FUN_0040ef60(void *this,void *param_1,void *param_2,int param_3);
+undefined4 * __fastcall FUN_0040f000(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040f070(void *this,byte param_1);
+undefined4 __cdecl FUN_0040f0b0(uint **param_1,undefined4 param_2,double *param_3);
+size_t __cdecl FUN_0040f2c0(uint param_1,int *param_2,void **param_3);
+uint __cdecl FUN_0040f370(void *param_1,int param_2,void *param_3,uint param_4);
+undefined4 FUN_0040f420(void);
+void __cdecl FUN_0040f440(int *param_1,int *param_2,byte *param_3);
+void __cdecl FUN_0040f490(int *param_1,int *param_2,byte *param_3);
+void __cdecl FUN_0040f4e0(undefined4 *param_1,undefined4 *param_2,byte *param_3);
+ulonglong __fastcall FUN_0040f530(int *param_1);
+void __thiscall FUN_0040f5b0(void *this,undefined4 *param_1);
+uint * __cdecl FUN_0040f610(int param_1,int param_2);
+undefined4 __thiscall FUN_0040f6a0(void *this,int param_1,int param_2,undefined4 param_3,undefined4 param_4);
+undefined4 __cdecl FUN_0040f720(int param_1,undefined4 param_2,undefined4 param_3);
+size_t __cdecl FUN_0040f750(void *param_1,void *param_2,size_t param_3);
+uint __cdecl FUN_0040f770(uint *param_1);
+uint __cdecl FUN_0040f7c0(void *param_1,int *param_2);
+uint __cdecl FUN_0040f810(void *param_1,void *param_2,uint param_3);
+float10 __cdecl FUN_0040f860(void *param_1);
+undefined4 __cdecl FUN_0040f880(void *param_1);
+ulonglong __cdecl FUN_0040f8a0(int *param_1);
+uint __cdecl FUN_0040f8b0(void *param_1,void *param_2);
+undefined4 __cdecl FUN_0040f8e0(void *param_1);
+undefined8 __cdecl FUN_0040f900(void *param_1);
+uint __cdecl FUN_0040f920(void *param_1);
+int * __fastcall FUN_0040f940(int *param_1);
+void __cdecl FUN_0040f980(void *param_1,void *param_2,size_t param_3);
+void __cdecl FUN_0040f9a0(int *param_1,undefined param_2);
+void __cdecl FUN_0040fa00(void *param_1,int *param_2,size_t param_3,int param_4);
+void __cdecl FUN_0040fa30(void *param_1,int param_2,size_t param_3,int param_4);
+void __cdecl FUN_0040fac0(void *param_1,undefined4 param_2);
+void __cdecl FUN_0040faf0(void *param_1,char *param_2);
+void __cdecl FUN_0040fb70(void *param_1,undefined4 param_2);
+void __cdecl FUN_0040fba0(void *param_1);
+void __cdecl FUN_0040fbc0(void *param_1,undefined2 param_2);
+undefined4 * __thiscall FUN_0040fbf0(void *this,undefined4 param_1);
+void __fastcall FUN_0040fc50(undefined4 *param_1);
+undefined4 __fastcall FUN_0040fc70(int param_1);
+undefined4 __fastcall FUN_0040fc80(int param_1);
+undefined4 __fastcall FUN_0040fc90(int param_1);
+undefined4 __fastcall FUN_0040fca0(int param_1);
+undefined4 __fastcall FUN_0040fcb0(int param_1);
+int __fastcall FUN_0040fcc0(int param_1);
+void __thiscall FUN_0040fcd0(void *this,undefined4 param_1);
+void __thiscall FUN_0040fce0(void *this,undefined4 param_1);
+void __thiscall FUN_0040fcf0(void *this,undefined4 param_1);
+void __thiscall FUN_0040fd00(void *this,undefined4 param_1);
+void __thiscall FUN_0040fd10(void *this,undefined4 param_1);
+void __thiscall FUN_0040fd20(void *this,int param_1);
+void __thiscall FUN_0040fd40(void *this,uint *param_1);
+undefined4 * __fastcall FUN_0040fdb0(undefined4 *param_1);
+void __fastcall FUN_0040fe90(undefined4 *param_1);
+undefined4 * __thiscall FUN_0040ff00(void *this,byte param_1);
+void __fastcall FUN_0040ff30(void *param_1,undefined param_2,undefined4 param_3,undefined4 param_4);
+void __fastcall FUN_00410010(void *param_1,undefined param_2,undefined4 param_3);
+void __thiscall FUN_004100d0(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,uint param_6,uint param_7,uint param_8,uint param_9);
+void __thiscall FUN_004101f0(void *this,undefined4 param_1,undefined4 param_2,char *param_3,uint param_4);
+void __fastcall FUN_004102c0(void *param_1);
+void __fastcall FUN_00410350(void *param_1,undefined param_2,undefined4 param_3,undefined4 param_4);
+void __fastcall FUN_00410430(void *param_1);
+void __thiscall FUN_004104c0(void *this,undefined4 param_1,undefined4 param_2,char *param_3,char *param_4,undefined4 param_5);
+void __thiscall FUN_004105a0(void *this,int param_1);
+void __thiscall FUN_004106e0(void *this,undefined4 param_1);
+void __thiscall FUN_00410710(void *this,undefined4 param_1,undefined4 param_2,int param_3,int param_4);
+void __fastcall FUN_00410750(void *param_1);
+void __fastcall FUN_00410890(int param_1,undefined param_2,undefined4 param_3);
+void FUN_00410a10(undefined4 param_1);
+undefined4 * __fastcall FUN_00410a40(undefined4 *param_1);
+undefined4 * __thiscall FUN_00410b10(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+undefined4 * __thiscall FUN_00410bd0(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+void __fastcall FUN_00410c50(int param_1);
+void __fastcall FUN_00410cc0(int param_1);
+void __fastcall FUN_00410d30(undefined4 *param_1);
+undefined4 * __thiscall FUN_00410db0(void *this,byte param_1);
+void __thiscall FUN_00410de0(void *this,int param_1);
+void __thiscall FUN_00411190(void *this,int param_1);
+uint __thiscall FUN_00411330(void *this,undefined4 param_1);
+void __thiscall FUN_004113b0(void *this,undefined4 param_1,ushort *param_2,undefined *param_3);
+void __thiscall FUN_00411420(void *this,undefined4 param_1,ushort *param_2,undefined *param_3);
+undefined4 FUN_00411490(void);
+undefined4 FUN_004114a0(void);
+undefined4 __thiscall FUN_004114b0(void *this,undefined4 *param_1,undefined4 *param_2);
+uint __thiscall FUN_004114d0(void *this,undefined4 param_1,undefined4 *param_2,undefined4 *param_3);
+uint __thiscall FUN_00411530(void *this,undefined4 *param_1,undefined4 *param_2);
+uint __thiscall FUN_004115c0(void *this,undefined4 *param_1,undefined4 *param_2);
+void __thiscall FUN_00411660(void *this,uint param_1);
+uint __cdecl FUN_004118e0(uint *param_1,uint *param_2);
+void __thiscall FUN_00411910(void *this,uint param_1,ushort param_2,char param_3);
+void __thiscall FUN_00411990(void *this,uint *param_1);
+void __thiscall FUN_00411d80(void *this,uint *param_1);
+uint __fastcall FUN_00412100(int param_1);
+uint __fastcall FUN_00412200(int param_1);
+void __fastcall FUN_00412300(int param_1);
+void __fastcall FUN_004123c0(int param_1);
+void __fastcall FUN_004124e0(int param_1);
+void __fastcall FUN_00412590(int param_1);
+void __thiscall FUN_00412640(void *this,ushort param_1);
+void __thiscall FUN_00412780(void *this,ushort param_1);
+void __fastcall FUN_004128c0(int param_1);
+undefined4 * __fastcall FUN_00412b50(undefined4 *param_1);
+void __fastcall FUN_00412b90(undefined4 *param_1);
+undefined4 * __thiscall FUN_00412be0(void *this,byte param_1);
+uint __fastcall FUN_00412c40(int param_1);
+void __fastcall FUN_00412c60(int param_1);
+void __thiscall FUN_00412c90(void *this,int param_1,int param_2);
+void __thiscall FUN_00412ce0(void *this,int param_1,int param_2);
+undefined __fastcall FUN_00412d30(int param_1);
+int __fastcall FUN_00412d40(int param_1);
+void __thiscall FUN_004131a0(void *this,int *param_1);
+undefined4 * __fastcall FUN_004133a0(undefined4 *param_1);
+void __fastcall FUN_004133d0(undefined4 *param_1);
+undefined4 * __thiscall FUN_00413450(void *this,byte param_1);
+void __fastcall FUN_00413480(int param_1);
+int __fastcall FUN_00413490(int param_1);
+void __thiscall FUN_004134a0(void *this,undefined4 param_1,void *param_2,size_t param_3);
+void __thiscall FUN_004134e0(void *this,void *param_1,size_t param_2);
+void __fastcall FUN_00413500(int param_1);
+void __thiscall FUN_00413510(void *this,void *param_1,uint param_2);
+void __thiscall FUN_00413530(void *this,int *param_1);
+void __fastcall FUN_00413550(int param_1);
+ulonglong __fastcall FUN_00413560(int param_1);
+void __thiscall FUN_00413570(void *this,void *param_1);
+void __fastcall FUN_00413590(int param_1);
+undefined8 __fastcall FUN_004135a0(int param_1);
+void __fastcall FUN_004135b0(int param_1);
+void __thiscall FUN_004135c0(void *this,void *param_1,size_t param_2);
+void __thiscall FUN_004135e0(void *this,undefined4 param_1);
+void __thiscall FUN_00413600(void *this,int *param_1,size_t param_2,int param_3);
+void __thiscall FUN_00413620(void *this,int param_1,size_t param_2,int param_3);
+void __thiscall FUN_00413640(void *this,undefined4 param_1);
+void __thiscall FUN_00413660(void *this,char *param_1);
+void __thiscall FUN_00413680(void *this,undefined4 param_1);
+void __fastcall FUN_004136a0(int param_1,undefined param_2,undefined4 param_3,undefined4 param_4);
+void __thiscall FUN_004136c0(void *this,undefined4 param_1);
+undefined4 * __thiscall FUN_004136e0(void *this,byte param_1);
+undefined4 * FUN_00413710(void);
+undefined4 __fastcall FUN_00413740(int param_1);
+void __cdecl FUN_00413750(int *param_1);
+void __thiscall FUN_00413770(void *this,undefined4 param_1);
+void __thiscall FUN_00413780(void *this,undefined4 param_1,undefined4 param_2,int param_3);
+void __fastcall FUN_00413990(int *param_1);
+void __fastcall FUN_00413bf0(int param_1);
+void __thiscall FUN_00413c20(void *this,undefined4 param_1);
+void __thiscall FUN_00413c50(void *this,char *param_1,int param_2);
+void __fastcall FUN_00413cb0(int *param_1);
+void __fastcall FUN_00413ce0(int *param_1);
+void __thiscall FUN_00413d10(void *this,void *param_1);
+void __thiscall FUN_00413d40(void *this,int param_1);
+undefined4 __fastcall FUN_00413de0(int param_1);
+void __thiscall FUN_00413e30(void *this,uint param_1,uint param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5);
+undefined __fastcall FUN_00413e90(int *param_1);
+void __thiscall FUN_00414010(void *this,int param_1,undefined4 param_2,undefined4 param_3,int *param_4);
+void __thiscall FUN_00414040(void *this,void *param_1);
+void __thiscall FUN_004140c0(void *this,undefined4 param_1,undefined4 param_2);
+void __fastcall FUN_00414150(int *param_1);
+void __fastcall FUN_004141a0(int *param_1);
+void __thiscall FUN_004141c0(void *this,void *param_1);
+void __thiscall FUN_00414210(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7);
+void __thiscall FUN_00414270(void *this,int *param_1);
+void __fastcall FUN_004142d0(int *param_1);
+void __fastcall FUN_00414300(int *param_1);
+void __thiscall FUN_00414330(void *this,undefined4 param_1);
+void __fastcall FUN_00414370(int *param_1);
+void __fastcall FUN_004143a0(int *param_1);
+void __thiscall FUN_004143d0(void *this,undefined param_1,int param_2,int *param_3);
+void __thiscall FUN_00414400(void *this,undefined4 param_1);
+void __thiscall FUN_00414440(void *this,undefined4 param_1);
+void __fastcall FUN_00414470(int *param_1);
+void __fastcall FUN_004144b0(int *param_1);
+void FUN_00414530(int *param_1,void *param_2);
+void __thiscall FUN_004146a0(void *this,undefined4 param_1,int *param_2);
+void __fastcall FUN_004147f0(int *param_1);
+void __thiscall FUN_00414830(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004149c0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00414a50(void *this,undefined4 param_1,int *param_2);
+void __fastcall FUN_00414d20(int *param_1);
+void FUN_00414d70(void);
+void __thiscall FUN_00414d80(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00414e10(void *this,int param_1);
+uint __thiscall FUN_00414ed0(void *this,undefined4 *param_1,undefined4 *param_2);
+void __thiscall FUN_00414f60(void *this,uint param_1);
+void __thiscall FUN_004151e0(void *this,uint param_1,ushort param_2,char param_3);
+void __fastcall FUN_00415260(int param_1);
+void __thiscall FUN_00415490(void *this,undefined4 param_1,int *param_2);
+void __fastcall FUN_00415550(int param_1);
+void __thiscall FUN_004155b0(void *this,int param_1,undefined4 param_2,undefined4 param_3);
+void __thiscall FUN_00415620(void *this,undefined4 param_1,int *param_2);
+void FUN_004156c0(undefined4 param_1,int *param_2);
+void __thiscall FUN_004157a0(void *this,int param_1);
+void FUN_00415850(undefined4 param_1,int *param_2);
+void __thiscall FUN_00415900(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004159a0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00415ae0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00415c30(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00415cc0(void *this,undefined4 param_1,int *param_2);
+void __fastcall FUN_00415f40(int *param_1);
+void __thiscall FUN_00415f90(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416090(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416210(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004164c0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004165a0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416670(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004166f0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416840(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416910(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_004169e0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416a80(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416b40(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_00416bf0(void *this,undefined4 param_1,int *param_2);
+void __fastcall FUN_00416c90(int param_1);
+undefined4 * __fastcall FUN_004172b0(undefined4 *param_1);
+void __fastcall FUN_004172d0(undefined4 *param_1);
+undefined4 * __thiscall FUN_004172e0(void *this,byte param_1);
+int __fastcall FUN_00417310(int param_1);
+undefined4 * __thiscall FUN_00417590(void *this,byte param_1);
+undefined4 * FUN_004175c0(void);
+undefined4 * __thiscall FUN_004175f0(void *this,undefined4 param_1,undefined4 param_2);
+void __fastcall FUN_00417700(undefined4 *param_1);
+undefined4 * __thiscall FUN_00417810(void *this,byte param_1);
+undefined4 * __thiscall FUN_00417840(void *this,byte param_1);
+void __fastcall FUN_00417870(int *param_1);
+undefined __fastcall FUN_004178a0(int param_1);
+undefined8 __fastcall FUN_004178b0(int param_1);
+undefined __fastcall FUN_004178c0(int param_1);
+int __fastcall FUN_004178d0(int param_1);
+undefined __fastcall FUN_004178e0(int param_1);
+undefined8 __fastcall FUN_004178f0(int param_1);
+undefined8 __fastcall FUN_00417900(int param_1);
+undefined4 __fastcall FUN_00417910(int param_1);
+undefined4 __fastcall FUN_00417920(int param_1);
+undefined4 __fastcall FUN_00417930(int param_1);
+undefined __fastcall FUN_00417940(int param_1);
+int __fastcall FUN_00417950(int param_1);
+int __fastcall FUN_00417960(int param_1);
+uint __fastcall FUN_00417970(int param_1);
+int __fastcall FUN_00417980(int param_1);
+undefined4 __fastcall FUN_00417990(int param_1);
+undefined4 __fastcall FUN_004179a0(int param_1);
+uint __fastcall FUN_004179b0(int param_1);
+void __fastcall FUN_004179c0(int *param_1,undefined param_2,undefined4 param_3,undefined4 param_4);
+undefined __fastcall FUN_004179f0(int param_1);
+undefined4 __thiscall FUN_00417a00(void *this,int param_1);
+undefined4 __fastcall FUN_00417a30(int param_1);
+undefined __fastcall FUN_00417a40(int param_1);
+undefined __fastcall FUN_00417a50(int param_1);
+void __thiscall FUN_00417a60(void *this,uint param_1,char param_2);
+void __thiscall FUN_00417ba0(void *this,int param_1);
+void __thiscall FUN_00417bc0(void *this,uint *param_1);
+void __thiscall FUN_00417cc0(void *this,uint *param_1);
+int __thiscall FUN_00417d60(void *this,int param_1,undefined4 param_2);
+void __thiscall FUN_00417dd0(void *this,uint *param_1);
+void __thiscall FUN_00417e20(void *this,int param_1,undefined4 param_2);
+void __thiscall FUN_00417e50(void *this,undefined4 param_1);
+int __thiscall FUN_00417e60(void *this,uint param_1,undefined4 param_2);
+void __thiscall FUN_00417ec0(void *this,uint param_1);
+void FUN_00417f20(int *param_1,undefined4 param_2);
+void __thiscall FUN_00417f40(void *this,undefined4 param_1);
+undefined FUN_00417f80(void);
+undefined FUN_00417f90(void);
+undefined4 * __thiscall FUN_00417fa0(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 * __thiscall FUN_00418050(void *this,undefined4 param_1);
+undefined4 * __thiscall FUN_00418090(void *this,undefined4 param_1);
+void __fastcall FUN_004180d0(undefined4 *param_1);
+undefined4 * __thiscall FUN_00418190(void *this,byte param_1);
+undefined4 * __thiscall FUN_004181c0(void *this,byte param_1);
+undefined4 * __thiscall FUN_00418210(void *this,byte param_1);
+uint __thiscall FUN_00418240(void *this,undefined4 param_1);
+undefined4 __thiscall FUN_004182c0(void *this,int param_1,undefined4 *param_2,undefined4 *param_3);
+int __fastcall FUN_00418310(int param_1);
+undefined4 __fastcall FUN_00418330(int param_1);
+undefined4 __thiscall FUN_00418340(void *this,int param_1,undefined4 *param_2,undefined4 *param_3);
+int __fastcall FUN_00418390(int param_1);
+undefined * __fastcall FUN_004183b0(int param_1);
+undefined * __fastcall FUN_004183d0(int param_1);
+undefined * __fastcall FUN_004183e0(int param_1);
+undefined * __fastcall FUN_00418400(int param_1);
+undefined * __fastcall FUN_00418420(int param_1);
+undefined4 __fastcall FUN_00418430(int param_1);
+undefined4 __fastcall FUN_00418440(int param_1);
+undefined4 __fastcall FUN_00418450(int param_1);
+undefined __thiscall FUN_00418460(void *this,undefined4 param_1,undefined4 param_2,int *param_3);
+undefined __thiscall FUN_004184a0(void *this,undefined4 param_1,int *param_2);
+undefined4 __thiscall FUN_004184e0(void *this,int param_1,undefined4 *param_2,undefined4 *param_3);
+undefined4 __thiscall FUN_00418530(void *this,int param_1,int *param_2);
+int __fastcall FUN_004185a0(int param_1);
+undefined4 __fastcall FUN_004185c0(int param_1);
+undefined * __thiscall FUN_004185d0(void *this,int param_1,undefined *param_2);
+int __thiscall FUN_00418610(void *this,int param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4);
+undefined4 __fastcall FUN_00418650(int param_1);
+undefined4 __fastcall FUN_00418660(int param_1);
+void __thiscall FUN_00418670(void *this,int param_1);
+void __thiscall FUN_00418730(void *this,int param_1);
+void __thiscall FUN_004187e0(void *this,void *param_1,void *param_2);
+void __thiscall FUN_00418f80(void *this,void *param_1);
+void __thiscall FUN_00419090(void *this,void *param_1);
+void __thiscall FUN_004190f0(void *this,ushort param_1);
+void __thiscall FUN_00419230(void *this,ushort param_1);
+void __thiscall FUN_00419370(void *this,int *param_1);
+int __WSAFDIsSet(SOCKET param_1,fd_set *param_2);
+int __fastcall FUN_00419460(undefined4 *param_1,uint param_2,byte *param_3);
+undefined4 __fastcall FUN_004194e0(undefined4 *param_1,uint param_2,byte *param_3);
+void __fastcall FUN_0041a170(int param_1,int param_2);
+int __cdecl FUN_0041a1f0(uint *param_1,byte *param_2,uint param_3,undefined **param_4);
+undefined4 __cdecl FUN_0041a290(int param_1,undefined4 *param_2,undefined **param_3);
+bool __cdecl FUN_0041a300(undefined4 *param_1,void *param_2,uint *param_3,byte *param_4,size_t *param_5,int param_6,undefined4 *param_7);
+void __cdecl FUN_0041a690(int param_1,int param_2);
+void __cdecl FUN_0041a6d0(int param_1);
+undefined4 __cdecl FUN_0041a710(undefined4 *param_1,byte *param_2,int param_3);
+undefined4 __cdecl FUN_0041acf0(uint *param_1,byte *param_2,uint param_3);
+undefined4 __cdecl FUN_0041ad70(int param_1,undefined4 param_2,uint param_3);
+undefined4 __cdecl FUN_0041ae00(int param_1,undefined4 param_2);
+undefined4 __cdecl FUN_0041af50(int param_1);
+undefined4 __cdecl FUN_0041b080(int param_1,int param_2);
+undefined4 __cdecl FUN_0041b110(undefined **param_1);
+undefined4 __cdecl FUN_0041b1c0(int param_1,int param_2);
+undefined4 __cdecl FUN_0041b1f0(int param_1,undefined param_2);
+void __cdecl FUN_0041b280(int param_1);
+undefined4 __cdecl FUN_0041b350(undefined **param_1,undefined *param_2);
+undefined4 __cdecl FUN_0041b890(int param_1);
+undefined4 __cdecl FUN_0041b8d0(int param_1);
+void __cdecl FUN_0041b960(int param_1);
+void __cdecl FUN_0041b9b0(undefined (*param_1) [16]);
+uint * __cdecl FUN_0041b9f0(uint *param_1);
+void __cdecl FUN_0041baf0(uint *param_1,void *param_2,int *param_3,int *param_4);
+undefined * FUN_0041bc20(void);
+void __cdecl FUN_0041bcd0(byte *param_1,int param_2,int param_3,int param_4);
+undefined4 * __thiscall FUN_0041bd10(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 * __thiscall FUN_0041bd90(void *this,byte param_1);
+undefined4 * __thiscall FUN_0041bdd0(void *this,uint *param_1);
+undefined4 FUN_0041be90(void);
+int __fastcall FUN_0041bea0(int param_1);
+void __fastcall FUN_0041beb0(int *param_1);
+undefined2 __fastcall FUN_0041bec0(int param_1);
+undefined4 __thiscall FUN_0041bed0(void *this,int param_1,char param_2);
+bool __thiscall FUN_0041bfb0(void *this,ushort param_1);
+void __fastcall FUN_0041c000(int param_1);
+void __thiscall FUN_0041c0a0(void *this,uint param_1);
+void __thiscall FUN_0041c4d0(void *this,ushort param_1);
+void __thiscall FUN_0041c710(void *this,void *param_1);
+uint __thiscall FUN_0041c750(void *this,undefined4 *param_1,uint *param_2);
+void __thiscall FUN_0041c870(void *this,uint *param_1,uint **param_2,int *param_3);
+void __cdecl FUN_0041cbe0(undefined **param_1,int param_2);
+void __cdecl FUN_0041cd60(undefined *param_1,byte *param_2);
+int * __thiscall FUN_0041ce20(void *this,int param_1);
+void __fastcall FUN_0041ce90(undefined4 *param_1);
+undefined4 FUN_0041cef0(void);
+void __thiscall FUN_0041cf00(void *this,undefined *param_1,undefined *param_2);
+uint __cdecl FUN_0041d0c0(uint param_1,uint param_2);
+void FUN_0041d160(void);
+void __thiscall FUN_0041d280(void *this,int param_1,int param_2,int param_3);
+void __thiscall FUN_0041d3d0(void *this,int param_1);
+void WriteMiniDump(void);
+void __cdecl FUN_0041d620(char *param_1,int param_2,char param_3);
+void __cdecl FUN_0041d690(int param_1,char *param_2,char *param_3,uint param_4);
+void __cdecl FUN_0041d790(char *param_1,char param_2);
+uint __cdecl FUN_0041d7c0(char *param_1);
+void __cdecl FUN_0041d800(char *param_1,int param_2,char *param_3,int param_4);
+void __cdecl FUN_0041d870(char *param_1,int param_2,int param_3,undefined *param_4,int param_5);
+void __cdecl FUN_0041d930(char *param_1,char *param_2,int param_3);
+void __cdecl FUN_0041d9d0(char *param_1);
+uint __cdecl FUN_0041da10(byte *param_1,uint param_2);
+void __cdecl FUN_0041dae0(char *param_1);
+float10 __cdecl FUN_0041db20(char *param_1);
+ulonglong __cdecl FUN_0041dd70(char *param_1);
+ulonglong __cdecl FUN_0041df20(char *param_1);
+void __cdecl FUN_0041df30(undefined4 param_1,int param_2,char *param_3,uint param_4);
+int __cdecl FUN_0041dfc0(char *param_1,uint param_2,byte *param_3);
+void __cdecl FUN_0041e000(char *param_1,char *param_2);
+char * __cdecl FUN_0041e020(char *param_1,char *param_2,int *param_3,char param_4);
+char * __cdecl FUN_0041e120(char *param_1,char *param_2,uint param_3,size_t param_4);
+int __cdecl FUN_0041e190(char *param_1,char *param_2,int param_3);
+void __cdecl FUN_0041e1d0(char *param_1,int param_2,int param_3);
+int __cdecl FUN_0041e200(char *param_1,uint param_2,byte *param_3,int **param_4);
+int __cdecl FUN_0041e240(char *param_1,uint param_2,byte *param_3,int **param_4,char *param_5);
+void __cdecl FUN_0041e290(LPCSTR param_1,LPWSTR param_2,uint param_3);
+void __cdecl FUN_0041e2d0(LPCWSTR param_1,LPSTR param_2,int param_3);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+uint * __cdecl thunk_FUN_00427870(uint *param_1,byte param_2,uint param_3);
+uint __cdecl FUN_0041e340(byte *param_1,byte *param_2);
+void __cdecl FUN_0041e380(int param_1,char *param_2);
+uint __cdecl FUN_0041e3a0(byte *param_1,byte *param_2);
+int __cdecl FUN_0041e440(char *param_1);
+void FUN_0041e460(char *param_1);
+int __cdecl FUN_0041e470(short *param_1);
+float10 __cdecl FUN_0041e4a0(double param_1,uint param_2);
+undefined4 * __thiscall FUN_0041e500(void *this,undefined4 param_1,undefined4 param_2);
+void __cdecl FUN_0041e5a0(HMODULE param_1);
+undefined4 FUN_0041e5c0(void);
+void __cdecl FUN_0041e5d0(char *param_1);
+HMODULE __cdecl FUN_0041e680(int param_1);
+HMODULE __cdecl FUN_0041e800(char *param_1);
+void __cdecl FUN_0041e9a0(HMODULE param_1);
+undefined4 __cdecl FUN_0041e9c0(LPCSTR *param_1);
+undefined4 __cdecl CreateInterface(undefined *param_1,undefined4 *param_2);
+void __thiscall FUN_0041e9f0(void *this,undefined4 param_1);
+void __thiscall FUN_0041ea60(void *this,undefined8 param_1,undefined4 param_2);
+void __thiscall FUN_0041eb00(void *this,void *param_1,void *param_2,uint param_3);
+uint * __thiscall FUN_0041eb80(void *this,undefined4 param_1);
+void __fastcall thunk_FUN_00420d90(int param_1);
+void __cdecl FUN_0041ec00(undefined4 param_1);
+void __cdecl FUN_0041ec20(undefined4 param_1);
+void __thiscall FUN_0041ec40(void *this,undefined4 param_1);
+uint * __thiscall FUN_0041ec70(void *this,undefined4 param_1,int param_2);
+uint __thiscall FUN_0041ecc0(void *this,int *param_1,int param_2);
+uint __thiscall FUN_0041edc0(uint3 param_1,int *param_2,int *param_3);
+uint * __thiscall FUN_0041ee00(void *this,char *param_1,undefined4 param_2);
+uint * __thiscall FUN_0041efb0(void *this,uint param_1);
+int __fastcall FUN_0041efe0(int param_1);
+uint __fastcall FUN_0041f000(uint *param_1);
+int __thiscall FUN_0041f030(void *this,char *param_1);
+undefined4 __fastcall FUN_0041f050(int param_1);
+int __fastcall FUN_0041f060(int param_1);
+float10 __thiscall FUN_0041f090(void *this,char *param_1,float param_2);
+uint __thiscall FUN_0041f130(void *this,char *param_1,uint param_2);
+undefined1 * __fastcall FUN_0041f1b0(int param_1);
+undefined4 __fastcall FUN_0041f1e0(int param_1);
+int __fastcall FUN_0041f1f0(int param_1);
+uint __thiscall FUN_0041f220(void *this,char *param_1,uint param_2);
+uint __thiscall FUN_0041f250(void *this,char *param_1,uint param_2);
+ulonglong __thiscall FUN_0041f380(void *this,char *param_1,ulonglong param_2);
+uint __thiscall FUN_0041f440(void *this,char *param_1,uint param_2);
+uint __thiscall FUN_0041f5b0(void *this,int param_1,undefined4 param_2);
+undefined4 __thiscall FUN_0041f610(void *this,int param_1,undefined4 param_2);
+undefined4 __thiscall FUN_0041f690(void *this,int param_1,undefined4 param_2);
+void __thiscall FUN_0041f6e0(void *this,int param_1);
+undefined4 __thiscall FUN_0041f730(void *this,undefined4 param_1);
+uint __thiscall FUN_0041f770(void *this,void *param_1);
+uint FUN_0041f9d0(uint *param_1,char *param_2,int param_3,undefined4 param_4,int *param_5);
+uint __thiscall FUN_0041fa90(void *this,uint *param_1,int param_2,int param_3,undefined4 param_4,int *param_5);
+uint FUN_0041ff00(int *param_1,uint *param_2,undefined4 param_3,int *param_4);
+uint * __fastcall FUN_0041fff0(int param_1);
+void __thiscall FUN_00420160(void *this,int *param_1);
+void FUN_00420270(uint *param_1,char *param_2,int param_3,undefined4 param_4,void *param_5,int *param_6);
+void __fastcall FUN_00420390(int *param_1);
+void __thiscall FUN_004203d0(void *this,undefined4 param_1);
+void __thiscall FUN_00420410(void *this,undefined4 param_1,undefined4 param_2);
+void __thiscall FUN_00420440(void *this,undefined4 param_1);
+undefined1 * __thiscall FUN_004204a0(void *this,undefined *param_1,undefined *param_2);
+void __thiscall FUN_00420690(void *this,uint *param_1,void *param_2,int *param_3,int param_4,undefined4 param_5);
+void __thiscall FUN_00420cb0(void *this,int param_1);
+void __fastcall FUN_00420d90(int param_1);
+void __thiscall FUN_00420e20(void *this,int param_1);
+void __thiscall FUN_00420e80(void *this,undefined4 param_1);
+void __fastcall FUN_00420f20(int param_1);
+void __thiscall FUN_00420f80(void *this,char *param_1,uint param_2);
+void __thiscall FUN_00420fb0(void *this,char *param_1,uint param_2);
+void __thiscall FUN_00420fd0(void *this,char *param_1,char *param_2);
+void __thiscall FUN_00421040(void *this,char *param_1,undefined4 param_2,undefined4 param_3);
+void __thiscall FUN_00421090(void *this,char *param_1,short *param_2);
+uint __thiscall FUN_00421110(void *this,int *param_1);
+void __fastcall FUN_00421390(int param_1);
+void __cdecl FUN_004213b0(char *param_1,uint param_2,int param_3);
+undefined4 * __thiscall FUN_004213d0(void *this,char **param_1);
+undefined4 * __thiscall FUN_00421450(void *this,char *param_1);
+undefined4 * __fastcall FUN_004214b0(undefined4 *param_1);
+void * __thiscall FUN_004214d0(void *this,char *param_1);
+undefined4 __fastcall FUN_00421510(undefined4 *param_1);
+undefined1 * __fastcall FUN_00421550(undefined4 *param_1);
+int __fastcall FUN_00421560(int param_1);
+void __thiscall FUN_00421570(void *this,void *param_1,void *param_2);
+void __thiscall FUN_004215e0(void *this,char *param_1);
+undefined4 * __thiscall FUN_00421620(void *this,undefined4 param_1);
+undefined4 * __thiscall FUN_004216a0(void *this,byte param_1);
+undefined4 * __thiscall FUN_004216f0(void *this,byte param_1);
+void __thiscall FUN_00421720(void *this,uint param_1);
+void __thiscall FUN_00421740(void *this,uint param_1);
+void __thiscall FUN_00421760(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 __thiscall FUN_00421820(void *this,float *param_1);
+void __cdecl FUN_00421870(undefined4 param_1,undefined **param_2);
+void FUN_00421910(void);
+void __thiscall FUN_00421960(void *this,int param_1,undefined *param_2,uint param_3);
+void __thiscall FUN_004219c0(void *this,int param_1,undefined *param_2,uint param_3,undefined *param_4,undefined param_5,int param_6,undefined param_7,int param_8,int param_9);
+undefined4 __fastcall FUN_00421af0(int param_1);
+undefined4 FUN_00421b00(void);
+undefined4 __fastcall FUN_00421b10(int param_1);
+float10 __fastcall FUN_00421b20(int *param_1);
+undefined4 __fastcall FUN_00421b40(int param_1);
+int __fastcall FUN_00421b50(int *param_1);
+undefined1 * FUN_00421b70(void);
+void FUN_00421b76(void);
+undefined4 __fastcall FUN_00421b80(int param_1);
+void __fastcall FUN_00421b87(int param_1);
+void __fastcall FUN_00421b90(undefined4 param_1);
+uint __thiscall FUN_00421bb0(void *this,char *param_1);
+void __thiscall FUN_00421c50(void *this,uint param_1);
+void __thiscall FUN_00421c80(void *this,float param_1);
+void __thiscall FUN_00421d50(void *this,float param_1);
+void __thiscall FUN_00421e20(void *this,char *param_1);
+undefined FUN_00421f70(void);
+void FUN_00421f75(void);
+uint __thiscall FUN_00421f80(void *this,uint param_1);
+uint __thiscall FUN_00421f90(void *this,uint param_1);
+void __thiscall FUN_00421fa3(void *this,uint param_1);
+undefined __fastcall FUN_00421fb0(int param_1);
+uint __fastcall FUN_00421fc0(int param_1);
+bool __fastcall FUN_00421fd0(int *param_1);
+undefined4 FUN_00421fe0(undefined4 param_1);
+void __thiscall FUN_00422000(void *this,uint param_1);
+void FUN_00422010(void);
+void __fastcall FUN_00422020(int param_1);
+void __thiscall FUN_00422030(void *this,undefined4 param_1);
+void __fastcall FUN_00422050(int param_1);
+void __thiscall FUN_00422060(void *this,undefined4 param_1);
+void __cdecl thunk_FUN_0041cbe0(undefined **param_1,int param_2);
+void __thiscall FUN_004220a0(void *this,undefined *param_1);
+void __thiscall FUN_00422110(void *this,undefined param_1);
+int * __thiscall FUN_004221a0(void *this,int param_1,int param_2,byte param_3);
+int * __thiscall FUN_00422280(void *this,int param_1,int param_2,byte param_3);
+undefined4 * __thiscall FUN_00422320(void *this,undefined param_1,char *param_2,int param_3,int param_4);
+void __thiscall FUN_004223b0(void *this,int param_1);
+void __thiscall FUN_00422400(void *this,int param_1,int param_2,int param_3,byte param_4);
+uint __thiscall FUN_004224a0(void *this,int param_1,int *param_2);
+undefined __thiscall FUN_00422510(void *this,int param_1);
+uint __thiscall FUN_00422570(void *this,int param_1);
+void __thiscall FUN_004225c0(void *this,void *param_1);
+uint __fastcall FUN_00422610(int *param_1);
+void __fastcall FUN_00422690(int *param_1);
+void __thiscall FUN_00422700(void *this,int param_1);
+void __thiscall FUN_00422760(void *this,byte *param_1,uint *param_2);
+uint __thiscall FUN_00422780(void *this,byte *param_1,undefined4 *param_2);
+uint FUN_004227e0(undefined4 param_1,undefined4 *param_2);
+undefined4 __thiscall FUN_00422800(void *this,void *param_1,size_t param_2);
+undefined * FUN_00422840(void);
+uint __thiscall FUN_00422850(void *this,undefined4 *param_1);
+void __thiscall FUN_004228f0(void *this,undefined4 *param_1,undefined *param_2,size_t param_3);
+void __thiscall FUN_00422a50(void *this,undefined *param_1,int param_2);
+undefined * FUN_00422b00(void);
+void __thiscall FUN_00422b10(void *this,undefined *param_1,size_t param_2);
+int __thiscall FUN_00422bd0(void *this,int param_1,byte *param_2,int param_3,undefined4 param_4);
+int __thiscall FUN_00422d70(void *this,int param_1,int param_2);
+int __fastcall FUN_00422db0(int *param_1);
+int __fastcall FUN_00422e90(int *param_1);
+uint __thiscall FUN_00422fe0(void *this,int param_1,char *param_2,int param_3);
+int __thiscall FUN_00423040(void *this,int param_1);
+void __cdecl FUN_004230e0(void *param_1,byte *param_2);
+void __thiscall FUN_00423140(void *this,void *param_1,size_t param_2);
+uint __thiscall FUN_004231f0(void *this,int param_1);
+void __thiscall FUN_00423270(void *this,char *param_1);
+void __thiscall FUN_00423340(void *this,int param_1,int param_2);
+void __thiscall FUN_004233a0(void *this,int param_1,int param_2);
+void __cdecl FUN_00423420(uint *param_1,char *param_2);
+int __thiscall FUN_00423470(void *this,undefined4 param_1,int param_2,undefined param_3);
+void __fastcall FUN_004234f0(int param_1);
+void __fastcall FUN_00423560(int param_1);
+uint __thiscall FUN_00423580(void *this,ushort *param_1,ushort *param_2);
+short * __thiscall FUN_00423690(void *this,short *param_1,int *param_2);
+uint __thiscall FUN_00423820(void *this,ushort *param_1);
+undefined2 * __thiscall FUN_004238a0(void *this,undefined2 *param_1,byte *param_2);
+void __thiscall FUN_00423900(void *this,ushort *param_1,ushort *param_2,undefined *param_3);
+int __thiscall FUN_00423970(void *this,int param_1);
+void __thiscall FUN_004239b0(void *this,int param_1);
+void __thiscall FUN_00423a70(void *this,uint param_1);
+void __thiscall FUN_00423cf0(void *this,uint param_1,ushort param_2,char param_3);
+uint __fastcall FUN_00423d70(int param_1);
+void __fastcall FUN_00423e70(int param_1);
+void __fastcall FUN_00423f20(int param_1);
+void __thiscall FUN_00423f90(void *this,ushort param_1);
+void __thiscall FUN_004240d0(void *this,ushort param_1);
+undefined1 * __thiscall FUN_00424210(void *this,ushort param_1);
+void __cdecl FUN_00424260(uint *param_1,uint *param_2);
+void __cdecl FUN_004242f0(undefined4 *param_1);
+void __cdecl FUN_00424330(int *param_1,int *param_2);
+void __cdecl FUN_004249b0(int *param_1,int *param_2,uint param_3);
+undefined * __cdecl FUN_00424a90(undefined4 param_1,int param_2);
+undefined4 * __fastcall FUN_00424ab0(undefined4 *param_1);
+void __fastcall FUN_00424ac0(int **param_1);
+void __cdecl FUN_00424af0(undefined4 param_1);
+undefined4 __cdecl FUN_00424b10(byte *param_1);
+uint __thiscall FUN_00424bf0(void *this,undefined *param_1,int *param_2,int *param_3,int *param_4);
+void FUN_00424d20(int *param_1);
+undefined4 __thiscall FUN_00424d60(void *this,char param_1);
+uint __thiscall FUN_00424e30(void *this,int **param_1);
+uint __thiscall FUN_00424f40(void *this,int *param_1);
+uint __thiscall FUN_00425060(void *this,int **param_1);
+uint FUN_004250f0(uint *param_1);
+uint __fastcall FUN_00425170(byte *param_1);
+uint __fastcall FUN_004251b0(byte *param_1);
+void FUN_00425220(void);
+void FUN_00425270(void);
+void FUN_004252a0(void);
+int __cdecl __errcode(uint param_1);
+bool __cdecl __handle_exc(uint param_1,double *param_2,uint param_3);
+void __cdecl __raise_exc(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6);
+void __cdecl FUN_004255ee(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6,int param_7);
+void __cdecl __set_errno_from_matherr(int param_1);
+float10 __cdecl __umatherr(int param_1,int param_2);
+void FUN_004259a0(void);
+PVOID __cdecl FUN_004259c2(PVOID param_1);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_00425cdc(int param_1,int param_2);
+void __fastcall FUN_00425e78(int param_1,int param_2);
+int __cdecl FUN_00426034(uint **param_1,rsize_t *param_2,char *param_3);
+void FUN_00426102(void);
+char * __cdecl __getenv_helper_nolock(char *param_1);
+char * __cdecl FUN_0042618f(char *param_1);
+void FUN_00426206(void);
+undefined4 __cdecl FUN_0042620f(byte *param_1);
+void FUN_00426252(void);
+undefined4 __cdecl FUN_0042625b(byte *param_1,char *param_2);
+void __cdecl FUN_0042646c(uint *param_1,DWORD param_2);
+uint * __cdecl FUN_00426481(uint param_1,uint *param_2,DWORD param_3);
+int __cdecl is_valid_drive(uint param_1);
+int __cdecl FUN_00426619(LPCSTR param_1,uint param_2);
+intptr_t __cdecl __spawnv(int _Mode,char *_Filename,char **_ArgList);
+int __cdecl __fclose_nolock(FILE *_File);
+int __cdecl FUN_00426716(FILE *param_1);
+void FUN_00426785(void);
+undefined4 __cdecl FUN_0042678d(char *param_1,byte *param_2);
+void __alloca_probe(void);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_00426b3c(int param_1,int param_2);
+void __fastcall FUN_00426cd8(int param_1,int param_2);
+void __thiscall type_info::~type_info(type_info *this);
+void * __thiscall type_info::`scalar_deleting_destructor'(type_info *this,uint param_1);
+void __cdecl __fpmath(int param_1);
+void FUN_00426ed8(void);
+undefined4 FUN_00426f38(void);
+PVOID __cdecl FUN_00426f67(PVOID param_1);
+void FUN_00426fa5(void);
+PVOID __cdecl FUN_00426fab(PVOID param_1);
+int __cdecl FUN_00427063(PVOID param_1);
+pthreadlocinfo * __thiscall FUN_00427078(void *this,pthreadlocinfo *param_1);
+void __cdecl FUN_00427100(char *param_1,uint param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_00427275(int param_1);
+char * __cdecl __strlwr(char *_String);
+void __cdecl FUN_004272ee(char *param_1,uint param_2,pthreadlocinfo *param_3);
+char * __cdecl _strrchr(char *_Str,int _Ch);
+void __cdecl FUN_00427467(LPCSTR param_1);
+undefined4 FUN_00427583(void);
+void FUN_004275f6(void);
+undefined ** FUN_0042761d(void);
+void __cdecl __lock_file(FILE *_File);
+void __cdecl __lock_file2(int _Index,void *_File);
+void __cdecl __unlock_file(FILE *_File);
+void __cdecl __unlock_file2(int _Index,void *_File);
+undefined4 __cdecl FUN_004276f9(char *param_1,uint param_2,byte *param_3);
+void __cdecl FUN_004277a5(char *param_1,uint param_2,byte *param_3,int **param_4);
+undefined4 __cdecl FUN_004277c0(char *param_1,uint param_2,byte *param_3,pthreadlocinfo *param_4,int **param_5);
+uint * __cdecl FUN_00427870(uint *param_1,byte param_2,uint param_3);
+undefined4 __cdecl FUN_00427900(LPCSTR param_1,LPWSTR *param_2);
+void __cdecl FUN_004279b2(undefined4 param_1);
+void __cdecl ___crtExitProcess(int param_1);
+void __cdecl __amsg_exit(int param_1);
+void __cdecl __cexit(void);
+int __cdecl FUN_00427a36(int param_1);
+void __cdecl __exit(int param_1);
+void FUN_00427ace(void);
+void __cdecl FUN_00427b06(undefined **param_1,undefined **param_2);
+void __cdecl __initterm_e(undefined **param_1,undefined **param_2);
+void FUN_00427b5e(void);
+void FUN_00427b67(void);
+void __cdecl _doexit(int param_1,int param_2,int param_3);
+void FUN_00427c8a(void);
+void __cdecl _exit(int _Code);
+int entry(void);
+void __cdecl _fast_error_exit(int param_1);
+uint __alloca_probe_16(undefined1 param_1);
+uint __alloca_probe_8(undefined1 param_1);
+bool FUN_00427e6c(void);
+undefined4 __cdecl FUN_00427e81(byte *param_1);
+void FUN_00427f1d(void);
+void FUN_00427f30(char *param_1);
+long __cdecl _atol(char *_Str);
+uint __cdecl FUN_00427f4d(pthreadlocinfo *param_1,byte *param_2,byte **param_3,uint param_4,uint param_5);
+void __cdecl FUN_00428173(byte *param_1,byte **param_2,uint param_3);
+void __cdecl FUN_0042819d(byte *param_1,byte **param_2,uint param_3);
+ulonglong __cdecl FUN_004281c7(pthreadlocinfo *param_1,byte *param_2,byte **param_3,uint param_4,uint param_5);
+ulonglong __cdecl FUN_00428437(byte *param_1,byte **param_2,uint param_3);
+void __cdecl FUN_00428461(byte *param_1,byte **param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_00428578(byte *param_1,byte **param_2);
+void __cdecl FUN_0042858d(undefined4 *param_1);
+ulonglong __fastcall __aullshr(byte param_1,uint param_2);
+void __cdecl FUN_004285ff(char *param_1,int param_2);
+undefined4 __cdecl FUN_0042861d(undefined *param_1,char *param_2,int param_3,undefined4 param_4,undefined4 param_5);
+undefined * FUN_00428690(void);
+size_t __cdecl _strnlen(char *_Str,size_t _MaxCount);
+char * __cdecl _strchr(char *_Str,int _Val);
+char * __cdecl _strncat(char *_Dest,char *_Source,size_t _Count);
+char * __cdecl _strstr(char *_Str,char *_SubStr);
+void __cdecl FUN_00428bb3(byte *param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_00428c51(byte *param_1);
+ushort __cdecl FUN_00428c62(int param_1,pthreadlocinfo *param_2);
+ushort __cdecl FUN_00428cba(int param_1,pthreadlocinfo *param_2);
+ushort __cdecl FUN_00428d0c(int param_1,pthreadlocinfo *param_2);
+ushort __cdecl FUN_00428d5e(int param_1,pthreadlocinfo *param_2);
+int __cdecl _isalnum(int _C);
+int __cdecl _isdigit(int _C);
+int __cdecl _isspace(int _C);
+int __cdecl _isxdigit(int _C);
+uint __cdecl FUN_00428e66(uint param_1,pthreadlocinfo *param_2);
+int __cdecl _tolower(int _C);
+ushort __cdecl FUN_00428fd5(uint param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_0042900f(uint param_1);
+ulonglong __allmul(uint param_1,uint param_2,uint param_3,uint param_4);
+ulong * __cdecl ___doserrno(void);
+void __cdecl FID_conflict:__dosmaperr(ulong param_1);
+int * __cdecl __errno(void);
+int __cdecl FID_conflict:___acrt_errno_from_os_error(ulong param_1);
+void __cdecl FUN_004292bc(WCHAR *param_1);
+void __cdecl FUN_004292cd(WCHAR *param_1,pthreadlocinfo *param_2);
+void FUN_00429348(wchar_t *param_1);
+long __cdecl __wtol(wchar_t *_Str);
+int __cdecl FUN_00429365(char *param_1,uint param_2,int param_3,undefined4 param_4,undefined4 param_5);
+int __cdecl FUN_0042938d(undefined *param_1,char *param_2,uint param_3,int param_4,undefined4 param_5,undefined4 param_6);
+void __cdecl FUN_00429488(wchar_t *param_1,int param_2);
+undefined4 __cdecl FUN_004294a6(undefined *param_1,wchar_t *param_2,int param_3,undefined4 param_4,undefined4 param_5);
+uint __cdecl FUN_0042951f(uint param_1,pthreadlocinfo *param_2);
+int __cdecl _toupper(int _C);
+void __cdecl __decomp(int param_1,uint param_2,int *param_3);
+float10 __cdecl __set_exp(ulonglong param_1,short param_2);
+void ___set_fpsr_sse2(uint param_1);
+int FUN_00429806(void);
+int __ctrlfp(undefined4 param_1,undefined4 param_2);
+void __set_statfp(uint param_1);
+int FUN_0042989a(void);
+void __fastcall FUN_004298aa(int param_1,undefined param_2,undefined param_3);
+void __cdecl FUN_004298b9(uint param_1,uint param_2);
+void __cdecl _abort(void);
+void __cdecl FUN_0042991b(undefined4 param_1);
+undefined4 FUN_00429928(void);
+void __cdecl FUN_00429aa1(int param_1,DWORD param_2,DWORD param_3);
+void __cdecl FUN_00429bc6(undefined4 param_1);
+void __invalid_parameter(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+void FUN_00429bfe(void);
+void __cdecl __invoke_watson(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+errno_t __cdecl _strcpy_s(char *_Dst,rsize_t _SizeInBytes,char *_Src);
+size_t __cdecl _strlen(char *_Str);
+void __cdecl __lock(int _File);
+undefined4 __cdecl FUN_00429da3(int param_1);
+void FUN_00429e43(void);
+undefined4 FUN_00429e4c(void);
+void __cdecl FUN_00429e85(int param_1);
+undefined4 FUN_00429e9a(void);
+int __cdecl __mbsnbicoll(uchar *_Str1,uchar *_Str2,size_t _MaxCount);
+int __cdecl FUN_00429f41(byte *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl __SEH_prolog4(undefined4 param_1,int param_2);
+void __SEH_epilog4(void);
+undefined4 __cdecl FUN_0042a060(PEXCEPTION_RECORD param_1,PVOID param_2,undefined4 param_3);
+size_t __cdecl _wcslen(wchar_t *_Str);
+undefined4 __cdecl FUN_0042a20d(byte **param_1,int param_2);
+char ** __cdecl FUN_0042a455(char **param_1);
+int __cdecl _findenv(uchar *param_1,size_t param_2);
+undefined4 __cdecl FUN_0042a510(LPCWSTR *param_1,int param_2);
+uint * __cdecl FUN_0042a77f(uint *param_1);
+int __cdecl _wfindenv(LPCWSTR param_1,uint param_2);
+void __cdecl FUN_0042a83d(byte *param_1,uint param_2);
+byte * __cdecl FUN_0042a852(byte *param_1,uint param_2,pthreadlocinfo *param_3);
+void FUN_0042a8ef(void);
+void __cdecl FUN_0042a9be(LPCWSTR param_1,uint param_2);
+HANDLE __cdecl FUN_0042aa5c(uint param_1,uint *param_2,char **param_3,byte **param_4);
+HANDLE __cdecl FUN_0042ac4d(uint param_1,uint *param_2,char **param_3,byte **param_4);
+int __cdecl __fileno(FILE *_File);
+undefined4 __cdecl FUN_0042acdf(uint param_1);
+void FUN_0042ad92(void);
+undefined4 __cdecl FUN_0042adba(uint param_1);
+void __cdecl __freebuf(FILE *_File);
+int __cdecl FUN_0042ae84(FILE *param_1);
+undefined4 __cdecl FUN_0042aeca(FILE *param_1);
+void FUN_0042af2e(void);
+int __cdecl _flsall(int param_1);
+void FUN_0042afdf(void);
+void FUN_0042b012(void);
+void __cdecl __local_unwind4(uint *param_1,int param_2,uint param_3);
+undefined4 __fastcall FUN_0042b0b0(undefined4 param_1,undefined param_2,int param_3,uint param_4,undefined4 param_5,uint *param_6);
+void FUN_0042b0f6(int param_1);
+void FUN_0042b0f7(undefined4 param_1,int param_2);
+void __fastcall @_EH4_CallFilterFunc@8(undefined *param_1);
+void __fastcall @_EH4_TransferToHandler@8(undefined *UNRECOVERED_JUMPTABLE);
+void __fastcall @_EH4_GlobalUnwind2@8(PVOID param_1,PEXCEPTION_RECORD param_2);
+void __fastcall @_EH4_LocalUnwind@16(int param_1,uint param_2,undefined4 param_3,uint *param_4);
+uint __cdecl FUN_0042b172(FILE *param_1);
+uint __cdecl FUN_0042b293(uint param_1,LPWSTR param_2,uint param_3);
+void FUN_0042b37f(void);
+uint __cdecl FUN_0042b3a7(uint param_1,LPWSTR param_2,uint param_3);
+undefined8 __cdecl FUN_0042bb38(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+void FUN_0042bc0a(void);
+undefined8 __cdecl FUN_0042bc34(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+undefined4 FUN_0042bca7(void);
+void FUN_0042bf52(void);
+uint __cdecl FUN_0042bf5b(uint param_1,FILE *param_2);
+void __cdecl FUN_0042c0aa(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+void __cdecl _write_char(byte param_1,FILE *param_2,int *param_3);
+void __cdecl _write_multi_char(byte param_1,int param_2,FILE *param_3,int *param_4);
+void __cdecl FUN_0042cc9e(byte *param_1,int param_2,FILE *param_3,int *param_4,int *param_5);
+undefined8 FUN_0042cd20(void);
+undefined8 __fastcall FUN_0042cd3d(undefined4 param_1,uint param_2,int param_3,uint param_4);
+void __cdecl type_info::_Type_info_dtor(type_info *param_1);
+void FUN_0042ced4(void);
+errno_t __cdecl __cfltcvt(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps);
+errno_t __cdecl __cfltcvt_l(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps,_locale_t plocinfo);
+int __cdecl FUN_0042cf84(uint *param_1,undefined *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_0042d2e0(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5);
+int __cdecl FUN_0042d2fe(undefined *param_1,uint param_2,int param_3,int param_4,int *param_5,char param_6,pthreadlocinfo *param_7);
+void __cdecl FUN_0042d44f(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5,pthreadlocinfo *param_6);
+undefined4 __cdecl FUN_0042d51d(char *param_1,int param_2,uint param_3,int *param_4,char param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_0042d609(undefined4 *param_1,char *param_2,int param_3,uint param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_0042d6ca(undefined4 *param_1,char *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_0042d7c9(char *param_1);
+void __cdecl FUN_0042d7da(char *param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_0042d85a(uint param_1,uint *param_2,char *param_3);
+void __cdecl FUN_0042d872(uint param_1,uint *param_2,char *param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_0042d8b4(byte *param_1);
+void __cdecl FUN_0042d8c5(byte *param_1,pthreadlocinfo *param_2);
+int __cdecl __positive(double *arg);
+void __cdecl __shift(char *param_1,int param_2);
+void __setdefaultprecision(void);
+void FUN_0042d9a2(void);
+void __cdecl FUN_0042d9c1(int *param_1);
+void __cdecl FUN_0042da56(int param_1);
+int * __cdecl FUN_0042dbb0(int *param_1);
+pthreadlocinfo FUN_0042dc50(void);
+void FUN_0042dcc7(void);
+int * __cdecl __updatetlocinfoEx_nolock(int **param_1,int *param_2);
+undefined4 ___initmbctable(void);
+wchar_t * __cdecl CPtoLocaleName(int param_1);
+UINT __cdecl FUN_0042dd73(UINT param_1);
+void __cdecl FUN_0042dde1(int param_1);
+void __cdecl setSBUpLow(__crt_multibyte_data *param_1);
+pthreadmbcinfo FUN_0042dfd2(void);
+void FUN_0042e06f(void);
+int __cdecl FUN_0042e078(UINT param_1);
+void FUN_0042e1ea(void);
+void __cdecl FUN_0042e220(UINT param_1,__crt_multibyte_data *param_2);
+void __cdecl FUN_0042e40b(int *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void __cdecl FUN_0042e60f(pthreadlocinfo *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void FUN_0042e655(int param_1);
+void FUN_0042e775(void);
+void FUN_0042e781(void);
+_ptiddata __cdecl __getptd(void);
+_ptiddata __cdecl __getptd_noexit(void);
+void __cdecl FUN_0042e811(int param_1,int param_2);
+void FUN_0042e8b2(void);
+void FUN_0042e8bb(void);
+undefined4 FUN_0042e8c4(void);
+void FUN_0042e93a(void);
+void FUN_0042e957(void);
+void FUN_0042e9a0(void);
+undefined4 __cdecl FUN_0042e9a9(pthreadlocinfo *param_1,uint param_2,uint param_3,byte param_4);
+int __cdecl __ismbblead(uint _C);
+void __cdecl FUN_0042ea19(uint param_1);
+uint __cdecl FUN_0042ea2a(uint param_1,pthreadlocinfo *param_2);
+int FUN_0042eac1(void);
+void FUN_0042eb55(void);
+void FUN_0042ec26(void);
+void FUN_0042ec46(void);
+void __cdecl FUN_0042ec66(undefined4 param_1);
+void __cdecl FUN_0042ec84(DWORD param_1);
+void __cdecl FUN_0042eca3(DWORD param_1);
+void __cdecl FUN_0042ecc2(DWORD param_1,LPVOID param_2);
+WORD FUN_0042ece4(void);
+undefined4 __cdecl FUN_0042ed07(LPCRITICAL_SECTION param_1,DWORD param_2,undefined4 param_3);
+bool FUN_0042ed35(void);
+void __cdecl FUN_0042f000(LPTOP_LEVEL_EXCEPTION_FILTER param_1);
+void __cdecl ___crtTerminateProcess(UINT uExitCode);
+LONG __cdecl ___crtUnhandledException(EXCEPTION_POINTERS *exceptionInfo);
+void __cdecl __FF_MSGBANNER(void);
+wchar_t * __cdecl __GET_RTERRMSG(int param_1);
+void __cdecl FUN_0042f096(int param_1);
+PIMAGE_SECTION_HEADER __cdecl __FindPESection(PBYTE pImageBase,DWORD_PTR rva);
+BOOL __cdecl __IsNonwritableInCurrentImage(PBYTE pTarget);
+BOOL __cdecl __ValidateImageBase(PBYTE pImageBase);
+void __cdecl terminate(void);
+void FUN_0042f3d5(void);
+void __cdecl FUN_0042f3e6(undefined4 param_1);
+void FUN_0042f3f3(void);
+void __cdecl FUN_0042f400(undefined4 param_1);
+undefined4 __cdecl FUN_0042f41c(int param_1);
+void FUN_0042f59d(void);
+uint __cdecl FUN_0042f5d7(int param_1,uint param_2);
+void __cdecl FUN_0042f611(undefined4 param_1);
+void __cdecl __ftbuf(int _Flag,FILE *_File);
+undefined4 __cdecl FUN_0042f64f(FILE *param_1);
+long __CxxUnhandledExceptionFilter(_EXCEPTION_POINTERS *param_1);
+undefined4 FUN_0042f736(void);
+_ptiddata __cdecl FUN_0042f744(int param_1,void *param_2);
+undefined4 FUN_0042f89f(void);
+void __cdecl FUN_0042f952(byte *param_1,byte **param_2,byte *param_3,int *param_4,int *param_5);
+undefined4 FUN_0042face(void);
+void __cdecl FUN_0042fbaf(undefined4 param_1);
+int __cdecl __set_error_mode(int _Mode);
+void __cdecl ___security_init_cookie(void);
+LPSTR FUN_0042fc98(void);
+byte * __wincmdln(void);
+ushort __cdecl FUN_0042fd84(int param_1,ushort param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_0042fe35(uint *param_1,char *param_2,pthreadlocinfo *param_3,char **param_4);
+void __cdecl FUN_0042fed9(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_0042ff67(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+undefined8 __aulldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+void __cdecl FUN_00430015(uint *param_1,char *param_2,int *param_3);
+undefined8 __aulldiv(uint param_1,uint param_2,uint param_3,uint param_4);
+undefined4 __cdecl FUN_00430128(size_t param_1,size_t *param_2,uint **param_3,uint *param_4,undefined4 *param_5);
+uint __cdecl FUN_00430187(byte param_1);
+uint __cdecl __inc(FILE *param_1);
+void __cdecl FUN_004301ca(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+uint __cdecl __whiteout(int *param_1,FILE *param_2);
+void __cdecl FUN_00431347(FILE *param_1,ushort *param_2,pthreadlocinfo *param_3,int **param_4);
+void __cdecl _write_char(WCHAR param_1,FILE *param_2,int *param_3);
+void __cdecl _write_multi_char(WCHAR param_1,int param_2,FILE *param_3,int *param_4);
+void __cdecl FUN_00431fad(WCHAR *param_1,int param_2,FILE *param_3,int *param_4,int *param_5);
+errno_t __cdecl _wcscpy_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+size_t __cdecl _wcsnlen(wchar_t *_Src,size_t _MaxCount);
+void __cdecl FUN_004320a1(ushort *param_1,char **param_2,char *param_3,int param_4,int param_5,int param_6,int param_7,int *param_8);
+uint __cdecl FUN_00432849(WCHAR param_1,uint param_2);
+void __cdecl FUN_0043289f(uint *param_1,ushort *param_2,int *param_3);
+void __cdecl FUN_00432948(ushort *param_1,ushort **param_2,ushort *param_3,int param_4,int param_5,int param_6,int param_7,int *param_8);
+uint __cdecl FUN_00433198(WCHAR *param_1,WCHAR **param_2,uint param_3,uint param_4);
+long __cdecl _wcstol(wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
+undefined4 __cdecl FUN_00433391(int param_1,int *param_2,uint **param_3,uint *param_4,undefined4 *param_5);
+uint __cdecl __hextodec(uint param_1);
+void __cdecl FUN_00433424(undefined4 param_1,FILE *param_2);
+uint __thiscall __whiteout(void *this,int *param_1,FILE *param_2);
+void __cdecl FUN_0043346f(FILE *param_1,WCHAR *param_2,pthreadlocinfo *param_3,uint **param_4);
+void __cdecl ___raise_securityfailure(EXCEPTION_POINTERS *param_1);
+undefined4 __cdecl FID_conflict:GetTableIndexFromLocaleName(wchar_t *param_1);
+void __cdecl FUN_00434968(wchar_t *param_1,DWORD param_2,PCNZWCH param_3,int param_4,PCNZWCH param_5,int param_6);
+undefined4 __cdecl FID_conflict:_AtlDownlevelLocaleNameToLCID(wchar_t *param_1);
+void __cdecl FUN_004349de(wchar_t *param_1,DWORD param_2,LPCWSTR param_3,int param_4,LPWSTR param_5,int param_6);
+int __cdecl __wcsnicmp(wchar_t *_Str1,wchar_t *_Str2,size_t _MaxCount);
+void FUN_00434a98(void);
+int __cdecl FUN_00434aa0(byte *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_00434b65(int *param_1,wchar_t *param_2,DWORD param_3,byte *param_4,int param_5,byte *param_6,int param_7,UINT param_8);
+int __cdecl ___strncnt(char *param_1,int param_2);
+void __cdecl FUN_00434e09(pthreadlocinfo *param_1,wchar_t *param_2,DWORD param_3,byte *param_4,int param_5,byte *param_6,int param_7,UINT param_8);
+ushort * __cdecl FUN_00434e4c(ushort *param_1,ushort param_2);
+int __cdecl FUN_00434efa(LPCWSTR param_1,LPCWSTR param_2,uint param_3);
+int __cdecl FUN_00434fc6(LPCWSTR param_1,LPCWSTR param_2,uint param_3,pthreadlocinfo *param_4);
+undefined4 FUN_004350ec(void);
+undefined4 FUN_004351ce(void);
+LPWCH FUN_0043524b(void);
+errno_t __cdecl _strcat_s(char *_Dst,rsize_t _SizeInBytes,char *_Src);
+HANDLE __cdecl FUN_0043530b(uint param_1,LPCSTR param_2,char *param_3,LPVOID param_4);
+void __cdecl FUN_00435523(char **param_1,byte **param_2,uint **param_3,uint **param_4);
+void __cdecl FUN_004358ea(byte *param_1,uint param_2);
+byte * __cdecl FUN_004358ff(byte *param_1,uint param_2,pthreadlocinfo *param_3);
+undefined4 __cdecl FUN_00435990(uint param_1);
+void FUN_00435a15(void);
+undefined4 __cdecl FUN_00435a1e(uint param_1);
+undefined4 __cdecl FUN_00435aa4(uint param_1);
+void __cdecl FUN_00435b0b(uint param_1);
+DWORD __cdecl FUN_00435b31(uint param_1);
+void FUN_00435bf9(void);
+undefined4 __cdecl FUN_00435c1a(WCHAR *param_1,WCHAR *param_2,uint param_3);
+void FUN_00435ce1(void);
+void __cdecl FUN_00435d09(WCHAR *param_1,WCHAR *param_2,uint param_3);
+void __cdecl __global_unwind2(PVOID param_1);
+undefined4 __fastcall FUN_00436590(undefined4 param_1,undefined param_2,int param_3,undefined4 param_4,undefined4 param_5,undefined4 *param_6,uint param_7);
+void __cdecl __local_unwind2(int param_1,uint param_2);
+void __NLG_Notify(ulong param_1);
+void FUN_004366a4(void);
+void __cdecl __getbuf(FILE *_File);
+byte __cdecl FUN_004366ed(uint param_1);
+int __cdecl FUN_00436741(int *param_1,uint *param_2,uint param_3,WCHAR param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_00436865(int *param_1,uint *param_2,uint param_3,WCHAR param_4);
+float10 __fastcall FUN_00436a50(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8);
+float10 __fastcall __startOneArgErrorHandling(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6);
+void FUN_00436ac5(undefined4 param_1);
+undefined4 FUN_00436adc(void);
+uint __cdecl FUN_00436b38(undefined4 param_1,uint param_2);
+int __cdecl FUN_00436c3c(char *param_1,uint param_2,int param_3,int param_4);
+void __cdecl FUN_00436cec(uint *param_1,uint *param_2);
+void __cdecl FUN_00436db4(uint param_1,undefined4 param_2,int *param_3,char *param_4,rsize_t param_5);
+undefined8 __alldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+errno_t __cdecl __controlfp_s(uint *_CurrentState,uint _NewValue,uint _Mask);
+void FUN_00436f8c(void);
+void __cdecl FID_conflict:___acrt_locale_free_monetary(int param_1);
+void __cdecl FID_conflict:___free_lconv_num(int *param_1);
+void __cdecl ___free_lc_time(undefined4 *param_1);
+void __cdecl FUN_00437478(int *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+void __cdecl FUN_00437570(pthreadlocinfo *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+errno_t __cdecl _wcscat_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+int __cdecl FUN_0043761c(short *param_1,int param_2,short *param_3,int param_4);
+void __cdecl FUN_004376da(LPCWSTR param_1,undefined4 param_2,uint param_3);
+void __cdecl FUN_004378c0(ushort *param_1,uint *param_2);
+void __cdecl FUN_00437e32(ushort *param_1,uint *param_2);
+uint __cdecl FUN_004383a4(uint param_1,FILE *param_2);
+uint __cdecl FUN_00438484(uint param_1,FILE *param_2);
+void FUN_004384ec(void);
+undefined4 __cdecl FUN_004384f4(LPWSTR param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_004385e9(LPWSTR param_1,byte *param_2,uint param_3);
+void __cdecl FUN_00438601(WCHAR param_1,FILE *param_2);
+void __cdecl FUN_00438787(char *param_1,int param_2,uint *param_3);
+int __cdecl __wchartodigit(ushort param_1);
+uint __thiscall FUN_00438b06(void *this,FILE *param_1);
+void __cdecl FUN_00438cbf(undefined4 param_1,FILE *param_2);
+void __cdecl FUN_00438e70(LPSTR param_1,WCHAR *param_2,uint param_3,pthreadlocinfo *param_4);
+errno_t __cdecl __wcstombs_s_l(size_t *_PtNumOfCharConverted,char *_Dst,size_t _DstSizeInBytes,wchar_t *_Src,size_t _MaxCountInBytes,_locale_t _Locale);
+errno_t __cdecl _wcstombs_s(size_t *_PtNumOfCharConverted,char *_Dst,size_t _DstSizeInBytes,wchar_t *_Src,size_t _MaxCountInBytes);
+int __cdecl __strnicmp(char *_Str1,char *_Str2,size_t _MaxCount);
+int __cdecl FUN_0043922b(char *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+int __cdecl ___crtCompareStringW(LPCWSTR _LocaleName,DWORD _DwCmpFlags,LPCWSTR _LpString1,int _CchCount1,LPCWSTR _LpString2,int _CchCount2);
+void __cdecl FUN_00439340(byte *param_1,byte *param_2,size_t param_3);
+int __cdecl FUN_00439358(byte *param_1,byte *param_2,size_t param_3,pthreadlocinfo *param_4);
+wint_t __cdecl __putwch_nolock(wchar_t _WCh);
+void __cdecl __87except(int param_1,int *param_2,ushort *param_3);
+void __cdecl FUN_004396c1(int param_1,uint param_2,ushort param_3,int param_4,byte param_5,short *param_6);
+uint __cdecl ___hw_cw_sse2(uint param_1);
+uint __cdecl FUN_0043a13e(uint param_1,uint param_2);
+uint __cdecl __hw_cw(uint param_1);
+ushort __cdecl FUN_0043a4d7(ushort param_1,FILE *param_2);
+undefined2 __cdecl FUN_0043a639(FILE *param_1);
+int __cdecl ___ascii_strnicmp(char *_Str1,char *_Str2,size_t _MaxCount);
+void FUN_0043a811(void);
+void ___dcrt_lowio_initialize_console_output(void);
+BOOL IsProcessorFeaturePresent(DWORD ProcessorFeature);
+void RtlUnwind(PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
+void FUN_0043a860(void);
+void FUN_0043a880(void);
+void FUN_0043a890(void);
+void FUN_0043a8a0(void);
+void FUN_0043a8c0(void);
+void FUN_0043a8e0(void);
+void FUN_0043a8f0(void);
+void FUN_0043a920(void);
+void FUN_0043a930(void);
+void FUN_0043a980(void);
+

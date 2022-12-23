@@ -1,0 +1,1402 @@
+typedef unsigned char   undefined;
+
+typedef unsigned long long    GUID;
+typedef unsigned int    ImageBaseOffset32;
+typedef unsigned char    bool;
+typedef unsigned char    byte;
+typedef unsigned int    dword;
+float10
+typedef long long    longlong;
+typedef unsigned char    uchar;
+typedef unsigned int    uint;
+typedef unsigned long    ulong;
+typedef unsigned long long    ulonglong;
+typedef unsigned char    undefined1;
+typedef unsigned short    undefined2;
+typedef unsigned int    undefined4;
+typedef unsigned long long    undefined6;
+typedef unsigned long long    undefined8;
+typedef unsigned short    ushort;
+typedef short    wchar_t;
+typedef unsigned short    word;
+#define unkbyte9   unsigned long long
+#define unkbyte10   unsigned long long
+#define unkbyte11   unsigned long long
+#define unkbyte12   unsigned long long
+#define unkbyte13   unsigned long long
+#define unkbyte14   unsigned long long
+#define unkbyte15   unsigned long long
+#define unkbyte16   unsigned long long
+
+#define unkuint9   unsigned long long
+#define unkuint10   unsigned long long
+#define unkuint11   unsigned long long
+#define unkuint12   unsigned long long
+#define unkuint13   unsigned long long
+#define unkuint14   unsigned long long
+#define unkuint15   unsigned long long
+#define unkuint16   unsigned long long
+
+#define unkint9   long long
+#define unkint10   long long
+#define unkint11   long long
+#define unkint12   long long
+#define unkint13   long long
+#define unkint14   long long
+#define unkint15   long long
+#define unkint16   long long
+
+#define unkfloat1   float
+#define unkfloat2   float
+#define unkfloat3   float
+#define unkfloat5   double
+#define unkfloat6   double
+#define unkfloat7   double
+#define unkfloat9   long double
+#define unkfloat11   long double
+#define unkfloat12   long double
+#define unkfloat13   long double
+#define unkfloat14   long double
+#define unkfloat15   long double
+#define unkfloat16   long double
+
+#define BADSPACEBASE   void
+#define code   void
+
+typedef struct _s__RTTIBaseClassDescriptor _s__RTTIBaseClassDescriptor, *P_s__RTTIBaseClassDescriptor;
+
+typedef struct _s__RTTIBaseClassDescriptor RTTIBaseClassDescriptor;
+
+typedef struct TypeDescriptor TypeDescriptor, *PTypeDescriptor;
+
+typedef struct PMD PMD, *PPMD;
+
+typedef struct _s__RTTIClassHierarchyDescriptor _s__RTTIClassHierarchyDescriptor, *P_s__RTTIClassHierarchyDescriptor;
+
+typedef struct _s__RTTIClassHierarchyDescriptor RTTIClassHierarchyDescriptor;
+
+typedef int ptrdiff_t;
+
+struct TypeDescriptor {
+    void * pVFTable;
+    void * spare;
+    char name[0];
+};
+
+struct PMD {
+    ptrdiff_t mdisp;
+    ptrdiff_t pdisp;
+    ptrdiff_t vdisp;
+};
+
+struct _s__RTTIBaseClassDescriptor {
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    dword numContainedBases; // count of extended classes in BaseClassArray (RTTI 2)
+    struct PMD where; // member displacement structure
+    dword attributes; // bit flags
+    RTTIClassHierarchyDescriptor * pClassHierarchyDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3) for class
+};
+
+struct _s__RTTIClassHierarchyDescriptor {
+    dword signature;
+    dword attributes; // bit flags
+    dword numBaseClasses; // number of base classes (i.e. rtti1Count)
+    RTTIBaseClassDescriptor * * pBaseClassArray; // ref to BaseClassArray (RTTI 2)
+};
+
+typedef unsigned short    wchar16;
+typedef struct type_info type_info, *Ptype_info;
+
+struct type_info { // PlaceHolder Class Structure
+};
+
+typedef struct _s__RTTICompleteObjectLocator _s__RTTICompleteObjectLocator, *P_s__RTTICompleteObjectLocator;
+
+typedef struct _s__RTTICompleteObjectLocator RTTICompleteObjectLocator;
+
+struct _s__RTTICompleteObjectLocator {
+    dword signature;
+    dword offset; // offset of vbtable within class
+    dword cdOffset; // constructor displacement offset
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    RTTIClassHierarchyDescriptor * pClassDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3)
+};
+
+typedef struct _cpinfo _cpinfo, *P_cpinfo;
+
+typedef uint UINT;
+
+typedef uchar BYTE;
+
+struct _cpinfo {
+    UINT MaxCharSize;
+    BYTE DefaultChar[2];
+    BYTE LeadByte[12];
+};
+
+typedef struct _cpinfo * LPCPINFO;
+
+typedef struct _OVERLAPPED _OVERLAPPED, *P_OVERLAPPED;
+
+typedef ulong ULONG_PTR;
+
+typedef union _union_518 _union_518, *P_union_518;
+
+typedef void * HANDLE;
+
+typedef struct _struct_519 _struct_519, *P_struct_519;
+
+typedef void * PVOID;
+
+typedef ulong DWORD;
+
+struct _struct_519 {
+    DWORD Offset;
+    DWORD OffsetHigh;
+};
+
+union _union_518 {
+    struct _struct_519 s;
+    PVOID Pointer;
+};
+
+struct _OVERLAPPED {
+    ULONG_PTR Internal;
+    ULONG_PTR InternalHigh;
+    union _union_518 u;
+    HANDLE hEvent;
+};
+
+typedef struct _SECURITY_ATTRIBUTES _SECURITY_ATTRIBUTES, *P_SECURITY_ATTRIBUTES;
+
+typedef void * LPVOID;
+
+typedef int BOOL;
+
+struct _SECURITY_ATTRIBUTES {
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+};
+
+typedef struct _STARTUPINFOW _STARTUPINFOW, *P_STARTUPINFOW;
+
+typedef wchar_t WCHAR;
+
+typedef WCHAR * LPWSTR;
+
+typedef ushort WORD;
+
+typedef BYTE * LPBYTE;
+
+struct _STARTUPINFOW {
+    DWORD cb;
+    LPWSTR lpReserved;
+    LPWSTR lpDesktop;
+    LPWSTR lpTitle;
+    DWORD dwX;
+    DWORD dwY;
+    DWORD dwXSize;
+    DWORD dwYSize;
+    DWORD dwXCountChars;
+    DWORD dwYCountChars;
+    DWORD dwFillAttribute;
+    DWORD dwFlags;
+    WORD wShowWindow;
+    WORD cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput;
+    HANDLE hStdOutput;
+    HANDLE hStdError;
+};
+
+typedef struct _STARTUPINFOW * LPSTARTUPINFOW;
+
+typedef struct _OVERLAPPED * LPOVERLAPPED;
+
+typedef struct _SECURITY_ATTRIBUTES * LPSECURITY_ATTRIBUTES;
+
+typedef struct _RTL_CRITICAL_SECTION _RTL_CRITICAL_SECTION, *P_RTL_CRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION * PRTL_CRITICAL_SECTION;
+
+typedef PRTL_CRITICAL_SECTION LPCRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG _RTL_CRITICAL_SECTION_DEBUG, *P_RTL_CRITICAL_SECTION_DEBUG;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG * PRTL_CRITICAL_SECTION_DEBUG;
+
+typedef long LONG;
+
+typedef struct _LIST_ENTRY _LIST_ENTRY, *P_LIST_ENTRY;
+
+typedef struct _LIST_ENTRY LIST_ENTRY;
+
+struct _RTL_CRITICAL_SECTION {
+    PRTL_CRITICAL_SECTION_DEBUG DebugInfo;
+    LONG LockCount;
+    LONG RecursionCount;
+    HANDLE OwningThread;
+    HANDLE LockSemaphore;
+    ULONG_PTR SpinCount;
+};
+
+struct _LIST_ENTRY {
+    struct _LIST_ENTRY * Flink;
+    struct _LIST_ENTRY * Blink;
+};
+
+struct _RTL_CRITICAL_SECTION_DEBUG {
+    WORD Type;
+    WORD CreatorBackTraceIndex;
+    struct _RTL_CRITICAL_SECTION * CriticalSection;
+    LIST_ENTRY ProcessLocksList;
+    DWORD EntryCount;
+    DWORD ContentionCount;
+    DWORD Flags;
+    WORD CreatorBackTraceIndexHigh;
+    WORD SpareWORD;
+};
+
+typedef struct _EXCEPTION_POINTERS _EXCEPTION_POINTERS, *P_EXCEPTION_POINTERS;
+
+typedef LONG (* PTOP_LEVEL_EXCEPTION_FILTER)(struct _EXCEPTION_POINTERS *);
+
+typedef struct _EXCEPTION_RECORD _EXCEPTION_RECORD, *P_EXCEPTION_RECORD;
+
+typedef struct _EXCEPTION_RECORD EXCEPTION_RECORD;
+
+typedef EXCEPTION_RECORD * PEXCEPTION_RECORD;
+
+typedef struct _CONTEXT _CONTEXT, *P_CONTEXT;
+
+typedef struct _CONTEXT CONTEXT;
+
+typedef CONTEXT * PCONTEXT;
+
+typedef struct _FLOATING_SAVE_AREA _FLOATING_SAVE_AREA, *P_FLOATING_SAVE_AREA;
+
+typedef struct _FLOATING_SAVE_AREA FLOATING_SAVE_AREA;
+
+struct _FLOATING_SAVE_AREA {
+    DWORD ControlWord;
+    DWORD StatusWord;
+    DWORD TagWord;
+    DWORD ErrorOffset;
+    DWORD ErrorSelector;
+    DWORD DataOffset;
+    DWORD DataSelector;
+    BYTE RegisterArea[80];
+    DWORD Cr0NpxState;
+};
+
+struct _CONTEXT {
+    DWORD ContextFlags;
+    DWORD Dr0;
+    DWORD Dr1;
+    DWORD Dr2;
+    DWORD Dr3;
+    DWORD Dr6;
+    DWORD Dr7;
+    FLOATING_SAVE_AREA FloatSave;
+    DWORD SegGs;
+    DWORD SegFs;
+    DWORD SegEs;
+    DWORD SegDs;
+    DWORD Edi;
+    DWORD Esi;
+    DWORD Ebx;
+    DWORD Edx;
+    DWORD Ecx;
+    DWORD Eax;
+    DWORD Ebp;
+    DWORD Eip;
+    DWORD SegCs;
+    DWORD EFlags;
+    DWORD Esp;
+    DWORD SegSs;
+    BYTE ExtendedRegisters[512];
+};
+
+struct _EXCEPTION_RECORD {
+    DWORD ExceptionCode;
+    DWORD ExceptionFlags;
+    struct _EXCEPTION_RECORD * ExceptionRecord;
+    PVOID ExceptionAddress;
+    DWORD NumberParameters;
+    ULONG_PTR ExceptionInformation[15];
+};
+
+struct _EXCEPTION_POINTERS {
+    PEXCEPTION_RECORD ExceptionRecord;
+    PCONTEXT ContextRecord;
+};
+
+typedef PTOP_LEVEL_EXCEPTION_FILTER LPTOP_LEVEL_EXCEPTION_FILTER;
+
+typedef struct DotNetPdbInfo DotNetPdbInfo, *PDotNetPdbInfo;
+
+struct DotNetPdbInfo {
+    char signature[4];
+    GUID guid;
+    dword age;
+    char pdbname[12];
+};
+
+typedef struct _iobuf _iobuf, *P_iobuf;
+
+struct _iobuf {
+    char * _ptr;
+    int _cnt;
+    char * _base;
+    int _flag;
+    int _file;
+    int _charbuf;
+    int _bufsiz;
+    char * _tmpfname;
+};
+
+typedef struct _iobuf FILE;
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL _CONSOLE_READCONSOLE_CONTROL, *P_CONSOLE_READCONSOLE_CONTROL;
+
+typedef ulong ULONG;
+
+struct _CONSOLE_READCONSOLE_CONTROL {
+    ULONG nLength;
+    ULONG nInitialChars;
+    ULONG dwCtrlWakeupMask;
+    ULONG dwControlKeyState;
+};
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL * PCONSOLE_READCONSOLE_CONTROL;
+
+typedef uint uintptr_t;
+
+typedef struct lconv lconv, *Plconv;
+
+struct lconv {
+    char * decimal_point;
+    char * thousands_sep;
+    char * grouping;
+    char * int_curr_symbol;
+    char * currency_symbol;
+    char * mon_decimal_point;
+    char * mon_thousands_sep;
+    char * mon_grouping;
+    char * positive_sign;
+    char * negative_sign;
+    char int_frac_digits;
+    char frac_digits;
+    char p_cs_precedes;
+    char p_sep_by_space;
+    char n_cs_precedes;
+    char n_sep_by_space;
+    char p_sign_posn;
+    char n_sign_posn;
+    wchar_t * _W_decimal_point;
+    wchar_t * _W_thousands_sep;
+    wchar_t * _W_int_curr_symbol;
+    wchar_t * _W_currency_symbol;
+    wchar_t * _W_mon_decimal_point;
+    wchar_t * _W_mon_thousands_sep;
+    wchar_t * _W_positive_sign;
+    wchar_t * _W_negative_sign;
+};
+
+typedef uint size_t;
+
+typedef ushort wint_t;
+
+typedef struct threadlocaleinfostruct threadlocaleinfostruct, *Pthreadlocaleinfostruct;
+
+typedef struct threadlocaleinfostruct * pthreadlocinfo;
+
+typedef struct localerefcount localerefcount, *Plocalerefcount;
+
+typedef struct localerefcount locrefcount;
+
+typedef struct __lc_time_data __lc_time_data, *P__lc_time_data;
+
+struct localerefcount {
+    char * locale;
+    wchar_t * wlocale;
+    int * refcount;
+    int * wrefcount;
+};
+
+struct threadlocaleinfostruct {
+    int refcount;
+    uint lc_codepage;
+    uint lc_collate_cp;
+    uint lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    ushort * ctype1;
+    ushort * pctype;
+    uchar * pclmap;
+    uchar * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
+};
+
+struct __lc_time_data {
+    char * wday_abbr[7];
+    char * wday[7];
+    char * month_abbr[12];
+    char * month[12];
+    char * ampm[2];
+    char * ww_sdatefmt;
+    char * ww_ldatefmt;
+    char * ww_timefmt;
+    int ww_caltype;
+    int refcount;
+    wchar_t * _W_wday_abbr[7];
+    wchar_t * _W_wday[7];
+    wchar_t * _W_month_abbr[12];
+    wchar_t * _W_month[12];
+    wchar_t * _W_ampm[2];
+    wchar_t * _W_ww_sdatefmt;
+    wchar_t * _W_ww_ldatefmt;
+    wchar_t * _W_ww_timefmt;
+    wchar_t * _W_ww_locale_name;
+};
+
+typedef int errno_t;
+
+typedef struct localeinfo_struct localeinfo_struct, *Plocaleinfo_struct;
+
+typedef struct threadmbcinfostruct threadmbcinfostruct, *Pthreadmbcinfostruct;
+
+typedef struct threadmbcinfostruct * pthreadmbcinfo;
+
+struct threadmbcinfostruct {
+    int refcount;
+    int mbcodepage;
+    int ismbcodepage;
+    ushort mbulinfo[6];
+    uchar mbctype[257];
+    uchar mbcasemap[256];
+    wchar_t * mblocalename;
+};
+
+struct localeinfo_struct {
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
+};
+
+typedef struct localeinfo_struct * _locale_t;
+
+typedef size_t rsize_t;
+
+typedef char CHAR;
+
+typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
+
+typedef struct _struct_19 _struct_19, *P_struct_19;
+
+typedef struct _struct_20 _struct_20, *P_struct_20;
+
+typedef double LONGLONG;
+
+struct _struct_20 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+struct _struct_19 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+union _LARGE_INTEGER {
+    struct _struct_19 s;
+    struct _struct_20 u;
+    LONGLONG QuadPart;
+};
+
+typedef union _LARGE_INTEGER LARGE_INTEGER;
+
+typedef struct _IMAGE_SECTION_HEADER _IMAGE_SECTION_HEADER, *P_IMAGE_SECTION_HEADER;
+
+typedef union _union_226 _union_226, *P_union_226;
+
+union _union_226 {
+    DWORD PhysicalAddress;
+    DWORD VirtualSize;
+};
+
+struct _IMAGE_SECTION_HEADER {
+    BYTE Name[8];
+    union _union_226 Misc;
+    DWORD VirtualAddress;
+    DWORD SizeOfRawData;
+    DWORD PointerToRawData;
+    DWORD PointerToRelocations;
+    DWORD PointerToLinenumbers;
+    WORD NumberOfRelocations;
+    WORD NumberOfLinenumbers;
+    DWORD Characteristics;
+};
+
+typedef struct _IMAGE_SECTION_HEADER * PIMAGE_SECTION_HEADER;
+
+typedef struct _EXCEPTION_POINTERS EXCEPTION_POINTERS;
+
+typedef WCHAR * LPWCH;
+
+typedef WCHAR * LPCWSTR;
+
+typedef CHAR * LPCSTR;
+
+typedef LARGE_INTEGER * PLARGE_INTEGER;
+
+typedef CHAR * LPSTR;
+
+typedef DWORD LCID;
+
+typedef struct IMAGE_DOS_HEADER IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
+
+struct IMAGE_DOS_HEADER {
+    char e_magic[2]; // Magic number
+    word e_cblp; // Bytes of last page
+    word e_cp; // Pages in file
+    word e_crlc; // Relocations
+    word e_cparhdr; // Size of header in paragraphs
+    word e_minalloc; // Minimum extra paragraphs needed
+    word e_maxalloc; // Maximum extra paragraphs needed
+    word e_ss; // Initial (relative) SS value
+    word e_sp; // Initial SP value
+    word e_csum; // Checksum
+    word e_ip; // Initial IP value
+    word e_cs; // Initial (relative) CS value
+    word e_lfarlc; // File address of relocation table
+    word e_ovno; // Overlay number
+    word e_res[4][4]; // Reserved words
+    word e_oemid; // OEM identifier (for e_oeminfo)
+    word e_oeminfo; // OEM information; e_oemid specific
+    word e_res2[10][10]; // Reserved words
+    dword e_lfanew; // File address of new exe header
+    byte e_program[64]; // Actual DOS program
+};
+
+typedef ULONG_PTR DWORD_PTR;
+
+typedef DWORD * LPDWORD;
+
+typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
+
+typedef struct HINSTANCE__ * HINSTANCE;
+
+struct HINSTANCE__ {
+    int unused;
+};
+
+typedef HINSTANCE HMODULE;
+
+typedef struct _FILETIME _FILETIME, *P_FILETIME;
+
+typedef struct _FILETIME * LPFILETIME;
+
+struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+
+typedef int (* FARPROC)(void);
+
+typedef WORD * LPWORD;
+
+typedef BOOL * LPBOOL;
+
+typedef BYTE * PBYTE;
+
+typedef void * LPCVOID;
+
+typedef struct IMAGE_OPTIONAL_HEADER32 IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
+
+typedef struct IMAGE_DATA_DIRECTORY IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;
+
+struct IMAGE_DATA_DIRECTORY {
+    ImageBaseOffset32 VirtualAddress;
+    dword Size;
+};
+
+struct IMAGE_OPTIONAL_HEADER32 {
+    word Magic;
+    byte MajorLinkerVersion;
+    byte MinorLinkerVersion;
+    dword SizeOfCode;
+    dword SizeOfInitializedData;
+    dword SizeOfUninitializedData;
+    ImageBaseOffset32 AddressOfEntryPoint;
+    ImageBaseOffset32 BaseOfCode;
+    ImageBaseOffset32 BaseOfData;
+    pointer32 ImageBase;
+    dword SectionAlignment;
+    dword FileAlignment;
+    word MajorOperatingSystemVersion;
+    word MinorOperatingSystemVersion;
+    word MajorImageVersion;
+    word MinorImageVersion;
+    word MajorSubsystemVersion;
+    word MinorSubsystemVersion;
+    dword Win32VersionValue;
+    dword SizeOfImage;
+    dword SizeOfHeaders;
+    dword CheckSum;
+    word Subsystem;
+    word DllCharacteristics;
+    dword SizeOfStackReserve;
+    dword SizeOfStackCommit;
+    dword SizeOfHeapReserve;
+    dword SizeOfHeapCommit;
+    dword LoaderFlags;
+    dword NumberOfRvaAndSizes;
+    struct IMAGE_DATA_DIRECTORY DataDirectory[16];
+};
+
+typedef struct IMAGE_SECTION_HEADER IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
+
+typedef union Misc Misc, *PMisc;
+
+typedef enum SectionFlags {
+    IMAGE_SCN_TYPE_NO_PAD=8,
+    IMAGE_SCN_RESERVED_0001=16,
+    IMAGE_SCN_CNT_CODE=32,
+    IMAGE_SCN_CNT_INITIALIZED_DATA=64,
+    IMAGE_SCN_CNT_UNINITIALIZED_DATA=128,
+    IMAGE_SCN_LNK_OTHER=256,
+    IMAGE_SCN_LNK_INFO=512,
+    IMAGE_SCN_RESERVED_0040=1024,
+    IMAGE_SCN_LNK_REMOVE=2048,
+    IMAGE_SCN_LNK_COMDAT=4096,
+    IMAGE_SCN_GPREL=32768,
+    IMAGE_SCN_MEM_16BIT=131072,
+    IMAGE_SCN_MEM_PURGEABLE=131072,
+    IMAGE_SCN_MEM_LOCKED=262144,
+    IMAGE_SCN_MEM_PRELOAD=524288,
+    IMAGE_SCN_ALIGN_1BYTES=1048576,
+    IMAGE_SCN_ALIGN_2BYTES=2097152,
+    IMAGE_SCN_ALIGN_4BYTES=3145728,
+    IMAGE_SCN_ALIGN_8BYTES=4194304,
+    IMAGE_SCN_ALIGN_16BYTES=5242880,
+    IMAGE_SCN_ALIGN_32BYTES=6291456,
+    IMAGE_SCN_ALIGN_64BYTES=7340032,
+    IMAGE_SCN_ALIGN_128BYTES=8388608,
+    IMAGE_SCN_ALIGN_256BYTES=9437184,
+    IMAGE_SCN_ALIGN_512BYTES=10485760,
+    IMAGE_SCN_ALIGN_1024BYTES=11534336,
+    IMAGE_SCN_ALIGN_2048BYTES=12582912,
+    IMAGE_SCN_ALIGN_4096BYTES=13631488,
+    IMAGE_SCN_ALIGN_8192BYTES=14680064,
+    IMAGE_SCN_LNK_NRELOC_OVFL=16777216,
+    IMAGE_SCN_MEM_DISCARDABLE=33554432,
+    IMAGE_SCN_MEM_NOT_CACHED=67108864,
+    IMAGE_SCN_MEM_NOT_PAGED=134217728,
+    IMAGE_SCN_MEM_SHARED=268435456,
+    IMAGE_SCN_MEM_EXECUTE=536870912,
+    IMAGE_SCN_MEM_READ=1073741824,
+    IMAGE_SCN_MEM_WRITE=2147483648
+} SectionFlags;
+
+union Misc {
+    dword PhysicalAddress;
+    dword VirtualSize;
+};
+
+struct IMAGE_SECTION_HEADER {
+    char Name[8];
+    union Misc Misc;
+    ImageBaseOffset32 VirtualAddress;
+    dword SizeOfRawData;
+    dword PointerToRawData;
+    dword PointerToRelocations;
+    dword PointerToLinenumbers;
+    word NumberOfRelocations;
+    word NumberOfLinenumbers;
+    enum SectionFlags Characteristics;
+};
+
+typedef struct IMAGE_DIRECTORY_ENTRY_EXPORT IMAGE_DIRECTORY_ENTRY_EXPORT, *PIMAGE_DIRECTORY_ENTRY_EXPORT;
+
+struct IMAGE_DIRECTORY_ENTRY_EXPORT {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Name;
+    dword Base;
+    dword NumberOfFunctions;
+    dword NumberOfNames;
+    dword AddressOfFunctions;
+    dword AddressOfNames;
+    dword AddressOfNameOrdinals;
+};
+
+typedef struct IMAGE_DEBUG_DIRECTORY IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;
+
+struct IMAGE_DEBUG_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Type;
+    dword SizeOfData;
+    dword AddressOfRawData;
+    dword PointerToRawData;
+};
+
+typedef struct IMAGE_FILE_HEADER IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
+
+struct IMAGE_FILE_HEADER {
+    word Machine; // 332
+    word NumberOfSections;
+    dword TimeDateStamp;
+    dword PointerToSymbolTable;
+    dword NumberOfSymbols;
+    word SizeOfOptionalHeader;
+    word Characteristics;
+};
+
+typedef struct IMAGE_NT_HEADERS32 IMAGE_NT_HEADERS32, *PIMAGE_NT_HEADERS32;
+
+struct IMAGE_NT_HEADERS32 {
+    char Signature[4];
+    struct IMAGE_FILE_HEADER FileHeader;
+    struct IMAGE_OPTIONAL_HEADER32 OptionalHeader;
+};
+
+typedef struct IMAGE_LOAD_CONFIG_DIRECTORY32 IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
+
+struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
+    dword Size;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword GlobalFlagsClear;
+    dword GlobalFlagsSet;
+    dword CriticalSectionDefaultTimeout;
+    dword DeCommitFreeBlockThreshold;
+    dword DeCommitTotalFreeThreshold;
+    pointer32 LockPrefixTable;
+    dword MaximumAllocationSize;
+    dword VirtualMemoryThreshold;
+    dword ProcessHeapFlags;
+    dword ProcessAffinityMask;
+    word CsdVersion;
+    word DependentLoadFlags;
+    pointer32 EditList;
+    pointer32 SecurityCookie;
+    pointer32 SEHandlerTable;
+    dword SEHandlerCount;
+};
+
+typedef struct setloc_struct setloc_struct, *Psetloc_struct;
+
+typedef struct _is_ctype_compatible _is_ctype_compatible, *P_is_ctype_compatible;
+
+struct _is_ctype_compatible {
+    ulong id;
+    int is_clike;
+};
+
+struct setloc_struct {
+    wchar_t * pchLanguage;
+    wchar_t * pchCountry;
+    int iLocState;
+    int iPrimaryLen;
+    BOOL bAbbrevLanguage;
+    BOOL bAbbrevCountry;
+    UINT _cachecp;
+    wchar_t _cachein[131];
+    wchar_t _cacheout[131];
+    struct _is_ctype_compatible _Loc_c[5];
+    wchar_t _cacheLocaleName[85];
+};
+
+typedef struct _tiddata _tiddata, *P_tiddata;
+
+typedef struct setloc_struct _setloc_struct;
+
+struct _tiddata {
+    ulong _tid;
+    uintptr_t _thandle;
+    int _terrno;
+    ulong _tdoserrno;
+    uint _fpds;
+    ulong _holdrand;
+    char * _token;
+    wchar_t * _wtoken;
+    uchar * _mtoken;
+    char * _errmsg;
+    wchar_t * _werrmsg;
+    char * _namebuf0;
+    wchar_t * _wnamebuf0;
+    char * _namebuf1;
+    wchar_t * _wnamebuf1;
+    char * _asctimebuf;
+    wchar_t * _wasctimebuf;
+    void * _gmtimebuf;
+    char * _cvtbuf;
+    uchar _con_ch_buf[5];
+    ushort _ch_buf_used;
+    void * _initaddr;
+    void * _initarg;
+    void * _pxcptacttab;
+    void * _tpxcptinfoptrs;
+    int _tfpecode;
+    pthreadmbcinfo ptmbcinfo;
+    pthreadlocinfo ptlocinfo;
+    int _ownlocale;
+    ulong _NLG_dwCode;
+    void * _terminate;
+    void * _unexpected;
+    void * _translator;
+    void * _purecall;
+    void * _curexception;
+    void * _curcontext;
+    int _ProcessingThrow;
+    void * _curexcspec;
+    void * _pFrameInfoChain;
+    _setloc_struct _setloc_data;
+    void * _reserved1;
+    void * _reserved2;
+    void * _reserved3;
+    void * _reserved4;
+    void * _reserved5;
+    int _cxxReThrow;
+    ulong __initDomain;
+    int _initapartment;
+};
+
+typedef struct _tiddata * _ptiddata;
+
+typedef struct __crt_multibyte_data __crt_multibyte_data, *P__crt_multibyte_data;
+
+struct __crt_multibyte_data { // PlaceHolder Structure
+};
+
+
+// WARNING! conflicting data type names: /Demangler/wchar_t - /wchar_t
+
+
+
+
+void FUN_100011b0(void);
+void FUN_100012d0(void);
+void FUN_10001300(void);
+void __cdecl FUN_10001730(undefined4 param_1);
+void FUN_10001750(void);
+uint * __cdecl FUN_10001770(int param_1,int param_2);
+bool FUN_100017a0(void);
+void __cdecl FUN_100017b0(undefined4 param_1);
+void __cdecl FUN_100017d0(undefined4 param_1);
+void __cdecl FUN_100017f0(undefined4 param_1,undefined4 param_2);
+uint * __cdecl FUN_10001810(undefined4 param_1,int param_2,int param_3);
+undefined4 * __fastcall FUN_10001840(undefined4 *param_1);
+void __fastcall FUN_10001910(undefined4 *param_1);
+undefined4 * __thiscall FUN_10001990(void *this,byte param_1);
+undefined4 * __thiscall FUN_100019c0(void *this,byte param_1);
+undefined4 __fastcall FUN_100019f0(int param_1);
+void FUN_10001b10(void);
+void FUN_10001b20(void);
+void FUN_10001b60(void);
+void __fastcall FUN_10001b80(undefined4 *param_1);
+void __cdecl FUN_10001be0(float param_1,float param_2,float param_3,float param_4,float param_5,float param_6,float param_7,float *param_8);
+undefined __thiscall FUN_10001d50(void *this,int param_1,float *param_2,char param_3,char param_4,undefined param_5);
+uint FUN_10001f20(undefined *param_1);
+void __thiscall FUN_10001f90(void *this,int *param_1);
+void __fastcall FUN_10002060(int param_1);
+void FUN_100020c0(void);
+uint __thiscall FUN_100020d0(void *this,int param_1);
+undefined4 FUN_10002220(void);
+undefined4 __thiscall FUN_10002230(void *this,undefined4 *param_1);
+undefined4 __thiscall FUN_10002290(void *this,float *param_1,float param_2,float param_3,float param_4,float param_5);
+undefined4 * __thiscall FUN_10002350(void *this,undefined4 *param_1,int param_2);
+void __thiscall FUN_10002490(void *this,undefined4 *param_1);
+undefined4 __thiscall FUN_100024d0(void *this,undefined4 param_1,int param_2);
+void __thiscall FUN_10002520(void *this,undefined4 *param_1,undefined4 *param_2);
+undefined4 FUN_10002570(void);
+undefined4 FUN_10002580(void);
+undefined4 __fastcall FUN_10002590(int param_1);
+void __thiscall FUN_100025b0(void *this,int param_1,int *param_2,undefined4 *param_3,undefined4 *param_4,undefined4 *param_5);
+undefined4 __fastcall FUN_10002690(int param_1);
+undefined FUN_10002760(void);
+undefined4 * __cdecl FUN_10002770(undefined4 *param_1,undefined4 *param_2);
+void FUN_10002840(undefined4 param_1);
+void FUN_10002860(undefined *param_1,byte *param_2);
+void FUN_10002880(void);
+void __thiscall FUN_10002890(void *this,undefined4 param_1,int *param_2);
+undefined4 __fastcall FUN_10002bc0(int param_1);
+void __fastcall FUN_10002cb0(int param_1);
+void __fastcall FUN_10002cc0(int param_1);
+void __fastcall FUN_10002d00(int param_1);
+uint __fastcall FUN_10002d30(int param_1);
+undefined4 * __cdecl FUN_10002df0(undefined4 *param_1,undefined4 *param_2);
+void FUN_10002e70(void);
+undefined4 __cdecl FUN_10002ec0(int *param_1,undefined4 param_2);
+uint __fastcall FUN_10002f50(int param_1);
+undefined * FUN_10002f70(void);
+void __cdecl FUN_10002f80(undefined **param_1,int param_2);
+void __cdecl FUN_10003100(undefined *param_1,byte *param_2);
+void FUN_100031c0(void);
+void __cdecl FUN_10003220(undefined4 param_1,float param_2,float param_3,int param_4);
+undefined4 * __thiscall FUN_10003280(void *this,undefined4 *param_1);
+void __cdecl FUN_100032f0(undefined4 *param_1);
+void __cdecl FUN_10003370(float param_1,float param_2,float param_3,int param_4);
+void __cdecl FUN_10003700(int param_1);
+void WriteMiniDump(void);
+undefined4 * __thiscall FUN_10003830(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 FUN_100038d0(void);
+undefined4 __cdecl CreateInterface(undefined *param_1,undefined4 *param_2);
+int * __thiscall FUN_100038f0(void *this,int param_1,int param_2,undefined *param_3,uint param_4,undefined *param_5);
+undefined4 * __thiscall FUN_10003980(void *this,int param_1,undefined *param_2,uint param_3,undefined *param_4);
+undefined4 * __thiscall FUN_10003a10(void *this,int param_1,undefined *param_2,uint param_3);
+void __fastcall FUN_10003aa0(int *param_1);
+void __fastcall FUN_10003b00(undefined4 *param_1);
+void __fastcall FUN_10003b10(undefined4 *param_1);
+undefined4 * __thiscall FUN_10003b50(void *this,byte param_1);
+undefined4 * __thiscall FUN_10003ba0(void *this,byte param_1);
+void __thiscall FUN_10003bd0(void *this,uint param_1);
+void __thiscall FUN_10003be0(void *this,uint param_1);
+int __thiscall FUN_10003bf0(void *this,undefined4 *param_1);
+int __thiscall FUN_10003c50(void *this,int param_1,int *param_2);
+byte __fastcall FUN_10003d60(int param_1);
+void __thiscall FUN_10003d70(void *this,undefined4 param_1,undefined4 param_2);
+undefined4 __thiscall FUN_10003e30(void *this,float *param_1);
+void __cdecl FUN_10003e80(undefined4 param_1,undefined **param_2);
+void FUN_10003f20(void);
+void __thiscall FUN_10003f70(void *this,int param_1,undefined *param_2,uint param_3);
+void __thiscall FUN_10003fd0(void *this,int param_1,undefined *param_2,uint param_3,undefined *param_4,undefined param_5,int param_6,undefined param_7,int param_8,int param_9);
+void __thiscall FUN_10004100(void *this,undefined4 param_1);
+undefined4 __fastcall FUN_10004140(int param_1);
+undefined4 FUN_10004150(void);
+undefined4 __fastcall FUN_10004160(int param_1);
+undefined4 __fastcall FUN_10004170(int param_1);
+float10 __fastcall FUN_10004180(int *param_1);
+undefined4 __fastcall FUN_100041a0(int param_1);
+undefined4 __fastcall FUN_100041b0(int param_1);
+int __fastcall FUN_100041c0(int *param_1);
+undefined * FUN_100041e0(void);
+void FUN_100041e6(void);
+undefined4 __fastcall FUN_100041f0(int param_1);
+undefined4 __fastcall FUN_10004200(int param_1);
+void __fastcall FUN_10004207(int param_1);
+void __thiscall FUN_10004210(void *this,int param_1);
+void __thiscall FUN_100042c0(void *this,int param_1);
+void __fastcall FUN_10004360(undefined4 param_1);
+uint __thiscall FUN_10004380(void *this,char *param_1);
+void __thiscall FUN_10004420(void *this,uint param_1);
+void __thiscall FUN_10004450(void *this,float param_1);
+void __thiscall FUN_10004520(void *this,float param_1);
+void __thiscall FUN_100045f0(void *this,char *param_1);
+undefined FUN_10004740(void);
+undefined FUN_10004750(void);
+void FUN_10004755(void);
+uint __thiscall FUN_10004760(void *this,uint param_1);
+uint __thiscall FUN_10004770(void *this,uint param_1);
+void __thiscall FUN_10004783(void *this,uint param_1);
+undefined __fastcall FUN_10004790(int param_1);
+uint __fastcall FUN_100047a0(int param_1);
+undefined4 FUN_100047b0(undefined4 param_1);
+void __thiscall FUN_100047d0(void *this,uint param_1);
+void FUN_100047e0(void);
+void __fastcall FUN_100047f0(int param_1);
+void __thiscall FUN_10004800(void *this,undefined4 param_1);
+void __fastcall FUN_10004820(int param_1);
+void __thiscall FUN_10004830(void *this,undefined4 param_1);
+void __cdecl thunk_FUN_10002f80(undefined **param_1,int param_2);
+float10 __cdecl FUN_10004870(char *param_1);
+ulonglong __cdecl FUN_10004ac0(char *param_1);
+int __cdecl FUN_10004c70(char *param_1,uint param_2,byte *param_3);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+uint __cdecl FUN_10004cc0(byte *param_1,byte *param_2);
+int __cdecl FUN_10004d00(char *param_1);
+float10 __cdecl FUN_10004d20(double param_1,uint param_2);
+undefined4 * __thiscall FUN_10004d80(void *this,char **param_1);
+undefined4 * __thiscall FUN_10004e00(void *this,char *param_1);
+void __thiscall FUN_10004e60(void *this,int param_1);
+void __thiscall FUN_10004ef0(void *this,void *param_1,void *param_2);
+undefined4 * __thiscall FUN_10004f60(void *this,undefined param_1,char *param_2,int param_3,int param_4);
+void __thiscall FUN_10004ff0(void *this,byte *param_1,uint *param_2);
+uint __thiscall FUN_10005010(void *this,byte *param_1,undefined4 *param_2);
+uint FUN_10005070(undefined4 param_1,undefined4 *param_2);
+void FUN_10005090(void);
+void FUN_100050e0(void);
+undefined4 * __thiscall FUN_10005110(void *this,int param_1,undefined4 param_2,undefined4 param_3);
+undefined4 * __fastcall FUN_10005140(undefined4 *param_1);
+void __fastcall FUN_10005150(int **param_1);
+void __fastcall FUN_10005170(int **param_1);
+void __thiscall FUN_10005190(void *this,undefined4 param_1,undefined4 param_2,undefined4 param_3);
+void __thiscall FUN_10005200(void *this,int *param_1);
+void __thiscall FUN_10005240(void *this,char param_1);
+void __thiscall FUN_10005280(void *this,char param_1);
+void FUN_100052c0(void);
+void FUN_10005320(void);
+int __cdecl __errcode(uint param_1);
+bool __cdecl __handle_exc(uint param_1,double *param_2,uint param_3);
+void __cdecl __raise_exc(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6);
+void __cdecl FUN_1000561a(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6,int param_7);
+void __cdecl __set_errno_from_matherr(int param_1);
+float10 __cdecl __umatherr(int param_1,int param_2);
+void FUN_100059cc(void);
+PVOID __cdecl FUN_100059ee(PVOID param_1);
+void __cdecl FUN_10005a13(char *param_1,uint param_2,byte *param_3,int **param_4);
+undefined4 __cdecl FUN_10005a2e(char *param_1,uint param_2,byte *param_3,pthreadlocinfo *param_4,int **param_5);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_10005dcc(int param_1,int param_2);
+void __fastcall FUN_10005f68(int param_1,int param_2);
+uint * __cdecl FUN_10006130(uint *param_1,byte param_2,uint param_3);
+undefined4 FUN_100061c0(void);
+PVOID __cdecl FUN_100061ef(PVOID param_1);
+void FUN_1000622d(void);
+PVOID __cdecl FUN_10006233(PVOID param_1);
+int __cdecl FUN_100062eb(PVOID param_1);
+uint ___libm_sse2_atanf(void);
+ulonglong __fastcall ___libm_sse2_tanf(undefined4 param_1,undefined4 param_2);
+void __thiscall type_info::~type_info(type_info *this);
+void * __thiscall type_info::`scalar_deleting_destructor'(type_info *this,uint param_1);
+void __cdecl __fpmath(int param_1);
+void FUN_1000667a(void);
+undefined4 FUN_100066da(undefined4 param_1,int param_2,int param_3);
+void FUN_100067bc(void);
+void entry(undefined4 param_1,int param_2,int param_3);
+uint __cdecl ___DllMainCRTStartup(undefined4 param_1,int param_2,int param_3);
+void __cdecl ___DllXcptFilter(undefined4 param_1,int param_2,int param_3,ulong param_4,_EXCEPTION_POINTERS *param_5);
+float10 FUN_100069c4(void);
+ulonglong ___libm_sse2_powf(void);
+void ___sse2_sin2(void);
+uint __alloca_probe_16(undefined1 param_1);
+uint __alloca_probe_8(undefined1 param_1);
+ulonglong ___libm_sse2_pow(void);
+undefined8 ___sse2_pow2(void);
+void ___sse2_powf4(void);
+void __cdecl FUN_10007f03(char *param_1,int param_2);
+undefined4 __cdecl FUN_10007f21(undefined *param_1,char *param_2,int param_3,undefined4 param_4,undefined4 param_5);
+void __alloca_probe(void);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_100082bc(int param_1,int param_2);
+void __fastcall FUN_10008458(int param_1,int param_2);
+pthreadlocinfo * __thiscall FUN_10008755(void *this,pthreadlocinfo *param_1);
+void __cdecl FUN_100087dd(int param_1);
+ushort __cdecl FUN_100087fb(int param_1,pthreadlocinfo *param_2);
+ushort __cdecl FUN_1000884d(int param_1,pthreadlocinfo *param_2);
+ushort __cdecl FUN_1000889f(int param_1,pthreadlocinfo *param_2);
+int __cdecl _isdigit(int _C);
+int __cdecl _isspace(int _C);
+int __cdecl _isxdigit(int _C);
+uint __cdecl FUN_1000897a(uint param_1,pthreadlocinfo *param_2);
+int __cdecl _tolower(int _C);
+ushort __cdecl FUN_10008ae9(uint param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_10008b23(uint param_1);
+ulonglong __allmul(uint param_1,uint param_2,uint param_3,uint param_4);
+void __cdecl __decomp(int param_1,uint param_2,int *param_3);
+float10 __cdecl __set_exp(ulonglong param_1,short param_2);
+void ___set_fpsr_sse2(uint param_1);
+int FUN_10008d9b(void);
+int __ctrlfp(undefined4 param_1,undefined4 param_2);
+void __set_statfp(uint param_1);
+int FUN_10008e2f(void);
+ulong * __cdecl ___doserrno(void);
+void __cdecl FID_conflict:__dosmaperr(ulong param_1);
+int * __cdecl __errno(void);
+int __cdecl FID_conflict:___acrt_errno_from_os_error(ulong param_1);
+void __fastcall FUN_10008ec7(int param_1,undefined param_2,undefined param_3);
+void __cdecl FUN_10008ed6(uint param_1,uint param_2);
+void __cdecl _abort(void);
+void __cdecl FUN_10008f38(undefined4 param_1);
+void __cdecl FUN_10008f45(int param_1,DWORD param_2,DWORD param_3);
+void __cdecl FUN_1000906a(undefined4 param_1);
+void __invalid_parameter(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+void FUN_100090a2(void);
+void __cdecl __invoke_watson(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+uint __cdecl FUN_100090dd(uint param_1,FILE *param_2);
+void __cdecl FUN_1000922c(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+void __cdecl _write_char(byte param_1,FILE *param_2,int *param_3);
+void __cdecl _write_multi_char(byte param_1,int param_2,FILE *param_3,int *param_4);
+void __cdecl FUN_10009e20(byte *param_1,int param_2,FILE *param_3,int *param_4,int *param_5);
+undefined4 FUN_10009e98(void);
+void __cdecl FUN_1000a0d9(undefined4 param_1);
+void __cdecl ___crtExitProcess(int param_1);
+void FUN_1000a123(void);
+void __cdecl __amsg_exit(int param_1);
+void __cdecl __cexit(void);
+int __cdecl FUN_1000a25b(int param_1);
+void __cdecl __exit(int _Code);
+void FUN_1000a2f3(void);
+void __cdecl FUN_1000a32b(undefined **param_1,undefined **param_2);
+void __cdecl __initterm_e(undefined **param_1,undefined **param_2);
+void FUN_1000a383(void);
+void FUN_1000a38c(void);
+void __cdecl _doexit(int param_1,int param_2,int param_3);
+void FUN_1000a4af(void);
+void __cdecl __SEH_prolog4(undefined4 param_1,int param_2);
+void __SEH_epilog4(void);
+undefined4 __cdecl FUN_1000a530(PEXCEPTION_RECORD param_1,PVOID param_2,undefined4 param_3);
+undefined8 __fastcall FUN_1000a6d0(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4);
+void __cdecl type_info::_Type_info_dtor(type_info *param_1);
+void FUN_1000a8f4(void);
+errno_t __cdecl __cfltcvt(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps);
+errno_t __cdecl __cfltcvt_l(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps,_locale_t plocinfo);
+int __cdecl FUN_1000a9a4(uint *param_1,undefined *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_1000ad00(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5);
+int __cdecl FUN_1000ad1e(undefined *param_1,uint param_2,int param_3,int param_4,int *param_5,char param_6,pthreadlocinfo *param_7);
+void __cdecl FUN_1000ae6f(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5,pthreadlocinfo *param_6);
+undefined4 __cdecl FUN_1000af3d(char *param_1,int param_2,uint param_3,int *param_4,char param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_1000b029(undefined4 *param_1,char *param_2,int param_3,uint param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_1000b0ea(undefined4 *param_1,char *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_1000b1e9(char *param_1);
+void __cdecl FUN_1000b1fa(char *param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_1000b27a(uint param_1,uint *param_2,char *param_3);
+void __cdecl FUN_1000b292(uint param_1,uint *param_2,char *param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_1000b2d4(byte *param_1);
+void __cdecl FUN_1000b2e5(byte *param_1,pthreadlocinfo *param_2);
+int __cdecl __positive(double *arg);
+void __cdecl __shift(char *param_1,int param_2);
+void __setdefaultprecision(void);
+void FUN_1000b3c2(void);
+undefined8 __CIsqrt(void);
+undefined8 __fastcall FID_conflict:start(undefined4 param_1,uint param_2,int param_3,uint param_4);
+_ptiddata __cdecl FUN_1000b4aa(int param_1,void *param_2);
+int __cdecl ___CppXcptFilter(ulong _ExceptionNum,_EXCEPTION_POINTERS *_ExceptionPtr);
+void FUN_1000b623(int param_1);
+void FUN_1000b743(void);
+void FUN_1000b74f(void);
+void __cdecl FUN_1000b758(int param_1);
+_ptiddata __cdecl __getptd(void);
+_ptiddata __cdecl __getptd_noexit(void);
+void __cdecl FUN_1000b815(int param_1,int param_2);
+void FUN_1000b8b6(void);
+void FUN_1000b8bf(void);
+undefined4 FUN_1000b8c8(void);
+void FUN_1000b93e(void);
+undefined4 FUN_1000b95b(void);
+void FUN_1000bc06(void);
+void __cdecl __ioterm(void);
+undefined4 FUN_1000bc61(void);
+void __cdecl FUN_1000bd14(byte *param_1,byte **param_2,byte *param_3,int *param_4,int *param_5);
+undefined4 FUN_1000be90(void);
+void __cdecl ___security_init_cookie(void);
+undefined4 FUN_1000c00d(void);
+LPSTR FUN_1000c013(void);
+void __cdecl FUN_1000c0a0(undefined4 param_1);
+void __cdecl FUN_1000c0be(DWORD param_1);
+void __cdecl FUN_1000c0dd(DWORD param_1);
+void __cdecl FUN_1000c0fc(DWORD param_1,LPVOID param_2);
+undefined4 __cdecl FUN_1000c11e(LPCRITICAL_SECTION param_1,DWORD param_2,undefined4 param_3);
+bool FUN_1000c14c(void);
+void __cdecl ___crtTerminateProcess(UINT uExitCode);
+LONG __cdecl ___crtUnhandledException(EXCEPTION_POINTERS *exceptionInfo);
+void FUN_1000c442(void);
+void FUN_1000c462(void);
+void __fastcall __cintrindisp2(undefined4 param_1,int param_2);
+void __fastcall __cintrindisp1(undefined4 param_1,int param_2);
+void __cdecl __ctrandisp2(uint param_1,int param_2,uint param_3,int param_4);
+void FUN_1000c54c(void);
+void cintrinexit(void);
+void __cdecl __ctrandisp1(uint param_1,int param_2);
+float10 __cdecl __fload(uint param_1,int param_2);
+void __fastcall __trandisp1(undefined4 param_1,int param_2);
+void __fastcall __trandisp2(undefined4 param_1,int param_2);
+float10 FUN_1000c814(void);
+float10 FUN_1000c84d(void);
+float10 FUN_1000c877(void);
+undefined1 (*) [10] __cdecl FUN_1000c8b6(undefined1 (*__return_storage_ptr__) [10]);
+void ___sse2_sin2(void);
+int __cdecl _TestInt(uint param_1,uint param_2);
+float10 __cdecl __vmldPow_HA_scalar(uint param_1,uint param_2,uint param_3,uint param_4);
+void __raise_zerodivide(void);
+undefined8 _pow_scalar(void);
+undefined8 ___sse2_pow2(void);
+void __raise_invalid(void);
+void ___sse2_powf4(void);
+size_t __cdecl _strlen(char *_Str);
+undefined4 __cdecl FUN_1000e24b(size_t param_1,size_t *param_2,uint **param_3,uint *param_4,undefined4 *param_5);
+uint __cdecl FUN_1000e2aa(byte param_1);
+uint __cdecl __inc(FILE *param_1);
+void __cdecl FUN_1000e2ed(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+uint __cdecl __whiteout(int *param_1,FILE *param_2);
+errno_t __cdecl _wcscpy_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+void __cdecl FUN_1000f4c6(int *param_1);
+void __cdecl FUN_1000f55b(int param_1);
+int * __cdecl FUN_1000f6b5(int *param_1);
+pthreadlocinfo FUN_1000f755(void);
+void FUN_1000f7cc(void);
+int * __cdecl __updatetlocinfoEx_nolock(int **param_1,int *param_2);
+undefined4 FUN_1000f820(void);
+wchar_t * __cdecl CPtoLocaleName(int param_1);
+UINT __cdecl FUN_1000f878(UINT param_1);
+void __cdecl FUN_1000f8e6(int param_1);
+void __cdecl setSBUpLow(__crt_multibyte_data *param_1);
+pthreadmbcinfo FUN_1000fad7(void);
+void FUN_1000fb74(void);
+int __cdecl FUN_1000fb7d(UINT param_1);
+void FUN_1000fcef(void);
+void __cdecl FUN_1000fd25(UINT param_1,__crt_multibyte_data *param_2);
+void FUN_1000ff10(void);
+void FUN_1000ff59(void);
+void __cdecl FUN_1000ff62(ushort *param_1,char **param_2,char *param_3,int param_4,int param_5,int param_6,int param_7,int *param_8);
+ushort __cdecl FUN_1001070a(int param_1,ushort param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_100107bb(uint *param_1,char *param_2,pthreadlocinfo *param_3,char **param_4);
+void __cdecl FUN_1001085f(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_100108ed(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+undefined8 __aulldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+void __cdecl FUN_100109a5(int *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void __cdecl FUN_10010ba9(pthreadlocinfo *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void __cdecl ___raise_securityfailure(EXCEPTION_POINTERS *param_1);
+void FUN_10010d28(void);
+void __cdecl FUN_10010d35(undefined4 param_1);
+undefined4 __cdecl FUN_10010d51(int param_1);
+void FUN_10010ed2(void);
+uint __cdecl FUN_10010f0c(int param_1,uint param_2);
+undefined4 __cdecl FID_conflict:GetTableIndexFromLocaleName(wchar_t *param_1);
+undefined4 __cdecl FID_conflict:_AtlDownlevelLocaleNameToLCID(wchar_t *param_1);
+void __cdecl FUN_10010fbe(wchar_t *param_1,DWORD param_2,LPCWSTR param_3,int param_4,LPWSTR param_5,int param_6);
+int __cdecl __wcsnicmp(wchar_t *_Str1,wchar_t *_Str2,size_t _MaxCount);
+void FUN_10011078(void);
+undefined4 FUN_10011080(void);
+void FUN_100110f3(void);
+undefined ** FUN_1001111a(void);
+void __cdecl __lock_file(FILE *_File);
+void __cdecl __lock_file2(int _Index,void *_File);
+void __cdecl __unlock_file(FILE *_File);
+void __cdecl __unlock_file2(int _Index,void *_File);
+int __cdecl __fileno(FILE *_File);
+byte __cdecl FUN_1001121a(uint param_1);
+undefined4 __cdecl FUN_1001126e(WCHAR *param_1,WCHAR *param_2,uint param_3);
+void FUN_10011335(void);
+void __cdecl FUN_1001135d(WCHAR *param_1,WCHAR *param_2,uint param_3);
+undefined8 __cdecl FUN_10011bc2(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+void FUN_10011c94(void);
+undefined8 __cdecl FUN_10011cbe(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+void __cdecl __getbuf(FILE *_File);
+bool FUN_10011d77(void);
+int __cdecl FUN_10011d8c(int *param_1,uint *param_2,uint param_3,WCHAR param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_10011eb0(int *param_1,uint *param_2,uint param_3,WCHAR param_4);
+void __cdecl __lock(int _File);
+undefined4 __cdecl FUN_10011f53(int param_1);
+void FUN_10011ff3(void);
+undefined4 FUN_10011ffd(void);
+void __cdecl FUN_10012036(int param_1);
+void __cdecl __FF_MSGBANNER(void);
+wchar_t * __cdecl __GET_RTERRMSG(int param_1);
+void __cdecl FUN_100120a8(int param_1);
+PIMAGE_SECTION_HEADER __cdecl __FindPESection(PBYTE pImageBase,DWORD_PTR rva);
+BOOL __cdecl __IsNonwritableInCurrentImage(PBYTE pTarget);
+BOOL __cdecl __ValidateImageBase(PBYTE pImageBase);
+void FUN_100123b1(void);
+void FUN_100123e5(void);
+void __cdecl FUN_100123f6(undefined4 param_1);
+void __cdecl FUN_10012403(undefined4 param_1);
+void __cdecl __local_unwind4(uint *param_1,int param_2,uint param_3);
+undefined4 __fastcall FUN_100124a0(undefined4 param_1,undefined param_2,int param_3,uint param_4,undefined4 param_5,uint *param_6);
+void FUN_100124e6(int param_1);
+void FUN_100124e7(undefined4 param_1,int param_2);
+void __fastcall @_EH4_CallFilterFunc@8(undefined *param_1);
+void __fastcall @_EH4_TransferToHandler@8(undefined *UNRECOVERED_JUMPTABLE);
+void __fastcall @_EH4_GlobalUnwind2@8(PVOID param_1,PEXCEPTION_RECORD param_2);
+void __fastcall @_EH4_LocalUnwind@16(int param_1,uint param_2,undefined4 param_3,uint *param_4);
+undefined4 FUN_10012562(void);
+undefined8 __fastcall FUN_10012580(undefined4 param_1,undefined4 param_2);
+undefined8 __fastcall FUN_1001259e(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4);
+void __load_CW(undefined4 param_1);
+undefined4 __convertTOStoQNaN(void);
+uint __fastcall __fload_withFB(undefined4 param_1,int param_2);
+uint __cdecl FUN_10012868(undefined4 param_1,uint param_2);
+float10 __fastcall FUN_10012970(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8);
+float10 __fastcall __startOneArgErrorHandling(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6);
+errno_t __cdecl _strcpy_s(char *_Dst,rsize_t _SizeInBytes,char *_Src);
+char * __cdecl _strrchr(char *_Str,int _Ch);
+int __cdecl FUN_10012b57(char *param_1,uint param_2,int param_3,int param_4);
+void __cdecl FUN_10012c07(uint *param_1,uint *param_2);
+void __cdecl FUN_10012ccf(uint param_1,undefined4 param_2,int *param_3,char *param_4,rsize_t param_5);
+undefined8 __alldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+ulonglong __fastcall __aullshr(byte param_1,uint param_2);
+errno_t __cdecl __controlfp_s(uint *_CurrentState,uint _NewValue,uint _Mask);
+void FUN_10012ebc(void);
+undefined4 __cdecl FUN_10012ec5(pthreadlocinfo *param_1,uint param_2,uint param_3,byte param_4);
+void __cdecl FUN_10012f1f(uint param_1);
+void __cdecl __87except(int param_1,int *param_2,ushort *param_3);
+undefined8 __fastcall FUN_10013040(undefined4 param_1,undefined4 param_2);
+undefined8 __fastcall FUN_1001305e(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4);
+undefined8 __fastcall FUN_100131f0(undefined4 param_1,undefined4 param_2);
+undefined8 __fastcall FUN_1001320e(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4);
+int __cdecl ___common_sin_reduction_LA(undefined4 param_1,uint param_2,double *param_3);
+undefined8 __cdecl ___common_srl(uint param_1,int param_2,byte param_3);
+longlong __cdecl ___common_sll(uint param_1,int param_2,byte param_3);
+uint __cdecl ___common_cos_reduction_LA(undefined4 param_1,uint param_2,double *param_3);
+int __cdecl ___common_pi04_reduction_LA(undefined4 param_1,uint param_2,double *param_3);
+undefined4 __cdecl ___common_spow_cout_rare(float *param_1,float *param_2,float *param_3);
+uint __cdecl FUN_100148a0(FILE *param_1);
+uint __cdecl FUN_100149c1(uint param_1,FILE *param_2);
+undefined4 __cdecl FUN_10014aa1(LPWSTR param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_10014b96(LPWSTR param_1,byte *param_2,uint param_3);
+void __cdecl FID_conflict:___acrt_locale_free_monetary(int param_1);
+void __cdecl FID_conflict:___free_lconv_num(int *param_1);
+void __cdecl ___free_lc_time(undefined4 *param_1);
+void __cdecl FUN_10015091(int *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+void __cdecl FUN_10015189(pthreadlocinfo *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+errno_t __cdecl _wcscat_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+size_t __cdecl _wcslen(wchar_t *_Str);
+int __cdecl FUN_1001524e(short *param_1,int param_2,short *param_3,int param_4);
+void __cdecl FUN_1001530c(ushort *param_1,uint *param_2);
+void __cdecl FUN_1001587e(ushort *param_1,uint *param_2);
+void __cdecl FUN_10015df0(char *param_1,int param_2,uint *param_3);
+int FUN_10015fd0(void);
+void FUN_10016064(void);
+int __cdecl FUN_1001606d(FILE *param_1);
+undefined4 __cdecl FUN_100160b3(FILE *param_1);
+void FUN_10016117(void);
+int __cdecl _flsall(int param_1);
+void FUN_100161c8(void);
+void FUN_100161fb(void);
+undefined4 __cdecl FUN_10016204(uint param_1);
+void FUN_10016289(void);
+undefined4 __cdecl FUN_10016292(uint param_1);
+undefined4 __cdecl FUN_10016318(uint param_1);
+void __cdecl FUN_1001637f(uint param_1);
+wint_t __cdecl __putwch_nolock(wchar_t _WCh);
+int __cdecl __set_error_mode(int _Mode);
+void __cdecl FUN_10016428(LPCWSTR param_1,undefined4 param_2,uint param_3);
+void __cdecl __global_unwind2(PVOID param_1);
+undefined4 __fastcall FUN_10016630(undefined4 param_1,undefined param_2,int param_3,undefined4 param_4,undefined4 param_5,undefined4 *param_6,uint param_7);
+void __cdecl __local_unwind2(int param_1,uint param_2);
+void __NLG_Notify(ulong param_1);
+void FUN_10016744(void);
+void __cdecl FUN_10016747(int param_1,uint param_2,ushort param_3,int param_4,byte param_5,short *param_6);
+uint __cdecl ___hw_cw_sse2(uint param_1);
+uint __cdecl FUN_100171c4(uint param_1,uint param_2);
+uint __cdecl __hw_cw(uint param_1);
+uint __cdecl FUN_1001755d(uint param_1,LPWSTR param_2,uint param_3);
+void FUN_10017649(void);
+uint __cdecl FUN_10017671(uint param_1,LPWSTR param_2,uint param_3);
+int __cdecl __fclose_nolock(FILE *_File);
+int __cdecl FUN_10017e6e(FILE *param_1);
+void FUN_10017edd(void);
+DWORD __cdecl FUN_10017ee5(uint param_1);
+void FUN_10017fad(void);
+void FUN_10017fce(void);
+void ___dcrt_lowio_initialize_console_output(void);
+undefined4 __cdecl FUN_10018005(uint param_1);
+void FUN_100180b8(void);
+undefined4 __cdecl FUN_100180e0(uint param_1);
+void __cdecl __freebuf(FILE *_File);
+BOOL IsProcessorFeaturePresent(DWORD ProcessorFeature);
+void RtlUnwind(PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
+void FUN_100181c0(void);
+void FUN_100181d0(void);
+void FUN_100181e0(void);
+void FUN_100181f0(void);
+void FUN_10018200(void);
+void FUN_10018210(void);
+void FUN_10018220(void);
+void FUN_10018230(void);
+void FUN_10018240(void);
+

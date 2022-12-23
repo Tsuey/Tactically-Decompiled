@@ -1,0 +1,2975 @@
+typedef unsigned char   undefined;
+
+typedef unsigned long long    GUID;
+typedef unsigned int    ImageBaseOffset32;
+typedef unsigned char    bool;
+typedef unsigned char    byte;
+typedef unsigned int    dword;
+float10
+typedef long long    longlong;
+typedef unsigned char    uchar;
+typedef unsigned int    uint;
+typedef unsigned long    ulong;
+typedef unsigned long long    ulonglong;
+typedef unsigned char    undefined1;
+typedef unsigned short    undefined2;
+typedef unsigned int    undefined4;
+typedef unsigned long long    undefined6;
+typedef unsigned long long    undefined8;
+typedef unsigned short    ushort;
+typedef short    wchar_t;
+typedef unsigned short    word;
+#define unkbyte9   unsigned long long
+#define unkbyte10   unsigned long long
+#define unkbyte11   unsigned long long
+#define unkbyte12   unsigned long long
+#define unkbyte13   unsigned long long
+#define unkbyte14   unsigned long long
+#define unkbyte15   unsigned long long
+#define unkbyte16   unsigned long long
+
+#define unkuint9   unsigned long long
+#define unkuint10   unsigned long long
+#define unkuint11   unsigned long long
+#define unkuint12   unsigned long long
+#define unkuint13   unsigned long long
+#define unkuint14   unsigned long long
+#define unkuint15   unsigned long long
+#define unkuint16   unsigned long long
+
+#define unkint9   long long
+#define unkint10   long long
+#define unkint11   long long
+#define unkint12   long long
+#define unkint13   long long
+#define unkint14   long long
+#define unkint15   long long
+#define unkint16   long long
+
+#define unkfloat1   float
+#define unkfloat2   float
+#define unkfloat3   float
+#define unkfloat5   double
+#define unkfloat6   double
+#define unkfloat7   double
+#define unkfloat9   long double
+#define unkfloat11   long double
+#define unkfloat12   long double
+#define unkfloat13   long double
+#define unkfloat14   long double
+#define unkfloat15   long double
+#define unkfloat16   long double
+
+#define BADSPACEBASE   void
+#define code   void
+
+typedef struct _s_HandlerType _s_HandlerType, *P_s_HandlerType;
+
+typedef struct TypeDescriptor TypeDescriptor, *PTypeDescriptor;
+
+typedef int ptrdiff_t;
+
+struct TypeDescriptor {
+    void * pVFTable;
+    void * spare;
+    char name[0];
+};
+
+struct _s_HandlerType {
+    uint adjectives;
+    struct TypeDescriptor * pType;
+    ptrdiff_t dispCatchObj;
+    void * addressOfHandler;
+};
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion;
+
+typedef struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
+
+struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct {
+    dword OffsetToDirectory;
+    dword DataIsDirectory;
+};
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {
+    dword OffsetToData;
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
+};
+
+typedef struct _s_FuncInfo _s_FuncInfo, *P_s_FuncInfo;
+
+typedef int __ehstate_t;
+
+typedef struct _s_UnwindMapEntry _s_UnwindMapEntry, *P_s_UnwindMapEntry;
+
+typedef struct _s_UnwindMapEntry UnwindMapEntry;
+
+typedef struct _s_TryBlockMapEntry _s_TryBlockMapEntry, *P_s_TryBlockMapEntry;
+
+typedef struct _s_TryBlockMapEntry TryBlockMapEntry;
+
+typedef struct _s_ESTypeList _s_ESTypeList, *P_s_ESTypeList;
+
+typedef struct _s_ESTypeList ESTypeList;
+
+typedef struct _s_HandlerType HandlerType;
+
+struct _s_FuncInfo {
+    uint magicNumber_and_bbtFlags;
+    __ehstate_t maxState;
+    UnwindMapEntry * pUnwindMap;
+    uint nTryBlocks;
+    TryBlockMapEntry * pTryBlockMap;
+    uint nIPMapEntries;
+    void * pIPToStateMap;
+    ESTypeList * pESTypeList;
+    int EHFlags;
+};
+
+struct _s_UnwindMapEntry {
+    __ehstate_t toState;
+    void (* action)(void);
+};
+
+struct _s_ESTypeList {
+    int nCount;
+    HandlerType * pTypeArray;
+};
+
+struct _s_TryBlockMapEntry {
+    __ehstate_t tryLow;
+    __ehstate_t tryHigh;
+    __ehstate_t catchHigh;
+    int nCatches;
+    HandlerType * pHandlerArray;
+};
+
+typedef struct _s__RTTIBaseClassDescriptor _s__RTTIBaseClassDescriptor, *P_s__RTTIBaseClassDescriptor;
+
+typedef struct PMD PMD, *PPMD;
+
+typedef struct _s__RTTIClassHierarchyDescriptor _s__RTTIClassHierarchyDescriptor, *P_s__RTTIClassHierarchyDescriptor;
+
+typedef struct _s__RTTIClassHierarchyDescriptor RTTIClassHierarchyDescriptor;
+
+typedef struct _s__RTTIBaseClassDescriptor RTTIBaseClassDescriptor;
+
+struct PMD {
+    ptrdiff_t mdisp;
+    ptrdiff_t pdisp;
+    ptrdiff_t vdisp;
+};
+
+struct _s__RTTIBaseClassDescriptor {
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    dword numContainedBases; // count of extended classes in BaseClassArray (RTTI 2)
+    struct PMD where; // member displacement structure
+    dword attributes; // bit flags
+    RTTIClassHierarchyDescriptor * pClassHierarchyDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3) for class
+};
+
+struct _s__RTTIClassHierarchyDescriptor {
+    dword signature;
+    dword attributes; // bit flags
+    dword numBaseClasses; // number of base classes (i.e. rtti1Count)
+    RTTIBaseClassDescriptor * * pBaseClassArray; // ref to BaseClassArray (RTTI 2)
+};
+
+typedef unsigned short    wchar16;
+typedef struct CValidatableThread CValidatableThread, *PCValidatableThread;
+
+struct CValidatableThread { // PlaceHolder Class Structure
+};
+
+typedef struct CTestCase CTestCase, *PCTestCase;
+
+struct CTestCase { // PlaceHolder Class Structure
+};
+
+typedef struct type_info type_info, *Ptype_info;
+
+struct type_info { // PlaceHolder Class Structure
+};
+
+typedef struct BasicStatStructFieldDesc BasicStatStructFieldDesc, *PBasicStatStructFieldDesc;
+
+struct BasicStatStructFieldDesc { // PlaceHolder Class Structure
+};
+
+typedef struct _s__RTTICompleteObjectLocator _s__RTTICompleteObjectLocator, *P_s__RTTICompleteObjectLocator;
+
+typedef struct _s__RTTICompleteObjectLocator RTTICompleteObjectLocator;
+
+struct _s__RTTICompleteObjectLocator {
+    dword signature;
+    dword offset; // offset of vbtable within class
+    dword cdOffset; // constructor displacement offset
+    struct TypeDescriptor * pTypeDescriptor; // ref to TypeDescriptor (RTTI 0) for class
+    RTTIClassHierarchyDescriptor * pClassDescriptor; // ref to ClassHierarchyDescriptor (RTTI 3)
+};
+
+typedef struct CWorkerThread CWorkerThread, *PCWorkerThread;
+
+struct CWorkerThread { // PlaceHolder Class Structure
+};
+
+typedef struct CallStackStatStructDescFuncs CallStackStatStructDescFuncs, *PCallStackStatStructDescFuncs;
+
+struct CallStackStatStructDescFuncs { // PlaceHolder Class Structure
+};
+
+typedef struct CTestSuite CTestSuite, *PCTestSuite;
+
+struct CTestSuite { // PlaceHolder Class Structure
+};
+
+typedef struct CThread CThread, *PCThread;
+
+struct CThread { // PlaceHolder Class Structure
+};
+
+typedef struct _s_FuncInfo FuncInfo;
+
+typedef struct _cpinfo _cpinfo, *P_cpinfo;
+
+typedef uint UINT;
+
+typedef uchar BYTE;
+
+struct _cpinfo {
+    UINT MaxCharSize;
+    BYTE DefaultChar[2];
+    BYTE LeadByte[12];
+};
+
+typedef struct _cpinfo * LPCPINFO;
+
+typedef struct _SYSTEM_INFO _SYSTEM_INFO, *P_SYSTEM_INFO;
+
+typedef union _union_530 _union_530, *P_union_530;
+
+typedef ulong DWORD;
+
+typedef void * LPVOID;
+
+typedef ulong ULONG_PTR;
+
+typedef ULONG_PTR DWORD_PTR;
+
+typedef ushort WORD;
+
+typedef struct _struct_531 _struct_531, *P_struct_531;
+
+struct _struct_531 {
+    WORD wProcessorArchitecture;
+    WORD wReserved;
+};
+
+union _union_530 {
+    DWORD dwOemId;
+    struct _struct_531 s;
+};
+
+struct _SYSTEM_INFO {
+    union _union_530 u;
+    DWORD dwPageSize;
+    LPVOID lpMinimumApplicationAddress;
+    LPVOID lpMaximumApplicationAddress;
+    DWORD_PTR dwActiveProcessorMask;
+    DWORD dwNumberOfProcessors;
+    DWORD dwProcessorType;
+    DWORD dwAllocationGranularity;
+    WORD wProcessorLevel;
+    WORD wProcessorRevision;
+};
+
+typedef struct _OVERLAPPED _OVERLAPPED, *P_OVERLAPPED;
+
+typedef union _union_518 _union_518, *P_union_518;
+
+typedef void * HANDLE;
+
+typedef struct _struct_519 _struct_519, *P_struct_519;
+
+typedef void * PVOID;
+
+struct _struct_519 {
+    DWORD Offset;
+    DWORD OffsetHigh;
+};
+
+union _union_518 {
+    struct _struct_519 s;
+    PVOID Pointer;
+};
+
+struct _OVERLAPPED {
+    ULONG_PTR Internal;
+    ULONG_PTR InternalHigh;
+    union _union_518 u;
+    HANDLE hEvent;
+};
+
+typedef struct _PROCESS_HEAP_ENTRY _PROCESS_HEAP_ENTRY, *P_PROCESS_HEAP_ENTRY;
+
+typedef struct _PROCESS_HEAP_ENTRY * LPPROCESS_HEAP_ENTRY;
+
+typedef union _union_548 _union_548, *P_union_548;
+
+typedef struct _struct_549 _struct_549, *P_struct_549;
+
+typedef struct _struct_550 _struct_550, *P_struct_550;
+
+struct _struct_550 {
+    DWORD dwCommittedSize;
+    DWORD dwUnCommittedSize;
+    LPVOID lpFirstBlock;
+    LPVOID lpLastBlock;
+};
+
+struct _struct_549 {
+    HANDLE hMem;
+    DWORD dwReserved[3];
+};
+
+union _union_548 {
+    struct _struct_549 Block;
+    struct _struct_550 Region;
+};
+
+struct _PROCESS_HEAP_ENTRY {
+    PVOID lpData;
+    DWORD cbData;
+    BYTE cbOverhead;
+    BYTE iRegionIndex;
+    WORD wFlags;
+    union _union_548 u;
+};
+
+typedef struct _TIME_ZONE_INFORMATION _TIME_ZONE_INFORMATION, *P_TIME_ZONE_INFORMATION;
+
+typedef long LONG;
+
+typedef wchar_t WCHAR;
+
+typedef struct _SYSTEMTIME _SYSTEMTIME, *P_SYSTEMTIME;
+
+typedef struct _SYSTEMTIME SYSTEMTIME;
+
+struct _SYSTEMTIME {
+    WORD wYear;
+    WORD wMonth;
+    WORD wDayOfWeek;
+    WORD wDay;
+    WORD wHour;
+    WORD wMinute;
+    WORD wSecond;
+    WORD wMilliseconds;
+};
+
+struct _TIME_ZONE_INFORMATION {
+    LONG Bias;
+    WCHAR StandardName[32];
+    SYSTEMTIME StandardDate;
+    LONG StandardBias;
+    WCHAR DaylightName[32];
+    SYSTEMTIME DaylightDate;
+    LONG DaylightBias;
+};
+
+typedef struct _SECURITY_ATTRIBUTES _SECURITY_ATTRIBUTES, *P_SECURITY_ATTRIBUTES;
+
+typedef struct _SECURITY_ATTRIBUTES * LPSECURITY_ATTRIBUTES;
+
+typedef int BOOL;
+
+struct _SECURITY_ATTRIBUTES {
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+};
+
+typedef struct _CONTEXT _CONTEXT, *P_CONTEXT;
+
+typedef struct _CONTEXT CONTEXT;
+
+typedef CONTEXT * PCONTEXT;
+
+typedef PCONTEXT LPCONTEXT;
+
+typedef struct _FLOATING_SAVE_AREA _FLOATING_SAVE_AREA, *P_FLOATING_SAVE_AREA;
+
+typedef struct _FLOATING_SAVE_AREA FLOATING_SAVE_AREA;
+
+struct _FLOATING_SAVE_AREA {
+    DWORD ControlWord;
+    DWORD StatusWord;
+    DWORD TagWord;
+    DWORD ErrorOffset;
+    DWORD ErrorSelector;
+    DWORD DataOffset;
+    DWORD DataSelector;
+    BYTE RegisterArea[80];
+    DWORD Cr0NpxState;
+};
+
+struct _CONTEXT {
+    DWORD ContextFlags;
+    DWORD Dr0;
+    DWORD Dr1;
+    DWORD Dr2;
+    DWORD Dr3;
+    DWORD Dr6;
+    DWORD Dr7;
+    FLOATING_SAVE_AREA FloatSave;
+    DWORD SegGs;
+    DWORD SegFs;
+    DWORD SegEs;
+    DWORD SegDs;
+    DWORD Edi;
+    DWORD Esi;
+    DWORD Ebx;
+    DWORD Edx;
+    DWORD Ecx;
+    DWORD Eax;
+    DWORD Ebp;
+    DWORD Eip;
+    DWORD SegCs;
+    DWORD EFlags;
+    DWORD Esp;
+    DWORD SegSs;
+    BYTE ExtendedRegisters[512];
+};
+
+typedef DWORD (* PTHREAD_START_ROUTINE)(LPVOID);
+
+typedef struct _EXCEPTION_POINTERS _EXCEPTION_POINTERS, *P_EXCEPTION_POINTERS;
+
+typedef LONG (* PTOP_LEVEL_EXCEPTION_FILTER)(struct _EXCEPTION_POINTERS *);
+
+typedef PTOP_LEVEL_EXCEPTION_FILTER LPTOP_LEVEL_EXCEPTION_FILTER;
+
+typedef struct _EXCEPTION_RECORD _EXCEPTION_RECORD, *P_EXCEPTION_RECORD;
+
+typedef struct _EXCEPTION_RECORD EXCEPTION_RECORD;
+
+typedef EXCEPTION_RECORD * PEXCEPTION_RECORD;
+
+struct _EXCEPTION_RECORD {
+    DWORD ExceptionCode;
+    DWORD ExceptionFlags;
+    struct _EXCEPTION_RECORD * ExceptionRecord;
+    PVOID ExceptionAddress;
+    DWORD NumberParameters;
+    ULONG_PTR ExceptionInformation[15];
+};
+
+struct _EXCEPTION_POINTERS {
+    PEXCEPTION_RECORD ExceptionRecord;
+    PCONTEXT ContextRecord;
+};
+
+typedef struct _SYSTEM_INFO * LPSYSTEM_INFO;
+
+typedef struct _TIME_ZONE_INFORMATION * LPTIME_ZONE_INFORMATION;
+
+typedef struct _STARTUPINFOW _STARTUPINFOW, *P_STARTUPINFOW;
+
+typedef WCHAR * LPWSTR;
+
+typedef BYTE * LPBYTE;
+
+struct _STARTUPINFOW {
+    DWORD cb;
+    LPWSTR lpReserved;
+    LPWSTR lpDesktop;
+    LPWSTR lpTitle;
+    DWORD dwX;
+    DWORD dwY;
+    DWORD dwXSize;
+    DWORD dwYSize;
+    DWORD dwXCountChars;
+    DWORD dwYCountChars;
+    DWORD dwFillAttribute;
+    DWORD dwFlags;
+    WORD wShowWindow;
+    WORD cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput;
+    HANDLE hStdOutput;
+    HANDLE hStdError;
+};
+
+typedef struct _STARTUPINFOW * LPSTARTUPINFOW;
+
+typedef struct _RTL_CRITICAL_SECTION _RTL_CRITICAL_SECTION, *P_RTL_CRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION RTL_CRITICAL_SECTION;
+
+typedef RTL_CRITICAL_SECTION CRITICAL_SECTION;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG _RTL_CRITICAL_SECTION_DEBUG, *P_RTL_CRITICAL_SECTION_DEBUG;
+
+typedef struct _RTL_CRITICAL_SECTION_DEBUG * PRTL_CRITICAL_SECTION_DEBUG;
+
+typedef struct _LIST_ENTRY _LIST_ENTRY, *P_LIST_ENTRY;
+
+typedef struct _LIST_ENTRY LIST_ENTRY;
+
+struct _RTL_CRITICAL_SECTION {
+    PRTL_CRITICAL_SECTION_DEBUG DebugInfo;
+    LONG LockCount;
+    LONG RecursionCount;
+    HANDLE OwningThread;
+    HANDLE LockSemaphore;
+    ULONG_PTR SpinCount;
+};
+
+struct _LIST_ENTRY {
+    struct _LIST_ENTRY * Flink;
+    struct _LIST_ENTRY * Blink;
+};
+
+struct _RTL_CRITICAL_SECTION_DEBUG {
+    WORD Type;
+    WORD CreatorBackTraceIndex;
+    struct _RTL_CRITICAL_SECTION * CriticalSection;
+    LIST_ENTRY ProcessLocksList;
+    DWORD EntryCount;
+    DWORD ContentionCount;
+    DWORD Flags;
+    WORD CreatorBackTraceIndexHigh;
+    WORD SpareWORD;
+};
+
+typedef struct _OVERLAPPED * LPOVERLAPPED;
+
+typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
+
+typedef struct _RTL_CRITICAL_SECTION * PRTL_CRITICAL_SECTION;
+
+typedef PRTL_CRITICAL_SECTION LPCRITICAL_SECTION;
+
+typedef struct DotNetPdbInfo DotNetPdbInfo, *PDotNetPdbInfo;
+
+struct DotNetPdbInfo {
+    char signature[4];
+    GUID guid;
+    dword age;
+    char pdbname[9];
+};
+
+typedef CRITICAL_SECTION _Rmtx;
+
+typedef struct _iobuf _iobuf, *P_iobuf;
+
+struct _iobuf {
+    char * _ptr;
+    int _cnt;
+    char * _base;
+    int _flag;
+    int _file;
+    int _charbuf;
+    int _bufsiz;
+    char * _tmpfname;
+};
+
+typedef struct _iobuf FILE;
+
+typedef struct _COORD _COORD, *P_COORD;
+
+typedef struct _COORD COORD;
+
+typedef short SHORT;
+
+struct _COORD {
+    SHORT X;
+    SHORT Y;
+};
+
+typedef struct _SMALL_RECT _SMALL_RECT, *P_SMALL_RECT;
+
+typedef struct _SMALL_RECT SMALL_RECT;
+
+struct _SMALL_RECT {
+    SHORT Left;
+    SHORT Top;
+    SHORT Right;
+    SHORT Bottom;
+};
+
+typedef struct _CONSOLE_SCREEN_BUFFER_INFO _CONSOLE_SCREEN_BUFFER_INFO, *P_CONSOLE_SCREEN_BUFFER_INFO;
+
+struct _CONSOLE_SCREEN_BUFFER_INFO {
+    COORD dwSize;
+    COORD dwCursorPosition;
+    WORD wAttributes;
+    SMALL_RECT srWindow;
+    COORD dwMaximumWindowSize;
+};
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL _CONSOLE_READCONSOLE_CONTROL, *P_CONSOLE_READCONSOLE_CONTROL;
+
+typedef struct _CONSOLE_READCONSOLE_CONTROL * PCONSOLE_READCONSOLE_CONTROL;
+
+typedef ulong ULONG;
+
+struct _CONSOLE_READCONSOLE_CONTROL {
+    ULONG nLength;
+    ULONG nInitialChars;
+    ULONG dwCtrlWakeupMask;
+    ULONG dwControlKeyState;
+};
+
+typedef struct _CONSOLE_SCREEN_BUFFER_INFO * PCONSOLE_SCREEN_BUFFER_INFO;
+
+typedef char * va_list;
+
+typedef uint uintptr_t;
+
+typedef struct lconv lconv, *Plconv;
+
+struct lconv {
+    char * decimal_point;
+    char * thousands_sep;
+    char * grouping;
+    char * int_curr_symbol;
+    char * currency_symbol;
+    char * mon_decimal_point;
+    char * mon_thousands_sep;
+    char * mon_grouping;
+    char * positive_sign;
+    char * negative_sign;
+    char int_frac_digits;
+    char frac_digits;
+    char p_cs_precedes;
+    char p_sep_by_space;
+    char n_cs_precedes;
+    char n_sep_by_space;
+    char p_sign_posn;
+    char n_sign_posn;
+    wchar_t * _W_decimal_point;
+    wchar_t * _W_thousands_sep;
+    wchar_t * _W_int_curr_symbol;
+    wchar_t * _W_currency_symbol;
+    wchar_t * _W_mon_decimal_point;
+    wchar_t * _W_mon_thousands_sep;
+    wchar_t * _W_positive_sign;
+    wchar_t * _W_negative_sign;
+};
+
+typedef ushort wint_t;
+
+typedef struct threadlocaleinfostruct threadlocaleinfostruct, *Pthreadlocaleinfostruct;
+
+typedef struct threadlocaleinfostruct * pthreadlocinfo;
+
+typedef struct localerefcount localerefcount, *Plocalerefcount;
+
+typedef struct localerefcount locrefcount;
+
+typedef struct __lc_time_data __lc_time_data, *P__lc_time_data;
+
+struct localerefcount {
+    char * locale;
+    wchar_t * wlocale;
+    int * refcount;
+    int * wrefcount;
+};
+
+struct threadlocaleinfostruct {
+    int refcount;
+    uint lc_codepage;
+    uint lc_collate_cp;
+    uint lc_time_cp;
+    locrefcount lc_category[6];
+    int lc_clike;
+    int mb_cur_max;
+    int * lconv_intl_refcount;
+    int * lconv_num_refcount;
+    int * lconv_mon_refcount;
+    struct lconv * lconv;
+    int * ctype1_refcount;
+    ushort * ctype1;
+    ushort * pctype;
+    uchar * pclmap;
+    uchar * pcumap;
+    struct __lc_time_data * lc_time_curr;
+    wchar_t * locale_name[6];
+};
+
+struct __lc_time_data {
+    char * wday_abbr[7];
+    char * wday[7];
+    char * month_abbr[12];
+    char * month[12];
+    char * ampm[2];
+    char * ww_sdatefmt;
+    char * ww_ldatefmt;
+    char * ww_timefmt;
+    int ww_caltype;
+    int refcount;
+    wchar_t * _W_wday_abbr[7];
+    wchar_t * _W_wday[7];
+    wchar_t * _W_month_abbr[12];
+    wchar_t * _W_month[12];
+    wchar_t * _W_ampm[2];
+    wchar_t * _W_ww_sdatefmt;
+    wchar_t * _W_ww_ldatefmt;
+    wchar_t * _W_ww_timefmt;
+    wchar_t * _W_ww_locale_name;
+};
+
+typedef uint size_t;
+
+typedef int errno_t;
+
+typedef struct localeinfo_struct localeinfo_struct, *Plocaleinfo_struct;
+
+typedef struct threadmbcinfostruct threadmbcinfostruct, *Pthreadmbcinfostruct;
+
+typedef struct threadmbcinfostruct * pthreadmbcinfo;
+
+struct threadmbcinfostruct {
+    int refcount;
+    int mbcodepage;
+    int ismbcodepage;
+    ushort mbulinfo[6];
+    uchar mbctype[257];
+    uchar mbcasemap[256];
+    wchar_t * mblocalename;
+};
+
+struct localeinfo_struct {
+    pthreadlocinfo locinfo;
+    pthreadmbcinfo mbcinfo;
+};
+
+typedef int intptr_t;
+
+typedef struct localeinfo_struct * _locale_t;
+
+typedef size_t rsize_t;
+
+typedef struct HWND__ HWND__, *PHWND__;
+
+typedef struct HWND__ * HWND;
+
+typedef long LONG_PTR;
+
+typedef LONG_PTR LPARAM;
+
+typedef BOOL (* WNDENUMPROC)(HWND, LPARAM);
+
+struct HWND__ {
+    int unused;
+};
+
+typedef struct tagWNDCLASSEXA tagWNDCLASSEXA, *PtagWNDCLASSEXA;
+
+typedef struct tagWNDCLASSEXA WNDCLASSEXA;
+
+typedef LONG_PTR LRESULT;
+
+typedef uint UINT_PTR;
+
+typedef UINT_PTR WPARAM;
+
+typedef LRESULT (* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
+
+typedef struct HINSTANCE__ HINSTANCE__, *PHINSTANCE__;
+
+typedef struct HINSTANCE__ * HINSTANCE;
+
+typedef struct HICON__ HICON__, *PHICON__;
+
+typedef struct HICON__ * HICON;
+
+typedef HICON HCURSOR;
+
+typedef struct HBRUSH__ HBRUSH__, *PHBRUSH__;
+
+typedef struct HBRUSH__ * HBRUSH;
+
+typedef char CHAR;
+
+typedef CHAR * LPCSTR;
+
+struct HBRUSH__ {
+    int unused;
+};
+
+struct HICON__ {
+    int unused;
+};
+
+struct tagWNDCLASSEXA {
+    UINT cbSize;
+    UINT style;
+    WNDPROC lpfnWndProc;
+    int cbClsExtra;
+    int cbWndExtra;
+    HINSTANCE hInstance;
+    HICON hIcon;
+    HCURSOR hCursor;
+    HBRUSH hbrBackground;
+    LPCSTR lpszMenuName;
+    LPCSTR lpszClassName;
+    HICON hIconSm;
+};
+
+struct HINSTANCE__ {
+    int unused;
+};
+
+typedef int INT_PTR;
+
+typedef INT_PTR (* DLGPROC)(HWND, UINT, WPARAM, LPARAM);
+
+typedef struct exception exception, *Pexception;
+
+struct exception { // PlaceHolder Class Structure
+};
+
+typedef struct _IMAGE_SECTION_HEADER _IMAGE_SECTION_HEADER, *P_IMAGE_SECTION_HEADER;
+
+typedef union _union_226 _union_226, *P_union_226;
+
+union _union_226 {
+    DWORD PhysicalAddress;
+    DWORD VirtualSize;
+};
+
+struct _IMAGE_SECTION_HEADER {
+    BYTE Name[8];
+    union _union_226 Misc;
+    DWORD VirtualAddress;
+    DWORD SizeOfRawData;
+    DWORD PointerToRawData;
+    DWORD PointerToRelocations;
+    DWORD PointerToLinenumbers;
+    WORD NumberOfRelocations;
+    WORD NumberOfLinenumbers;
+    DWORD Characteristics;
+};
+
+typedef WCHAR * PCNZWCH;
+
+typedef struct _EXCEPTION_POINTERS EXCEPTION_POINTERS;
+
+typedef enum _HEAP_INFORMATION_CLASS {
+    HeapCompatibilityInformation=0,
+    HeapEnableTerminationOnCorruption=1
+} _HEAP_INFORMATION_CLASS;
+
+typedef CHAR * LPSTR;
+
+typedef struct _MEMORY_BASIC_INFORMATION _MEMORY_BASIC_INFORMATION, *P_MEMORY_BASIC_INFORMATION;
+
+typedef struct _MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;
+
+typedef ULONG_PTR SIZE_T;
+
+struct _MEMORY_BASIC_INFORMATION {
+    PVOID BaseAddress;
+    PVOID AllocationBase;
+    DWORD AllocationProtect;
+    SIZE_T RegionSize;
+    DWORD State;
+    DWORD Protect;
+    DWORD Type;
+};
+
+typedef struct _OSVERSIONINFOA _OSVERSIONINFOA, *P_OSVERSIONINFOA;
+
+struct _OSVERSIONINFOA {
+    DWORD dwOSVersionInfoSize;
+    DWORD dwMajorVersion;
+    DWORD dwMinorVersion;
+    DWORD dwBuildNumber;
+    DWORD dwPlatformId;
+    CHAR szCSDVersion[128];
+};
+
+typedef struct _OSVERSIONINFOA * LPOSVERSIONINFOA;
+
+typedef union _LARGE_INTEGER _LARGE_INTEGER, *P_LARGE_INTEGER;
+
+typedef struct _struct_19 _struct_19, *P_struct_19;
+
+typedef struct _struct_20 _struct_20, *P_struct_20;
+
+typedef double LONGLONG;
+
+struct _struct_20 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+struct _struct_19 {
+    DWORD LowPart;
+    LONG HighPart;
+};
+
+union _LARGE_INTEGER {
+    struct _struct_19 s;
+    struct _struct_20 u;
+    LONGLONG QuadPart;
+};
+
+typedef union _LARGE_INTEGER LARGE_INTEGER;
+
+typedef enum _HEAP_INFORMATION_CLASS HEAP_INFORMATION_CLASS;
+
+typedef struct _IMAGE_SECTION_HEADER * PIMAGE_SECTION_HEADER;
+
+typedef WCHAR * LPWCH;
+
+typedef WCHAR * LPCWSTR;
+
+typedef LARGE_INTEGER * PLARGE_INTEGER;
+
+typedef DWORD LCID;
+
+typedef struct IMAGE_DOS_HEADER IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
+
+struct IMAGE_DOS_HEADER {
+    char e_magic[2]; // Magic number
+    word e_cblp; // Bytes of last page
+    word e_cp; // Pages in file
+    word e_crlc; // Relocations
+    word e_cparhdr; // Size of header in paragraphs
+    word e_minalloc; // Minimum extra paragraphs needed
+    word e_maxalloc; // Maximum extra paragraphs needed
+    word e_ss; // Initial (relative) SS value
+    word e_sp; // Initial SP value
+    word e_csum; // Checksum
+    word e_ip; // Initial IP value
+    word e_cs; // Initial (relative) CS value
+    word e_lfarlc; // File address of relocation table
+    word e_ovno; // Overlay number
+    word e_res[4][4]; // Reserved words
+    word e_oemid; // OEM identifier (for e_oeminfo)
+    word e_oeminfo; // OEM information; e_oemid specific
+    word e_res2[10][10]; // Reserved words
+    dword e_lfanew; // File address of new exe header
+    byte e_program[64]; // Actual DOS program
+};
+
+typedef struct tm tm, *Ptm;
+
+struct tm {
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
+};
+
+typedef ULONG_PTR * PDWORD_PTR;
+
+typedef struct tagPOINT tagPOINT, *PtagPOINT;
+
+typedef struct tagPOINT * LPPOINT;
+
+struct tagPOINT {
+    LONG x;
+    LONG y;
+};
+
+typedef struct HKEY__ HKEY__, *PHKEY__;
+
+struct HKEY__ {
+    int unused;
+};
+
+typedef HINSTANCE HMODULE;
+
+typedef long * LPLONG;
+
+typedef int (* FARPROC)(void);
+
+typedef WORD ATOM;
+
+typedef struct tagRECT tagRECT, *PtagRECT;
+
+typedef struct tagRECT * LPRECT;
+
+struct tagRECT {
+    LONG left;
+    LONG top;
+    LONG right;
+    LONG bottom;
+};
+
+typedef BOOL * LPBOOL;
+
+typedef struct HKEY__ * HKEY;
+
+typedef struct _FILETIME _FILETIME, *P_FILETIME;
+
+struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+
+typedef DWORD * LPDWORD;
+
+typedef void * LPCVOID;
+
+typedef struct HMENU__ HMENU__, *PHMENU__;
+
+typedef struct HMENU__ * HMENU;
+
+struct HMENU__ {
+    int unused;
+};
+
+typedef struct _FILETIME * LPFILETIME;
+
+typedef HKEY * PHKEY;
+
+typedef WORD * LPWORD;
+
+typedef BYTE * PBYTE;
+
+typedef struct IMAGE_OPTIONAL_HEADER32 IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
+
+typedef struct IMAGE_DATA_DIRECTORY IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;
+
+struct IMAGE_DATA_DIRECTORY {
+    ImageBaseOffset32 VirtualAddress;
+    dword Size;
+};
+
+struct IMAGE_OPTIONAL_HEADER32 {
+    word Magic;
+    byte MajorLinkerVersion;
+    byte MinorLinkerVersion;
+    dword SizeOfCode;
+    dword SizeOfInitializedData;
+    dword SizeOfUninitializedData;
+    ImageBaseOffset32 AddressOfEntryPoint;
+    ImageBaseOffset32 BaseOfCode;
+    ImageBaseOffset32 BaseOfData;
+    pointer32 ImageBase;
+    dword SectionAlignment;
+    dword FileAlignment;
+    word MajorOperatingSystemVersion;
+    word MinorOperatingSystemVersion;
+    word MajorImageVersion;
+    word MinorImageVersion;
+    word MajorSubsystemVersion;
+    word MinorSubsystemVersion;
+    dword Win32VersionValue;
+    dword SizeOfImage;
+    dword SizeOfHeaders;
+    dword CheckSum;
+    word Subsystem;
+    word DllCharacteristics;
+    dword SizeOfStackReserve;
+    dword SizeOfStackCommit;
+    dword SizeOfHeapReserve;
+    dword SizeOfHeapCommit;
+    dword LoaderFlags;
+    dword NumberOfRvaAndSizes;
+    struct IMAGE_DATA_DIRECTORY DataDirectory[16];
+};
+
+typedef struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct;
+
+struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct {
+    dword NameOffset;
+    dword NameIsString;
+};
+
+typedef struct IMAGE_THUNK_DATA32 IMAGE_THUNK_DATA32, *PIMAGE_THUNK_DATA32;
+
+struct IMAGE_THUNK_DATA32 {
+    dword StartAddressOfRawData;
+    dword EndAddressOfRawData;
+    dword AddressOfIndex;
+    dword AddressOfCallBacks;
+    dword SizeOfZeroFill;
+    dword Characteristics;
+};
+
+typedef struct IMAGE_DEBUG_DIRECTORY IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;
+
+struct IMAGE_DEBUG_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Type;
+    dword SizeOfData;
+    dword AddressOfRawData;
+    dword PointerToRawData;
+};
+
+typedef struct IMAGE_FILE_HEADER IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
+
+struct IMAGE_FILE_HEADER {
+    word Machine; // 332
+    word NumberOfSections;
+    dword TimeDateStamp;
+    dword PointerToSymbolTable;
+    dword NumberOfSymbols;
+    word SizeOfOptionalHeader;
+    word Characteristics;
+};
+
+typedef struct IMAGE_NT_HEADERS32 IMAGE_NT_HEADERS32, *PIMAGE_NT_HEADERS32;
+
+struct IMAGE_NT_HEADERS32 {
+    char Signature[4];
+    struct IMAGE_FILE_HEADER FileHeader;
+    struct IMAGE_OPTIONAL_HEADER32 OptionalHeader;
+};
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY IMAGE_RESOURCE_DIRECTORY_ENTRY, *PIMAGE_RESOURCE_DIRECTORY_ENTRY;
+
+typedef union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion, *PIMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion;
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion {
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct;
+    dword Name;
+    word Id;
+};
+
+union IMAGE_RESOURCE_DIRECTORY_ENTRY {
+    union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion NameUnion;
+    union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion DirectoryUnion;
+};
+
+typedef struct IMAGE_SECTION_HEADER IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
+
+typedef union Misc Misc, *PMisc;
+
+typedef enum SectionFlags {
+    IMAGE_SCN_TYPE_NO_PAD=8,
+    IMAGE_SCN_RESERVED_0001=16,
+    IMAGE_SCN_CNT_CODE=32,
+    IMAGE_SCN_CNT_INITIALIZED_DATA=64,
+    IMAGE_SCN_CNT_UNINITIALIZED_DATA=128,
+    IMAGE_SCN_LNK_OTHER=256,
+    IMAGE_SCN_LNK_INFO=512,
+    IMAGE_SCN_RESERVED_0040=1024,
+    IMAGE_SCN_LNK_REMOVE=2048,
+    IMAGE_SCN_LNK_COMDAT=4096,
+    IMAGE_SCN_GPREL=32768,
+    IMAGE_SCN_MEM_16BIT=131072,
+    IMAGE_SCN_MEM_PURGEABLE=131072,
+    IMAGE_SCN_MEM_LOCKED=262144,
+    IMAGE_SCN_MEM_PRELOAD=524288,
+    IMAGE_SCN_ALIGN_1BYTES=1048576,
+    IMAGE_SCN_ALIGN_2BYTES=2097152,
+    IMAGE_SCN_ALIGN_4BYTES=3145728,
+    IMAGE_SCN_ALIGN_8BYTES=4194304,
+    IMAGE_SCN_ALIGN_16BYTES=5242880,
+    IMAGE_SCN_ALIGN_32BYTES=6291456,
+    IMAGE_SCN_ALIGN_64BYTES=7340032,
+    IMAGE_SCN_ALIGN_128BYTES=8388608,
+    IMAGE_SCN_ALIGN_256BYTES=9437184,
+    IMAGE_SCN_ALIGN_512BYTES=10485760,
+    IMAGE_SCN_ALIGN_1024BYTES=11534336,
+    IMAGE_SCN_ALIGN_2048BYTES=12582912,
+    IMAGE_SCN_ALIGN_4096BYTES=13631488,
+    IMAGE_SCN_ALIGN_8192BYTES=14680064,
+    IMAGE_SCN_LNK_NRELOC_OVFL=16777216,
+    IMAGE_SCN_MEM_DISCARDABLE=33554432,
+    IMAGE_SCN_MEM_NOT_CACHED=67108864,
+    IMAGE_SCN_MEM_NOT_PAGED=134217728,
+    IMAGE_SCN_MEM_SHARED=268435456,
+    IMAGE_SCN_MEM_EXECUTE=536870912,
+    IMAGE_SCN_MEM_READ=1073741824,
+    IMAGE_SCN_MEM_WRITE=2147483648
+} SectionFlags;
+
+union Misc {
+    dword PhysicalAddress;
+    dword VirtualSize;
+};
+
+struct IMAGE_SECTION_HEADER {
+    char Name[8];
+    union Misc Misc;
+    ImageBaseOffset32 VirtualAddress;
+    dword SizeOfRawData;
+    dword PointerToRawData;
+    dword PointerToRelocations;
+    dword PointerToLinenumbers;
+    word NumberOfRelocations;
+    word NumberOfLinenumbers;
+    enum SectionFlags Characteristics;
+};
+
+typedef struct IMAGE_RESOURCE_DATA_ENTRY IMAGE_RESOURCE_DATA_ENTRY, *PIMAGE_RESOURCE_DATA_ENTRY;
+
+struct IMAGE_RESOURCE_DATA_ENTRY {
+    dword OffsetToData;
+    dword Size;
+    dword CodePage;
+    dword Reserved;
+};
+
+typedef struct IMAGE_RESOURCE_DIRECTORY IMAGE_RESOURCE_DIRECTORY, *PIMAGE_RESOURCE_DIRECTORY;
+
+struct IMAGE_RESOURCE_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    word NumberOfNamedEntries;
+    word NumberOfIdEntries;
+};
+
+typedef struct IMAGE_DIRECTORY_ENTRY_EXPORT IMAGE_DIRECTORY_ENTRY_EXPORT, *PIMAGE_DIRECTORY_ENTRY_EXPORT;
+
+struct IMAGE_DIRECTORY_ENTRY_EXPORT {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Name;
+    dword Base;
+    dword NumberOfFunctions;
+    dword NumberOfNames;
+    dword AddressOfFunctions;
+    dword AddressOfNames;
+    dword AddressOfNameOrdinals;
+};
+
+typedef struct IMAGE_RESOURCE_DIR_STRING_U_26 IMAGE_RESOURCE_DIR_STRING_U_26, *PIMAGE_RESOURCE_DIR_STRING_U_26;
+
+struct IMAGE_RESOURCE_DIR_STRING_U_26 {
+    word Length;
+    wchar16 NameString[13];
+};
+
+typedef struct IMAGE_LOAD_CONFIG_DIRECTORY32 IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
+
+struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
+    dword Size;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword GlobalFlagsClear;
+    dword GlobalFlagsSet;
+    dword CriticalSectionDefaultTimeout;
+    dword DeCommitFreeBlockThreshold;
+    dword DeCommitTotalFreeThreshold;
+    pointer32 LockPrefixTable;
+    dword MaximumAllocationSize;
+    dword VirtualMemoryThreshold;
+    dword ProcessHeapFlags;
+    dword ProcessAffinityMask;
+    word CsdVersion;
+    word DependentLoadFlags;
+    pointer32 EditList;
+    pointer32 SecurityCookie;
+    pointer32 SEHandlerTable;
+    dword SEHandlerCount;
+};
+
+typedef LONG LSTATUS;
+
+typedef UINT MMRESULT;
+
+typedef struct setloc_struct setloc_struct, *Psetloc_struct;
+
+typedef struct _is_ctype_compatible _is_ctype_compatible, *P_is_ctype_compatible;
+
+struct _is_ctype_compatible {
+    ulong id;
+    int is_clike;
+};
+
+struct setloc_struct {
+    wchar_t * pchLanguage;
+    wchar_t * pchCountry;
+    int iLocState;
+    int iPrimaryLen;
+    BOOL bAbbrevLanguage;
+    BOOL bAbbrevCountry;
+    UINT _cachecp;
+    wchar_t _cachein[131];
+    wchar_t _cacheout[131];
+    struct _is_ctype_compatible _Loc_c[5];
+    wchar_t _cacheLocaleName[85];
+};
+
+typedef struct _tiddata _tiddata, *P_tiddata;
+
+typedef struct setloc_struct _setloc_struct;
+
+struct _tiddata {
+    ulong _tid;
+    uintptr_t _thandle;
+    int _terrno;
+    ulong _tdoserrno;
+    uint _fpds;
+    ulong _holdrand;
+    char * _token;
+    wchar_t * _wtoken;
+    uchar * _mtoken;
+    char * _errmsg;
+    wchar_t * _werrmsg;
+    char * _namebuf0;
+    wchar_t * _wnamebuf0;
+    char * _namebuf1;
+    wchar_t * _wnamebuf1;
+    char * _asctimebuf;
+    wchar_t * _wasctimebuf;
+    void * _gmtimebuf;
+    char * _cvtbuf;
+    uchar _con_ch_buf[5];
+    ushort _ch_buf_used;
+    void * _initaddr;
+    void * _initarg;
+    void * _pxcptacttab;
+    void * _tpxcptinfoptrs;
+    int _tfpecode;
+    pthreadmbcinfo ptmbcinfo;
+    pthreadlocinfo ptlocinfo;
+    int _ownlocale;
+    ulong _NLG_dwCode;
+    void * _terminate;
+    void * _unexpected;
+    void * _translator;
+    void * _purecall;
+    void * _curexception;
+    void * _curcontext;
+    int _ProcessingThrow;
+    void * _curexcspec;
+    void * _pFrameInfoChain;
+    _setloc_struct _setloc_data;
+    void * _reserved1;
+    void * _reserved2;
+    void * _reserved3;
+    void * _reserved4;
+    void * _reserved5;
+    int _cxxReThrow;
+    ulong __initDomain;
+    int _initapartment;
+};
+
+typedef struct _tiddata * _ptiddata;
+
+typedef enum NamedEventResult_t {
+} NamedEventResult_t;
+
+typedef struct CThreadFullMutex CThreadFullMutex, *PCThreadFullMutex;
+
+struct CThreadFullMutex { // PlaceHolder Structure
+};
+
+typedef struct EHExceptionRecord EHExceptionRecord, *PEHExceptionRecord;
+
+struct EHExceptionRecord { // PlaceHolder Structure
+};
+
+typedef struct CStackTop_Base CStackTop_Base, *PCStackTop_Base;
+
+struct CStackTop_Base { // PlaceHolder Structure
+};
+
+typedef struct CThreadSyncObject CThreadSyncObject, *PCThreadSyncObject;
+
+struct CThreadSyncObject { // PlaceHolder Structure
+};
+
+typedef struct CThreadEvent CThreadEvent, *PCThreadEvent;
+
+struct CThreadEvent { // PlaceHolder Structure
+};
+
+typedef struct CStackTop_CopyParentStack CStackTop_CopyParentStack, *PCStackTop_CopyParentStack;
+
+struct CStackTop_CopyParentStack { // PlaceHolder Structure
+};
+
+typedef enum BasicStatStructFieldCombineMethods_t {
+} BasicStatStructFieldCombineMethods_t;
+
+typedef struct CThreadRWLock CThreadRWLock, *PCThreadRWLock;
+
+struct CThreadRWLock { // PlaceHolder Structure
+};
+
+typedef struct CThreadFastMutex CThreadFastMutex, *PCThreadFastMutex;
+
+struct CThreadFastMutex { // PlaceHolder Structure
+};
+
+typedef struct ITestCase ITestCase, *PITestCase;
+
+struct ITestCase { // PlaceHolder Structure
+};
+
+typedef enum BasicStatStructFieldTypes_t {
+} BasicStatStructFieldTypes_t;
+
+typedef struct CVProfile CVProfile, *PCVProfile;
+
+struct CVProfile { // PlaceHolder Structure
+};
+
+typedef struct CThreadMutex CThreadMutex, *PCThreadMutex;
+
+struct CThreadMutex { // PlaceHolder Structure
+};
+
+typedef struct Color Color, *PColor;
+
+struct Color { // PlaceHolder Structure
+};
+
+typedef struct _s_CatchableType _s_CatchableType, *P_s_CatchableType;
+
+struct _s_CatchableType { // PlaceHolder Structure
+};
+
+typedef struct ITestSuite ITestSuite, *PITestSuite;
+
+struct ITestSuite { // PlaceHolder Structure
+};
+
+typedef struct CThreadSemaphore CThreadSemaphore, *PCThreadSemaphore;
+
+struct CThreadSemaphore { // PlaceHolder Structure
+};
+
+typedef enum LoggingSeverity_t {
+} LoggingSeverity_t;
+
+typedef struct __crt_multibyte_data __crt_multibyte_data, *P__crt_multibyte_data;
+
+struct __crt_multibyte_data { // PlaceHolder Structure
+};
+
+typedef struct CPerfStatsData CPerfStatsData, *PCPerfStatsData;
+
+struct CPerfStatsData { // PlaceHolder Structure
+};
+
+typedef struct CThreadSpinRWLock CThreadSpinRWLock, *PCThreadSpinRWLock;
+
+struct CThreadSpinRWLock { // PlaceHolder Structure
+};
+
+typedef struct CVProfNode CVProfNode, *PCVProfNode;
+
+struct CVProfNode { // PlaceHolder Structure
+};
+
+typedef struct CCallStackStorage CCallStackStorage, *PCCallStackStorage;
+
+struct CCallStackStorage { // PlaceHolder Structure
+};
+
+typedef struct EHRegistrationNode EHRegistrationNode, *PEHRegistrationNode;
+
+struct EHRegistrationNode { // PlaceHolder Structure
+};
+
+typedef enum CounterGroup_t {
+} CounterGroup_t;
+
+typedef struct CStackTop_ReferenceParentStack CStackTop_ReferenceParentStack, *PCStackTop_ReferenceParentStack;
+
+struct CStackTop_ReferenceParentStack { // PlaceHolder Structure
+};
+
+typedef enum LoggingResponse_t {
+} LoggingResponse_t;
+
+typedef struct ThreadHandle_t__ ThreadHandle_t__, *PThreadHandle_t__;
+
+struct ThreadHandle_t__ { // PlaceHolder Structure
+};
+
+typedef enum ThreadPriorityEnum_t {
+} ThreadPriorityEnum_t;
+
+
+// WARNING! conflicting data type names: /Demangler/wchar_t - /wchar_t
+
+typedef struct _Lockit _Lockit, *P_Lockit;
+
+struct _Lockit { // PlaceHolder Structure
+};
+
+typedef struct CThreadLocalInt<int> CThreadLocalInt<int>, *PCThreadLocalInt<int>;
+
+struct CThreadLocalInt<int> { // PlaceHolder Structure
+};
+
+typedef struct CThreadLocalBase CThreadLocalBase, *PCThreadLocalBase;
+
+struct CThreadLocalBase { // PlaceHolder Structure
+};
+
+
+
+
+void FUN_10001040(void);
+void FUN_10001070(void);
+void FUN_10001090(void);
+void FUN_100010f0(void);
+void FUN_10001150(void);
+void FUN_100011c0(void);
+void FUN_10001230(void);
+void FUN_100012a0(void);
+void FUN_10001310(void);
+void FUN_10001370(void);
+void FUN_10001390(void);
+void FUN_100013b0(void);
+void FUN_100013d0(void);
+void FUN_100013f0(void);
+void FUN_10001440(void);
+void FUN_10001460(void);
+void FUN_10001480(void);
+void FUN_100014a0(void);
+void FUN_100014c0(void);
+void FUN_100014d0(void);
+void FUN_100014e0(void);
+void FUN_100014f0(void);
+void FUN_10001500(void);
+void FUN_10001510(void);
+void FUN_10001530(void);
+void FUN_10001540(void);
+void FUN_10001560(void);
+void FUN_10001590(void);
+void FUN_100015b0(void);
+void FUN_100015e0(void);
+void FUN_10001610(void);
+void FUN_10001640(void);
+void FUN_10001670(void);
+void FUN_10001690(void);
+void FUN_100016a0(void);
+void FUN_100016c0(void);
+void FUN_100016e0(void);
+void FUN_100016f6(void);
+void __fastcall __ftol3_except(undefined4 param_1,uint param_2);
+ulonglong FUN_100018f1(void);
+ulonglong FUN_10001900(void);
+int __fastcall FUN_10001a1e(undefined4 param_1,uint param_2);
+uint __fastcall FUN_10001aaf(int param_1,uint param_2);
+CCallStackStorage * __thiscall CCallStackStorage::CCallStackStorage(CCallStackStorage *this,CCallStackStorage *param_1);
+CThreadRWLock * __thiscall CThreadRWLock::CThreadRWLock(CThreadRWLock *this);
+CThreadSpinRWLock * __thiscall CThreadSpinRWLock::CThreadSpinRWLock(CThreadSpinRWLock *this);
+CValidatableThread * __thiscall CValidatableThread::CValidatableThread(CValidatableThread *this);
+void __thiscall CThreadEvent::~CThreadEvent(CThreadEvent *this);
+void __thiscall CThreadRWLock::~CThreadRWLock(CThreadRWLock *this);
+void __thiscall CValidatableThread::~CValidatableThread(CValidatableThread *this);
+void __thiscall CWorkerThread::~CWorkerThread(CWorkerThread *this);
+CCallStackStorage * __thiscall CCallStackStorage::operator=(CCallStackStorage *this,CCallStackStorage *param_1);
+CStackTop_Base * __thiscall CStackTop_Base::operator=(CStackTop_Base *this,CStackTop_Base *param_1);
+CThreadLocalBase * __thiscall GenericThreadLocals::CThreadLocalBase::operator=(CThreadLocalBase *this,CThreadLocalBase *param_1);
+CThreadSpinRWLock * __thiscall CThreadSpinRWLock::operator=(CThreadSpinRWLock *this,CThreadSpinRWLock *param_1);
+void * __thiscall CThreadSyncObject::operator_void*(CThreadSyncObject *this);
+CThread * __thiscall FUN_10001c60(void *this,uint param_1);
+void __thiscall CCallStackStorage::`default_constructor_closure'(CCallStackStorage *this);
+void __thiscall CStackTop_ReferenceParentStack::`default_constructor_closure'(CStackTop_ReferenceParentStack *this);
+void __thiscall CThreadEvent::`default_constructor_closure'(CThreadEvent *this);
+void __thiscall CThreadFullMutex::`default_constructor_closure'(CThreadFullMutex *this);
+uint FUN_10001d10(void);
+undefined4 __cdecl FUN_10001d50(byte *param_1,int param_2);
+undefined4 FUN_10001e00(HWND param_1,int param_2,uint param_3);
+bool __thiscall CThreadMutex::AssertOwnedByCurrentThread(CThreadMutex *this);
+uint FUN_10002030(void);
+uint __thiscall CThread::CalcStackDepth(CThread *this,void *param_1);
+uint * FUN_10002080(void);
+uint __thiscall CThread::GetThreadID(CThread *this);
+void __cdecl FUN_100020f0(int param_1);
+bool __thiscall CThreadSpinRWLock::IsLockedForRead(CThreadSpinRWLock *this);
+bool __thiscall CThreadSpinRWLock::IsLockedForWrite(CThreadSpinRWLock *this);
+bool __thiscall CThreadMutex::IsOwnedByCurrentThread_DebugOnly(CThreadMutex *this);
+bool __thiscall CThread::IsSuspended(CThread *this);
+void __thiscall CThreadFullMutex::Lock(CThreadFullMutex *this,uint param_1);
+void __thiscall CThreadFullMutex::Lock(CThreadFullMutex *this);
+void __thiscall CThreadMutex::Lock(CThreadMutex *this);
+void __thiscall CThreadMutex::Lock(CThreadMutex *this);
+void __thiscall CThreadRWLock::LockForRead(CThreadRWLock *this);
+void __thiscall CThreadSpinRWLock::LockForRead(CThreadSpinRWLock *this);
+void __thiscall CThreadRWLock::LockForWrite(CThreadRWLock *this);
+void __thiscall CThreadSpinRWLock::LockForWrite(CThreadSpinRWLock *this);
+void __thiscall CThreadMutex::LockSilent(CThreadMutex *this);
+undefined4 FUN_100022e0(HWND param_1,HWND param_2);
+void __thiscall CThreadMutex::SetTrace(CThreadMutex *this,bool param_1);
+bool __thiscall CThreadMutex::TryLock(CThreadMutex *this);
+bool __thiscall CThreadSpinRWLock::TryLockForRead(CThreadSpinRWLock *this);
+bool __thiscall CThreadSpinRWLock::TryLockForWrite(CThreadSpinRWLock *this);
+void __thiscall CThreadFullMutex::Unlock(CThreadFullMutex *this);
+void __thiscall CThreadMutex::Unlock(CThreadMutex *this);
+void __thiscall CThreadRWLock::UnlockRead(CThreadRWLock *this);
+void __thiscall CThreadSpinRWLock::UnlockRead(CThreadSpinRWLock *this);
+void __thiscall CThreadMutex::UnlockSilent(CThreadMutex *this);
+void __thiscall CThreadRWLock::UnlockWrite(CThreadRWLock *this);
+void __thiscall CThreadSpinRWLock::UnlockWrite(CThreadSpinRWLock *this);
+bool AreAllAssertsDisabled(void);
+undefined4 FUN_10002490(undefined4 param_1);
+uint __cdecl DoNewAssertDialog(byte *param_1,int param_2,LPCSTR param_3);
+bool IsAssertDialogDisabled(void);
+void __cdecl SetAllAssertsDisabled(char param_1);
+void __cdecl SetAssertDialogDisabled(char param_1);
+uint ShouldUseNewAssertDialog(void);
+void __fastcall FUN_10002730(undefined4 *param_1);
+undefined4 * __thiscall FUN_10002780(void *this,byte param_1);
+void __thiscall FUN_100027b0(void *this,void *param_1,void *param_2);
+void __thiscall FUN_10002820(void *this,undefined4 *param_1,undefined4 *param_2);
+int __thiscall FUN_100029e0(void *this,undefined4 param_1,int *param_2);
+void __thiscall FUN_10002a40(void *this,int param_1,int param_2);
+void __thiscall FUN_10002af0(void *this,byte *param_1);
+int __thiscall FUN_10002c10(void *this,byte *param_1);
+char * __thiscall CTestCase::GetName(CTestCase *this);
+undefined1 * __thiscall FUN_10002c70(void *this,int param_1);
+bool __thiscall FUN_10002c90(void *this,undefined4 param_1);
+void FUN_10002cb0(char **param_1,char **param_2,int param_3,char param_4);
+int __cdecl FUN_10002db0(char *param_1);
+undefined4 __fastcall FUN_10002e00(int param_1);
+undefined4 __thiscall FUN_10002e10(void *this,undefined4 param_1,undefined4 param_2);
+float10 __thiscall FUN_10002e50(void *this,undefined4 param_1,float param_2);
+char * __thiscall FUN_10002e90(void *this,undefined4 param_1,char *param_2);
+void __fastcall FUN_10002ed0(void *param_1);
+void __thiscall FUN_10003010(void *this,byte *param_1);
+void __thiscall FUN_10003150(void *this,int param_1,char *param_2);
+byte * __cdecl FUN_10003190(byte *param_1,byte *param_2);
+undefined ** CommandLine(void);
+undefined8 FUN_10003250(void);
+uint __fastcall FUN_100032c0(undefined4 param_1,undefined4 param_2);
+uint __fastcall FUN_10003310(undefined4 param_1,undefined4 param_2);
+uint __fastcall FUN_10003360(undefined4 param_1,undefined4 param_2);
+undefined * FUN_100033b0(void);
+undefined * __fastcall FUN_10003500(undefined4 param_1,undefined4 param_2);
+void __cdecl FUN_100035b0(uint param_1);
+uint FUN_10003660(void);
+uint __fastcall FUN_100036e0(undefined4 param_1,undefined4 param_2);
+ulonglong __fastcall FUN_10003740(undefined4 param_1,undefined4 param_2,undefined4 *param_3,int param_4);
+ulonglong __fastcall FUN_10003780(undefined4 param_1,undefined4 param_2,int param_3,undefined4 *param_4);
+ulonglong __fastcall FUN_10003830(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4,undefined4 *param_5);
+undefined * GetCPUInformation(void);
+void FUN_10003ea0(void);
+void FUN_10004350(float param_1);
+void __cdecl GetCPUFrequencyResults(undefined (*param_1) [16],char param_2);
+void __cdecl SetCPUMonitoringInterval(uint param_1);
+undefined4 * __thiscall FUN_10004770(void *this,int param_1);
+undefined4 * __fastcall FUN_10004790(undefined4 *param_1);
+undefined4 * __fastcall FUN_10004af0(undefined4 *param_1);
+void __fastcall FUN_10004b70(int *param_1);
+undefined4 * __thiscall FUN_10004b90(void *this,byte param_1);
+undefined4 * __thiscall FUN_10004bc0(void *this,byte param_1);
+uint __thiscall FUN_10004c10(void *this,uint param_1);
+ULONG_PTR FUN_10004d10(ULONG_PTR param_1);
+uint __thiscall FUN_10004d50(void *this,int param_1);
+void __thiscall FUN_10004dc0(void *this,int param_1);
+uint FUN_10004e70(void);
+uint FUN_10004f80(void);
+undefined4 FUN_10005040(void);
+int __fastcall FUN_10005050(int param_1);
+void __fastcall FUN_100050a0(int **param_1);
+void __fastcall FUN_100050b0(int param_1);
+int __fastcall FUN_10005140(int param_1);
+void __thiscall FUN_10005160(void *this,byte param_1,byte param_2);
+void __thiscall FUN_100051f0(void *this,uint param_1,uint param_2);
+FARPROC FUN_10005220(void);
+CVProfNode * __thiscall CVProfNode::CVProfNode(CVProfNode *this,char *param_1,int param_2,CVProfNode *param_3,char *param_4,int param_5);
+CVProfNode * __thiscall CVProfNode::operator=(CVProfNode *this,CVProfNode *param_1);
+CVProfile * __thiscall CVProfile::operator=(CVProfile *this,CVProfile *param_1);
+void __cdecl FUN_10005420(char *param_1,uint param_2,int param_3);
+bool __thiscall CVProfile::AtRoot(CVProfile *this);
+int __thiscall CVProfile::BudgetGroupNameToBudgetGroupIDNoCreate(CVProfile *this,char *param_1);
+void __thiscall CVProfNode::ClearPrevTime(CVProfNode *this);
+void __cdecl ConColorMsg(Color *param_1,char *param_2,...);
+void __cdecl ConMsg(char *param_1,...);
+void __cdecl DevMsg(char *param_1,...);
+void __cdecl DevWarning(char *param_1,...);
+void __thiscall CVProfile::DisableVTuneGroup(CVProfile *this);
+void __thiscall CVProfile::EnableVTuneGroup(CVProfile *this,char *param_1);
+void __thiscall CVProfile::EnterScope(CVProfile *this,char *param_1,int param_2,char *param_3,bool param_4);
+void __thiscall CVProfile::EnterScope(CVProfile *this,char *param_1,int param_2,char *param_3,bool param_4,int param_5);
+void __thiscall CVProfile::ExitScope(CVProfile *this);
+int __thiscall CVProfile::GetBudgetGroupFlags(CVProfile *this,int param_1);
+int __thiscall CVProfNode::GetBudgetGroupID(CVProfNode *this);
+char * __thiscall CVProfile::GetBudgetGroupName(CVProfile *this,int param_1);
+void __thiscall FUN_100059e0(void *this,undefined4 *param_1,int param_2);
+CVProfNode * __thiscall CVProfNode::GetChild(CVProfNode *this);
+int __thiscall CVProfNode::GetClientData(CVProfNode *this);
+uint __thiscall CVProfNode::GetCurCalls(CVProfNode *this);
+double __thiscall CVProfNode::GetCurTime(CVProfNode *this);
+double __thiscall CVProfNode::GetCurTimeLessChildren(CVProfNode *this);
+CVProfNode * __thiscall CVProfile::GetCurrentNode(CVProfile *this);
+int __thiscall CVProfile::GetDetailLevel(CVProfile *this);
+int __thiscall CVProfNode::GetL2CacheMisses(CVProfNode *this);
+double __thiscall CVProfile::GetPeakFrameTime(CVProfile *this);
+double __thiscall CVProfNode::GetPeakTime(CVProfNode *this);
+uint __thiscall CVProfNode::GetPrevCalls(CVProfNode *this);
+int __thiscall CVProfNode::GetPrevL2CacheMissLessChildren(CVProfNode *this);
+CVProfNode * __thiscall CVProfNode::GetPrevSibling(CVProfNode *this);
+double __thiscall CVProfNode::GetPrevTime(CVProfNode *this);
+double __thiscall CVProfNode::GetPrevTimeLessChildren(CVProfNode *this);
+CVProfNode * __thiscall CVProfile::GetRoot(CVProfile *this);
+CVProfNode * __thiscall CVProfNode::GetSibling(CVProfNode *this);
+uint __thiscall CVProfile::GetTargetThreadId(CVProfile *this);
+double __thiscall CVProfile::GetTimeLastFrame(CVProfile *this);
+uint __thiscall CVProfNode::GetTotalCalls(CVProfNode *this);
+double __thiscall CVProfNode::GetTotalTime(CVProfNode *this);
+double __thiscall CVProfNode::GetTotalTimeLessChildren(CVProfNode *this);
+double __thiscall CVProfile::GetTotalTimeSampled(CVProfile *this);
+int __thiscall CVProfNode::GetUniqueNodeID(CVProfNode *this);
+void __thiscall CVProfile::HideBudgetGroup(CVProfile *this,char *param_1,bool param_2);
+bool __thiscall CVProfile::InTargetThread(CVProfile *this);
+undefined4 __thiscall FUN_10005df0(void *this,int param_1,int param_2);
+bool __thiscall CVProfile::IsEnabled(CVProfile *this);
+void __thiscall CVProfile::MarkFrame(CVProfile *this,char *param_1);
+void __thiscall CVProfile::MarkFrame(CVProfile *this);
+int __thiscall CVProfile::NumFramesSampled(CVProfile *this);
+void __thiscall CVProfile::PMEEnable(CVProfile *this,bool param_1);
+void __thiscall CVProfile::PMEInitialized(CVProfile *this,bool param_1);
+void __thiscall CVProfile::Pause(CVProfile *this);
+void __thiscall CVProfile::PopGroup(CVProfile *this);
+void __thiscall CVProfile::PushGroup(CVProfile *this,int param_1);
+void __thiscall CVProfile::Reset(CVProfile *this);
+void __thiscall CVProfile::ResetPeaks(CVProfile *this);
+void __thiscall CVProfile::Resume(CVProfile *this);
+void __cdecl FUN_10005fc0(uint *param_1,byte param_2,byte param_3,int param_4);
+void __thiscall CVProfNode::SetBudgetGroupID(CVProfNode *this,int param_1);
+void __thiscall CVProfNode::SetClientData(CVProfNode *this,int param_1);
+void __thiscall CVProfile::SetTargetThreadId(CVProfile *this,uint param_1);
+void __thiscall CVProfNode::SetUniqueNodeID(CVProfNode *this,int param_1);
+void __thiscall CVProfile::Start(CVProfile *this);
+void __thiscall CVProfile::Stop(CVProfile *this);
+undefined4 FUN_10006080(DWORD *param_1);
+bool __thiscall CVProfile::UsePME(CVProfile *this);
+bool __thiscall CVProfile::VTuneGroupEnabled(CVProfile *this);
+float10 __cdecl FUN_100063f0(uint param_1);
+void AssertValidWStringPtr(void);
+void __cdecl COM_TimestampedLog(byte *param_1);
+void __cdecl CallAssertFailedNotifyFunc(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 __cdecl ClearHardwareBreakpoint(void *param_1);
+void __cdecl ConDMsg(byte *param_1);
+void __cdecl CrackSmokingCompiler(uint param_1);
+void __cdecl DevMsg(int param_1,byte *param_2);
+void __cdecl DevWarning(int param_1,byte *param_2);
+void __cdecl Error(byte *param_1);
+void __cdecl Error_SpewCallStack(int param_1,byte *param_2);
+void __cdecl Msg(byte *param_1);
+undefined4 Plat_SimpleLog(undefined4 param_1,undefined4 param_2);
+void __cdecl SetAssertFailedNotifyFunc(undefined4 param_1);
+undefined4 * __cdecl SetHardwareBreakpoint(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl Warning(byte *param_1);
+void __cdecl Warning_SpewCallStack(int param_1,byte *param_2);
+void __cdecl _Error_AlwaysSpewCallStack_Enable(undefined param_1);
+void __cdecl _Error_AlwaysSpewCallStack_Length(undefined4 param_1);
+void _ExitOnFatalAssert(undefined4 param_1,undefined4 param_2);
+void __cdecl _Warning_AlwaysSpewCallStack_Enable(undefined param_1);
+void __cdecl _Warning_AlwaysSpewCallStack_Length(undefined4 param_1);
+char ** __thiscall FUN_10007000(void *this,char *param_1,char *param_2);
+void ** __thiscall FUN_10007050(void *this,byte param_1);
+byte ** __thiscall FUN_100070a0(void *this,byte *param_1);
+HMODULE __thiscall FUN_10007120(void *this,byte *param_1);
+void __thiscall CThreadSyncObject::AssertUseable(CThreadSyncObject *this);
+void __cdecl VoidFnPtrLookup_Tier0(byte *param_1,LPCSTR param_2);
+FARPROC * __fastcall FUN_10007220(FARPROC *param_1);
+undefined8 __cdecl ETWBegin(char *param_1);
+undefined8 __cdecl ETWEnd(char *param_1,uint param_2,int param_3);
+undefined4 ETWGetRenderFrameNumber(void);
+bool ETWIsTracingEnabled(void);
+void __cdecl ETWKeyDown(undefined4 param_1,undefined4 param_2,char *param_3);
+undefined8 __cdecl ETWMark(char *param_1);
+void __cdecl ETWMark1F(char *param_1);
+void __cdecl ETWMark1I(char *param_1);
+void __cdecl ETWMark1S(char *param_1,char *param_2);
+void __cdecl ETWMark2F(char *param_1);
+void __cdecl ETWMark2I(char *param_1);
+void __cdecl ETWMark2S(char *param_1,char *param_2,char *param_3);
+void __cdecl ETWMark3F(char *param_1);
+void __cdecl ETWMark3I(char *param_1);
+void __cdecl ETWMark4F(char *param_1);
+void __cdecl ETWMark4I(char *param_1);
+void __cdecl ETWMarkPrintf(char *param_1);
+void ETWMouseDown(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl ETWMouseMove(int param_1,int param_2);
+void ETWMouseUp(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+void ETWMouseWheel(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl ETWReadPacket(char *param_1,int param_2);
+void __cdecl ETWRenderFrameMark(byte param_1);
+void __cdecl ETWSendPacket(char *param_1,int param_2);
+void __cdecl ETWSimFrameMark(byte param_1);
+void ETWThrottled(void);
+void FUN_10007b80(undefined4 param_1,int param_2,undefined param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8,int param_9);
+undefined4 FUN_10007bf0(undefined param_1,undefined param_2,undefined param_3,uint *param_4);
+void FUN_10007c20(uint *param_1);
+undefined4 __cdecl FUN_10007c70(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 __cdecl FUN_10007ca0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined param_4,undefined param_5,undefined param_6);
+undefined4 __cdecl FUN_10007d20(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined param_4,undefined param_5);
+undefined4 __cdecl FUN_10007d80(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,char *param_5);
+undefined4 __cdecl FUN_10007e10(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4);
+undefined4 __cdecl FUN_10007e80(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4);
+undefined4 __cdecl FUN_10007f10(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4);
+undefined4 __cdecl FUN_10007fe0(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4);
+undefined4 __cdecl FUN_100080c0(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4);
+undefined4 __cdecl FUN_10008160(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4,char *param_5);
+undefined4 __cdecl FUN_10008210(undefined4 param_1,undefined4 param_2,undefined4 param_3,char *param_4,char *param_5,char *param_6);
+undefined4 * __fastcall FUN_100082f0(undefined4 *param_1);
+int * __thiscall FUN_100083a0(void *this,char *param_1);
+int __thiscall FUN_10008420(void *this,int param_1);
+undefined4 * FUN_10008430(void);
+void __thiscall FUN_10008480(void *this,undefined4 param_1,LPCSTR param_2);
+int __thiscall FUN_100084c0(void *this,int param_1,int param_2,int param_3,undefined4 param_4);
+LoggingResponse_t __cdecl LoggingSystem_Log(int param_1,LoggingSeverity_t param_2,Color param_3,char *param_4,...);
+undefined4 FUN_10008780(int param_1);
+void __thiscall FUN_100087c0(void *this,char param_1);
+void __thiscall FUN_10008890(void *this,char param_1,char param_2);
+int __thiscall FUN_100089e0(void *this,byte *param_1,undefined *param_2,int param_3,int param_4,int param_5);
+int __thiscall FUN_10008b30(void *this,int param_1);
+void FUN_10008be0(void);
+void FUN_10008bf0(void);
+void FUN_10008c10(void);
+void FUN_10008c20(void);
+void __thiscall FUN_10008ce0(void *this,byte *param_1,int param_2);
+int __thiscall FUN_10008d40(void *this,int param_1);
+void __cdecl LoggingSystem_AddTagToCurrentChannel(byte *param_1);
+int __cdecl LoggingSystem_FindChannel(byte *param_1);
+undefined4 * __cdecl LoggingSystem_GetChannel(int param_1);
+undefined4 __cdecl LoggingSystem_GetChannelColor(int param_1);
+undefined4 LoggingSystem_GetChannelCount(void);
+undefined4 __cdecl LoggingSystem_GetChannelFlags(int param_1);
+int LoggingSystem_GetFirstChannelID(void);
+int __cdecl LoggingSystem_GetNextChannelID(int param_1);
+uint __cdecl LoggingSystem_HasTag(int param_1,byte *param_2);
+undefined4 __cdecl LoggingSystem_IsChannelEnabled(int param_1,int param_2);
+int __cdecl LoggingSystem_Log(int param_1,int param_2,byte *param_3);
+int __cdecl LoggingSystem_LogAssert(byte *param_1);
+int __cdecl LoggingSystem_LogDirect(int param_1,int param_2,int param_3,undefined4 param_4);
+void __cdecl LoggingSystem_PopLoggingState(char param_1);
+void __cdecl LoggingSystem_PushLoggingState(char param_1,char param_2);
+void __cdecl LoggingSystem_RegisterLoggingChannel(byte *param_1,undefined *param_2,int param_3,int param_4,int param_5);
+void __cdecl LoggingSystem_RegisterLoggingListener(int param_1);
+undefined4 * LoggingSystem_ResetCurrentLoggingState(void);
+void __cdecl LoggingSystem_SetChannelColor(int param_1,undefined4 param_2);
+void __cdecl LoggingSystem_SetChannelFlags(int param_1,undefined4 param_2);
+void __cdecl LoggingSystem_SetChannelSpewLevel(int param_1,undefined4 param_2);
+void __cdecl LoggingSystem_SetChannelSpewLevelByName(byte *param_1,int param_2);
+void __cdecl LoggingSystem_SetChannelSpewLevelByTag(byte *param_1,int param_2);
+void __cdecl LoggingSystem_SetGlobalSpewLevel(int param_1);
+void __cdecl LoggingSystem_SetLoggingResponsePolicy(int param_1);
+int __cdecl MemAllocScratch(int param_1);
+void MemFreeScratch(void);
+void MemOutOfMemory(void);
+int FUN_100099c0(void);
+void __cdecl FUN_10009a20(undefined4 *param_1,uint param_2);
+void __cdecl FUN_10009b20(undefined4 *param_1,uint param_2);
+void __cdecl FUN_10009b60(int param_1,uint param_2);
+BasicStatStructFieldDesc * __thiscall BasicStatStructFieldDesc::BasicStatStructFieldDesc(BasicStatStructFieldDesc *this,BasicStatStructFieldDesc *param_1);
+BasicStatStructFieldDesc * __thiscall BasicStatStructFieldDesc::BasicStatStructFieldDesc(BasicStatStructFieldDesc *this,BasicStatStructFieldTypes_t param_1,BasicStatStructFieldCombineMethods_t param_2);
+CallStackStatStructDescFuncs * __thiscall CallStackStatStructDescFuncs::CallStackStatStructDescFuncs(CallStackStatStructDescFuncs *this,CallStackStatStructDescFuncs *param_1);
+CallStackStatStructDescFuncs * __thiscall CallStackStatStructDescFuncs::CallStackStatStructDescFuncs(CallStackStatStructDescFuncs *this);
+BasicStatStructFieldDesc * __thiscall BasicStatStructFieldDesc::operator=(BasicStatStructFieldDesc *this,BasicStatStructFieldDesc *param_1);
+CTestSuite * __thiscall CTestSuite::operator=(CTestSuite *this,CTestSuite *param_1);
+undefined4 * __thiscall FUN_10009c90(void *this,byte param_1);
+void __thiscall FUN_10009cc0(void *this,undefined4 param_1);
+void __thiscall FUN_10009cd0(void *this,int param_1);
+LPVOID __thiscall FUN_10009d00(void *this,int param_1);
+uint __cdecl FUN_10009d70(undefined (*param_1) [16]);
+bool __fastcall FUN_10009e40(int param_1);
+void __fastcall FUN_10009e60(int param_1);
+void __fastcall FUN_10009f00(int *param_1);
+void __cdecl FUN_10009f10(char param_1);
+void __thiscall FUN_10009fb0(void *this,undefined4 param_1);
+void __thiscall FUN_10009fc0(void *this,uint param_1);
+void __thiscall FUN_1000a010(void *this,LPCVOID param_1);
+void FUN_1000a080(undefined4 *param_1,undefined4 *param_2);
+int __thiscall FUN_1000a0a0(void *this,uint param_1);
+undefined FUN_1000a100(void);
+uint __cdecl FUN_1000a110(HKEY param_1);
+void __fastcall FUN_1000a240(int *param_1,undefined param_2,undefined4 param_3);
+void __thiscall FUN_1000a2b0(void *this,undefined4 param_1,undefined4 param_2);
+void * __thiscall FUN_1000a2d0(void *this,void *param_1,uint param_2);
+undefined4 FUN_1000a3a0(void);
+void FUN_1000a3b0(void);
+undefined4 FUN_1000a3c0(void);
+int __fastcall FUN_1000a3d0(int param_1);
+int __fastcall FUN_1000a6a0(int param_1);
+int __fastcall FUN_1000a970(int param_1);
+undefined4 * __fastcall FUN_1000ac40(undefined4 *param_1);
+int __fastcall FUN_1000acf0(int param_1);
+undefined4 __fastcall FUN_1000ad90(undefined4 *param_1,uint param_2);
+undefined4 * __fastcall FUN_1000ae00(undefined4 *param_1,uint param_2,byte param_3);
+undefined4 * __fastcall FUN_1000ae50(longlong *param_1);
+undefined4 * __fastcall FUN_1000b100(longlong *param_1);
+undefined4 * __fastcall FUN_1000b3b0(longlong *param_1);
+uint ** __thiscall FUN_1000b670(void *this,uint param_1);
+uint ** __thiscall FUN_1000b820(void *this,uint param_1);
+void __fastcall FUN_1000b9d0(CVProfNode *param_1,undefined param_2,undefined4 param_3);
+int __thiscall FUN_1000b9f0(void *this,char param_1);
+int __thiscall FUN_1000ba90(void *this,char param_1);
+int __thiscall FUN_1000bb30(void *this,char param_1);
+int __thiscall FUN_1000bbd0(void *this,char param_1);
+int __thiscall FUN_1000be10(void *this,char param_1);
+int __thiscall FUN_1000c040(void *this,char param_1);
+void __fastcall FUN_1000c3b0(void *param_1);
+DWORD __fastcall FUN_1000c3c0(int param_1);
+undefined4 __fastcall FUN_1000c430(int param_1);
+undefined4 FUN_1000c540(void);
+undefined4 FUN_1000c550(void);
+ulonglong __fastcall FUN_1000c560(longlong *param_1,uint param_2);
+void __thiscall CThreadFullMutex::SetTrace(CThreadFullMutex *this,bool param_1);
+void __thiscall FUN_1000c5b0(void *this,undefined4 param_1,FILE *param_2,int param_3);
+void __thiscall FUN_1000c900(void *this,undefined4 param_1,FILE *param_2,int param_3);
+void __fastcall FUN_1000cc50(int *param_1);
+void __thiscall FUN_1000cc60(void *this,undefined4 param_1,int param_2);
+void __thiscall FUN_1000cd60(void *this,undefined4 *param_1);
+void __thiscall FUN_1000cda0(void *this,undefined4 *param_1);
+void __thiscall FUN_1000cde0(void *this,undefined4 *param_1);
+void __thiscall FUN_1000cea0(void *this,undefined4 *param_1);
+void __thiscall FUN_1000cf60(void *this,undefined4 *param_1);
+void __thiscall FUN_1000d020(void *this,uint *param_1);
+void __thiscall FUN_1000d0f0(void *this,uint *param_1);
+int __thiscall FUN_1000d1d0(void *this,undefined4 *param_1);
+undefined4 __thiscall FUN_1000d3e0(void *this,int param_1);
+undefined4 __thiscall FUN_1000d410(void *this,int param_1);
+int __thiscall FUN_1000d440(void *this,uint param_1);
+void FUN_1000d500(undefined4 *param_1,undefined4 *param_2);
+undefined4 __thiscall FUN_1000d540(void *this,uint param_1);
+undefined4 __thiscall FUN_1000d650(void *this,uint param_1);
+undefined4 __thiscall FUN_1000d790(void *this,uint param_1);
+void FUN_1000d8a0(void);
+int __thiscall FUN_1000d8b0(void *this,char param_1);
+uint __thiscall FUN_1000d970(void *this,uint param_1);
+undefined4 __fastcall FUN_1000d9a0(int param_1);
+void __thiscall FUN_1000d9b0(void *this,undefined4 param_1);
+int __cdecl FUN_1000d9c0(int *param_1,int *param_2);
+int __cdecl FUN_1000d9f0(int *param_1,int *param_2);
+int __cdecl FUN_1000da20(int *param_1,int *param_2);
+undefined8 __thiscall FUN_1000da50(void *this,undefined4 *param_1);
+uint ** __thiscall FUN_1000dab0(void *this,uint **param_1,uint **param_2);
+uint ** __thiscall FUN_1000db70(void *this,uint **param_1,uint **param_2);
+uint ** __thiscall FUN_1000dc30(void *this,uint **param_1,uint **param_2);
+uint ** __thiscall FUN_1000dcf0(void *this,uint **param_1,uint **param_2);
+uint ** __thiscall FUN_1000ddf0(void *this,uint **param_1,uint **param_2);
+uint ** __thiscall FUN_1000def0(void *this,undefined4 param_1,uint param_2);
+uint ** __thiscall FUN_1000e0a0(void *this,undefined4 param_1,uint param_2);
+void FUN_1000e250(void);
+uint __thiscall FUN_1000e260(void *this,int param_1,int param_2,char param_3);
+uint __thiscall FUN_1000e580(void *this,int param_1,int param_2,char param_3);
+uint __thiscall FUN_1000e8a0(void *this,int param_1,int param_2,char param_3);
+undefined4 __thiscall FUN_1000ebc0(void *this,undefined4 param_1);
+void __cdecl FUN_1000ebe0(undefined *param_1);
+void __thiscall FUN_1000ebf0(void *this,undefined4 param_1);
+char * __cdecl FUN_1000ec60(uint param_1,uint param_2);
+void __thiscall FUN_1000edb0(void *this,int *param_1,undefined4 *param_2);
+void __thiscall FUN_1000ee30(void *this,int *param_1,undefined4 *param_2);
+uint __fastcall FUN_1000eeb0(undefined4 *param_1);
+uint __fastcall FUN_1000f0b0(undefined4 *param_1);
+uint __fastcall FUN_1000f2b0(undefined4 *param_1);
+int FUN_1000f4b0(void);
+undefined4 __fastcall FUN_1000f500(int *param_1);
+void __cdecl FUN_1000f510(FILE *param_1,int param_2);
+void __cdecl AddMemoryInfoCallback(undefined4 param_1);
+void DumpMemoryInfoStats(void);
+void __cdecl RemoveMemoryInfoCallback(int param_1);
+int __thiscall CVProfNode::GetPrevLoadHitStoreLessChildren(CVProfNode *this);
+HMODULE * __fastcall FUN_1000f9e0(HMODULE *param_1);
+undefined4 __fastcall FUN_1000fa60(undefined4 param_1);
+void __cdecl FUN_1000fac0(int *param_1);
+char * __cdecl FUN_1000fb60(uint param_1);
+void __cdecl FUN_1000fcc0(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 __fastcall FUN_1000fd00(int *param_1);
+undefined4 FUN_1000fd90(undefined4 *param_1);
+void __cdecl CatchAndWriteMiniDump(int param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl CatchAndWriteMiniDumpEx(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+void __cdecl CatchAndWriteMiniDumpExForVoidPtrFn(int param_1,undefined4 param_2,undefined4 param_3);
+void __cdecl CatchAndWriteMiniDumpExReturnsInt(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+void __cdecl CatchAndWriteMiniDumpForVoidPtrFn(int param_1,undefined4 param_2,char param_3);
+void EnableCrashingOnCrashes(void);
+void __cdecl MinidumpSetUnhandledExceptionFunction(undefined4 param_1);
+undefined * __cdecl SetMiniDumpFunction(undefined *param_1);
+void __cdecl SetMinidumpComment(char *param_1);
+void __cdecl SetMinidumpFilenamePrefix(char *param_1);
+void WriteMiniDump(void);
+uint __cdecl WriteMiniDumpUsingExceptionInfo(undefined4 param_1,undefined4 param_2,undefined4 param_3,int param_4,char *param_5);
+undefined8 GetHardwareClockReliably(void);
+void __cdecl MicroProfilerAddTS(longlong *param_1,uint param_2,int param_3);
+void __cdecl PopMiniProfilerTS(void *param_1);
+undefined * __cdecl PushMiniProfilerTS(void *param_1);
+CPerfStatsData * __thiscall CPerfStatsData::CPerfStatsData(CPerfStatsData *this);
+CPerfStatsData * __thiscall CPerfStatsData::operator=(CPerfStatsData *this,CPerfStatsData *param_1);
+void __thiscall CPerfStatsData::Reset(CPerfStatsData *this);
+void __thiscall CPerfStatsData::Tick(CPerfStatsData *this);
+void FUN_10010810(void);
+void __cdecl GetCurrentDate(undefined4 *param_1,int *param_2,int *param_3);
+bool Is64BitOS(void);
+int __cdecl Plat_Alloc(undefined4 param_1);
+undefined (*) [16] __cdecl Plat_ConvertToLocalTime(undefined4 param_1,undefined4 param_2,undefined (*param_3) [16]);
+void __cdecl Plat_DebugString(LPCSTR param_1);
+void __cdecl Plat_ExitProcess(UINT param_1);
+void __cdecl Plat_ExitProcessWithError(UINT param_1,char param_2);
+float10 Plat_FloatTime(void);
+void __cdecl Plat_Free(undefined4 param_1);
+undefined8 Plat_GetClockStart(void);
+LPSTR Plat_GetCommandLine(void);
+void __cdecl Plat_GetLocalTime(undefined (*param_1) [16]);
+void __cdecl Plat_GetModuleFilename(LPSTR param_1,DWORD param_2);
+int Plat_GetOSVersion(void);
+undefined8 Plat_GetTime(void);
+char * __cdecl Plat_GetTimeString(int *param_1,char *param_2,size_t param_3);
+undefined Plat_IsInBenchmarkMode(void);
+bool Plat_IsInDebugSession(void);
+ulonglong Plat_MSTime(void);
+void __cdecl Plat_MessageBox(LPCSTR param_1,LPCSTR param_2);
+int __cdecl Plat_Realloc(undefined4 param_1,undefined4 param_2);
+void __cdecl Plat_SetAllocErrorFn(undefined *param_1);
+void __cdecl Plat_SetBenchmarkMode(undefined4 param_1);
+void __cdecl Plat_SetExitProcessWithErrorCB(undefined4 param_1);
+ulonglong Plat_USTime(void);
+undefined * __cdecl Plat_ctime(longlong *param_1,undefined *param_2,uint param_3);
+undefined4 Plat_daylight(void);
+void __cdecl Plat_getwd(LPSTR param_1,uint param_2);
+tm * __cdecl Plat_localtime(longlong *param_1,tm *param_2);
+void __cdecl Plat_timegm(int *param_1);
+undefined4 Plat_timezone(void);
+void __cdecl Platform_gmtime(undefined4 param_1,undefined4 param_2,uint *param_3);
+undefined4 __cdecl vtune(char param_1);
+void __cdecl GetCurrentDayOfTheWeek(int *param_1);
+void __cdecl GetCurrentDayOfTheYear(int *param_1);
+void __cdecl Plat_CreateWindow(HINSTANCE param_1,LPCSTR param_2,int param_3,int param_4,byte param_5);
+void __cdecl Plat_GetDesktopResolution(int *param_1,int *param_2);
+HWND Plat_GetShellWindow(void);
+void __cdecl Plat_GetWindowClientSize(HWND param_1,int *param_2,int *param_3);
+bool __cdecl Plat_IsWindowMinimized(HWND param_1);
+void __cdecl Plat_ScreenToWindowCoords(HWND param_1,LONG *param_2,LONG *param_3);
+void __cdecl Plat_SetWindowPos(HWND param_1,int param_2,int param_3);
+void __cdecl Plat_SetWindowTitle(HWND param_1,LPCSTR param_2);
+void __cdecl Plat_WindowToScreenCoords(HWND param_1,LONG *param_2,LONG *param_3);
+int * __fastcall FUN_10011270(int *param_1);
+undefined4 * __fastcall FUN_100112d0(undefined4 *param_1);
+void __fastcall FUN_10011330(int param_1);
+undefined4 * __thiscall FUN_10011350(void *this,byte param_1);
+void __fastcall FUN_10011380(int param_1);
+void __fastcall FUN_100113f0(int param_1);
+void __thiscall FUN_100114d0(void *this,void *param_1,void *param_2);
+undefined * Catch@1001154d(void);
+void Catch@100115e2(void);
+int FUN_10011610(size_t param_1);
+int ** __thiscall FUN_10011640(void *this,int **param_1,int *param_2,int *param_3);
+int ** __thiscall FUN_10011770(void *this,int **param_1,int *param_2);
+void FUN_10011870(int *param_1,int param_2);
+void __thiscall FUN_100118b0(void *this,undefined4 *param_1,undefined4 param_2);
+uint __thiscall FUN_100118d0(void *this,int *param_1,int param_2);
+uint __thiscall FUN_100118f0(void *this,undefined4 param_1,int *param_2);
+int ** __thiscall FUN_10011930(void *this,int *param_1,uint param_2);
+undefined * FUN_100119d0(undefined *param_1,int param_2);
+undefined * FUN_10011a40(undefined *param_1,int param_2);
+undefined * FUN_10011a90(undefined *param_1,int param_2);
+char * FUN_10011b00(void);
+char * FUN_10011b10(void);
+char * FUN_10011b20(void);
+void InitPME(void);
+void ShutdownPME(void);
+undefined4 * __fastcall FUN_10011be0(undefined4 *param_1);
+undefined4 __fastcall FUN_10011d20(void *param_1);
+undefined4 * FUN_10011e20(void);
+BOOL __thiscall FUN_10011e80(void *this,undefined4 param_1,LPVOID param_2);
+BOOL __thiscall FUN_10011ed0(void *this,DWORD param_1,undefined4 *param_2);
+undefined4 __fastcall FUN_10011f30(void *param_1);
+void __fastcall FUN_10011fa0(int param_1);
+void __thiscall FUN_10012070(void *this,uint param_1);
+undefined4 __cdecl InstallProgressReportHandler(undefined4 param_1);
+void ReportProgress(void);
+void __cdecl FUN_10012220(FILE *param_1,WCHAR *param_2,uint param_3,WCHAR *param_4,uint param_5,uint *param_6);
+uint __thiscall BasicStatStructFieldDesc::DescribeField(BasicStatStructFieldDesc *this,uchar *param_1,uint param_2);
+uint __cdecl FUN_100122f0(int *param_1,int **param_2);
+uint __cdecl _CCallStackStatsGatherer_Internal_DumpStatsToFile(char *param_1,int *param_2,undefined4 param_3);
+int __cdecl _CCallStackStatsGatherer_Write_FieldDescriptions(undefined4 *param_1,undefined4 *param_2,int param_3);
+CCallStackStorage * __thiscall CCallStackStorage::CCallStackStorage(CCallStackStorage *this,FuncDef0 *param_1,uint param_2);
+CStackTop_CopyParentStack * __thiscall CStackTop_CopyParentStack::CStackTop_CopyParentStack(CStackTop_CopyParentStack *this,void **param_1,int param_2);
+CStackTop_ReferenceParentStack * __thiscall CStackTop_ReferenceParentStack::CStackTop_ReferenceParentStack(CStackTop_ReferenceParentStack *this,void **param_1,int param_2);
+void __thiscall CStackTop_CopyParentStack::~CStackTop_CopyParentStack(CStackTop_CopyParentStack *this);
+void __thiscall CStackTop_ReferenceParentStack::~CStackTop_ReferenceParentStack(CStackTop_ReferenceParentStack *this);
+int __cdecl FUN_10012e80(int param_1,int param_2,int param_3);
+int __cdecl FUN_10012f00(undefined4 *param_1,int param_2,int param_3,int param_4);
+void __fastcall FUN_10013080(char *param_1);
+void __cdecl FUN_100132b0(int param_1,int *param_2,int param_3,int param_4);
+uint __thiscall FUN_100132e0(void *this,int param_1,char *param_2,size_t param_3,undefined4 *param_4,undefined4 *param_5);
+bool __thiscall FUN_100133a0(void *this,int param_1,char *param_2,size_t param_3);
+uint __thiscall FUN_10013430(void *this,int param_1,char *param_2,size_t param_3,undefined4 *param_4);
+undefined4 FUN_100134f0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,int param_5);
+void __thiscall CStackTop_ReferenceParentStack::ReleaseParentStackReferences(CStackTop_ReferenceParentStack *this);
+char * __thiscall FUN_10013530(void *this,char *param_1);
+undefined4 FUN_100135e0(void);
+undefined4 FUN_100135f0(void);
+undefined4 FUN_10013600(void);
+undefined4 FUN_10013610(void);
+undefined8 FUN_10013620(void);
+undefined4 FUN_10013630(void);
+int __thiscall FUN_10013640(void *this,int param_1,undefined2 *param_2,size_t param_3,uint param_4);
+void __fastcall FUN_10013880(char *param_1);
+uint __cdecl DecodeBinaryFromString(byte *param_1,byte *param_2,int param_3,byte **param_4);
+int __cdecl EncodeBinaryToString(byte *param_1,int param_2,byte *param_3,int param_4);
+void __cdecl GetCallStack(int param_1,int param_2,int param_3);
+void __cdecl GetCallStack_Fast(int param_1,int param_2,int param_3);
+void __cdecl GetFileAndLineFromAddress(int param_1,char *param_2,size_t param_3,undefined4 *param_4,undefined4 *param_5);
+void __cdecl GetModuleNameFromAddress(int param_1,char *param_2,size_t param_3);
+void __cdecl GetSymbolNameFromAddress(int param_1,char *param_2,size_t param_3,undefined4 *param_4);
+void __cdecl SetStackTranslationSymbolSearchPath(char *param_1);
+void StackToolsNotify_LoadedLibrary(void);
+int __cdecl TranslateStackInfo(int param_1,int param_2,undefined2 *param_3,size_t param_4,char *param_5,uint param_6);
+undefined4 * __thiscall FUN_10013e40(void *this,LPCSTR param_1,LPCSTR param_2);
+void __fastcall FUN_10013eb0(undefined4 *param_1);
+undefined4 Plat_GetMemPageSize(void);
+int __cdecl Plat_GetPagedPoolInfo(undefined8 *param_1);
+CThread * __thiscall CThread::CThread(CThread *this);
+CThreadEvent * __thiscall CThreadEvent::CThreadEvent(CThreadEvent *this,char *param_1,bool param_2,bool param_3);
+CThreadEvent * __thiscall CThreadEvent::CThreadEvent(CThreadEvent *this,bool param_1);
+CThreadFullMutex * __thiscall CThreadFullMutex::CThreadFullMutex(CThreadFullMutex *this,bool param_1,char *param_2);
+CThreadLocalBase * __thiscall GenericThreadLocals::CThreadLocalBase::CThreadLocalBase(CThreadLocalBase *this);
+CThreadMutex * __thiscall CThreadMutex::CThreadMutex(CThreadMutex *this);
+CThreadSemaphore * __thiscall CThreadSemaphore::CThreadSemaphore(CThreadSemaphore *this,int param_1,int param_2);
+CThreadSyncObject * __thiscall CThreadSyncObject::CThreadSyncObject(CThreadSyncObject *this);
+CWorkerThread * __thiscall CWorkerThread::CWorkerThread(CWorkerThread *this);
+void __thiscall CThread::~CThread(CThread *this);
+void __thiscall GenericThreadLocals::CThreadLocalBase::~CThreadLocalBase(CThreadLocalBase *this);
+void __thiscall CThreadMutex::~CThreadMutex(CThreadMutex *this);
+void __thiscall CThreadSyncObject::~CThreadSyncObject(CThreadSyncObject *this);
+bool __thiscall CThreadSyncObject::operator!(CThreadSyncObject *this);
+CThread * __thiscall FUN_100143e0(void *this,uint param_1);
+CThread * __thiscall FUN_10014450(void *this,uint param_1);
+void __cdecl FUN_10014520(int param_1,int param_2);
+int __thiscall CWorkerThread::BoostPriority(CWorkerThread *this);
+int __thiscall CWorkerThread::Call(CWorkerThread *this,uint param_1,uint param_2,bool param_3,FuncDef1 *param_4);
+int __thiscall CWorkerThread::CallMaster(CWorkerThread *this,uint param_1,uint param_2);
+int __thiscall CWorkerThread::CallWorker(CWorkerThread *this,uint param_1,uint param_2,bool param_3);
+bool __thiscall CThreadEvent::Check(CThreadEvent *this);
+NamedEventResult_t __cdecl CThreadEvent::CheckNamedEvent(char *param_1,uint param_2);
+int * __cdecl FUN_10014820(undefined4 param_1,int param_2,int param_3);
+void FUN_100148e0(int param_1,CThreadSyncObject **param_2,int param_3,uint param_4);
+void * __thiscall GenericThreadLocals::CThreadLocalBase::Get(CThreadLocalBase *this);
+CThreadEvent * __thiscall CWorkerThread::GetCallHandle(CWorkerThread *this);
+uint __thiscall CWorkerThread::GetCallParam(CWorkerThread *this);
+CThread * __cdecl CThread::GetCurrentCThread(void);
+char * __thiscall CThread::GetName(CThread *this);
+int __thiscall CThread::GetPriority(CThread *this);
+int __thiscall CThread::GetResult(CThread *this);
+ThreadHandle_t__ * __thiscall CThread::GetThreadHandle(CThread *this);
+FuncDef2 * __thiscall CThread::GetThreadProc(CThread *this);
+uint __cdecl FUN_10014a10(int param_1,int **param_2,int **param_3);
+bool __thiscall CThread::IsAlive(CThread *this);
+bool __thiscall CThread::IsThreadRunning(CThread *this);
+bool __thiscall CThread::Join(CThread *this,uint param_1);
+void __cdecl FUN_10014b20(int param_1);
+void __thiscall CThreadFastMutex::Lock(CThreadFastMutex *this,uint param_1,uint param_2);
+void __thiscall CThreadRWLock::LockForWrite(CThreadRWLock *this);
+HANDLE __cdecl FUN_10014d70(HANDLE param_1);
+bool __thiscall CWorkerThread::PeekCall(CWorkerThread *this,uint *param_1);
+bool __thiscall CThreadFullMutex::Release(CThreadFullMutex *this);
+bool __thiscall CThreadSemaphore::Release(CThreadSemaphore *this,int param_1,int *param_2);
+void __cdecl FUN_10014f90(int param_1);
+void __thiscall CWorkerThread::Reply(CWorkerThread *this,uint param_1);
+bool __thiscall CThreadEvent::Reset(CThreadEvent *this);
+uint __thiscall CThread::Resume(CThread *this);
+bool __thiscall CThreadEvent::Set(CThreadEvent *this);
+void __thiscall GenericThreadLocals::CThreadLocalBase::Set(CThreadLocalBase *this,void *param_1);
+void __thiscall CThread::SetName(CThread *this,char *param_1);
+bool __thiscall CThread::SetPriority(CThread *this,int param_1);
+void __thiscall CThreadSpinRWLock::SpinLockForRead(CThreadSpinRWLock *this);
+void __thiscall CThreadSpinRWLock::SpinLockForWrite(CThreadSpinRWLock *this);
+bool __thiscall CThread::Start(CThread *this,uint param_1,ThreadPriorityEnum_t param_2);
+void __thiscall CThread::Stop(CThread *this,int param_1);
+uint __thiscall CThread::Suspend(CThread *this);
+bool __thiscall CThread::Terminate(CThread *this,int param_1);
+ulong CThread::ThreadProc(void *param_1);
+undefined * Catch@10015753(void);
+void Catch@10015824(void);
+undefined4 FUN_10015840(undefined **param_1);
+void __cdecl CThread::ThreadProcRunWithMinidumpHandler(void *param_1);
+bool __thiscall CThreadMutex::TryLock(CThreadMutex *this);
+void __thiscall CThreadRWLock::UnlockWrite(CThreadRWLock *this);
+bool __thiscall CThreadEvent::Wait(CThreadEvent *this,uint param_1);
+bool __thiscall CWorkerThread::WaitForCall(CWorkerThread *this,uint param_1,uint *param_2);
+bool __thiscall CWorkerThread::WaitForCall(CWorkerThread *this,uint *param_1);
+bool __thiscall CThread::WaitForCreateComplete(CThread *this,CThreadEvent *param_1);
+uint __cdecl CThreadEvent::WaitForMultiple(int param_1,CThreadEvent **param_2,bool param_3,uint param_4);
+uint __cdecl CThreadEvent::WaitForMultiple(int param_1,CThreadEvent *param_2,bool param_3,uint param_4);
+uint __cdecl CThreadSyncObject::WaitForMultiple(int param_1,CThreadSyncObject **param_2,bool param_3,uint param_4);
+uint __cdecl CThreadSyncObject::WaitForMultiple(int param_1,CThreadSyncObject *param_2,bool param_3,uint param_4);
+void __thiscall CThreadRWLock::WaitForRead(CThreadRWLock *this);
+int __thiscall CWorkerThread::WaitForReply(CWorkerThread *this,uint param_1,FuncDef3 *param_2);
+int __thiscall CWorkerThread::WaitForReply(CWorkerThread *this,uint param_1);
+void __cdecl CThread::Yield(void);
+DWORD AllocateThreadID(void);
+HANDLE __cdecl CreateSimpleThread(undefined4 param_1,undefined4 param_2,SIZE_T param_3);
+void DeclareCurrentThreadIsMainThread(void);
+LPVOID FreeThreadID(void);
+undefined4 GetThreadedLoadLibraryFunc(void);
+uint __cdecl ReleaseThreadHandle(HANDLE param_1);
+void __cdecl SetThreadedLoadLibraryFunc(undefined4 param_1);
+HANDLE ThreadGetCurrentHandle(void);
+void __cdecl ThreadGetPriority(HANDLE param_1);
+uint ThreadInMainThread(void);
+longlong __cdecl ThreadInterlockedAnd64(longlong *param_1,uint param_2,uint param_3);
+undefined8 __cdecl ThreadInterlockedAssignIf64(longlong *param_1,longlong param_2,undefined4 param_3,undefined4 param_4);
+undefined8 __cdecl ThreadInterlockedCompareExchange64(longlong *param_1,longlong param_2,undefined4 param_3,undefined4 param_4);
+undefined8 __cdecl ThreadInterlockedDecrement64(longlong *param_1);
+longlong __cdecl ThreadInterlockedExchange64(longlong *param_1,undefined4 param_2,undefined4 param_3);
+longlong __cdecl ThreadInterlockedExchangeAdd64(longlong *param_1,uint param_2,int param_3);
+undefined8 __cdecl ThreadInterlockedIncrement64(longlong *param_1);
+longlong __cdecl ThreadInterlockedOr64(longlong *param_1,uint param_2,uint param_3);
+uint __cdecl ThreadJoin(HANDLE param_1,DWORD param_2);
+void __cdecl ThreadNanoSleep(int param_1);
+void __cdecl ThreadSetAffinity(HANDLE param_1,DWORD_PTR param_2);
+void __cdecl ThreadSetDebugName(HANDLE param_1,undefined4 param_2);
+bool __cdecl ThreadSetPriority(HANDLE param_1,int param_2);
+void __cdecl ThreadSleep(DWORD param_1);
+int __cdecl V_tier0_snprintf(char *param_1,uint param_2,byte *param_3);
+uint __cdecl V_tier0_stricmp(byte *param_1,byte *param_2);
+char * __cdecl V_tier0_strncat(char *param_1,char *param_2,int param_3,size_t param_4);
+void __cdecl V_tier0_strncpy(char *param_1,int param_2,int param_3);
+int __cdecl V_tier0_vsnprintf(char *param_1,uint param_2,byte *param_3,int **param_4);
+undefined4 * __fastcall FUN_10016380(undefined4 *param_1);
+bool FUN_10016430(void);
+bool FUN_10016440(void);
+void __cdecl FUN_10016450(char param_1);
+longlong __fastcall FUN_100165f0(longlong *param_1);
+undefined4 __fastcall FUN_100166e0(undefined4 param_1,uint param_2,undefined4 *param_3);
+ulonglong FUN_10016790(undefined4 *param_1);
+ulonglong __fastcall FUN_10016840(longlong *param_1,uint param_2);
+undefined4 FUN_10016880(void);
+void __fastcall FUN_10016940(longlong *param_1);
+undefined8 __thiscall FUN_100169d0(void *this,int *param_1);
+ulonglong FUN_10016a50(undefined4 param_1);
+ulonglong __fastcall FUN_10016ae0(undefined4 param_1,uint param_2,undefined param_3);
+undefined8 __fastcall FUN_10016b60(void *param_1,uint param_2,int *param_3);
+void __fastcall FUN_10016be0(int param_1);
+undefined4 FUN_10016c90(void);
+void FUN_10016ce0(void);
+undefined4 FUN_10016de0(void);
+void __cdecl FUN_10016e80(int param_1);
+void __cdecl FUN_10017ad0(char param_1);
+void FUN_10017b80(void);
+bool __thiscall CThreadFullMutex::AssertOwnedByCurrentThread(CThreadFullMutex *this);
+uint __cdecl RunTSListTests(int param_1,int param_2);
+undefined4 __cdecl RunTSQueueTests(undefined4 param_1,int param_2);
+CTestCase * __thiscall CTestCase::CTestCase(CTestCase *this,CTestCase *param_1);
+CTestCase * __thiscall CTestCase::CTestCase(CTestCase *this,char *param_1,ITestSuite *param_2);
+CTestSuite * __thiscall CTestSuite::CTestSuite(CTestSuite *this,CTestSuite *param_1);
+CTestSuite * __thiscall CTestSuite::CTestSuite(CTestSuite *this,char *param_1,ITestSuite *param_2);
+void __thiscall CTestCase::~CTestCase(CTestCase *this);
+void __thiscall CTestSuite::~CTestSuite(CTestSuite *this);
+CTestCase * __thiscall CTestCase::operator=(CTestCase *this,CTestCase *param_1);
+void __thiscall CTestSuite::AddTest(CTestSuite *this,ITestCase *param_1);
+char * __thiscall CTestSuite::GetName(CTestSuite *this);
+void __thiscall CTestSuite::RunTest(CTestSuite *this);
+undefined4 __cdecl GetUnitTest(int param_1);
+undefined4 UnitTestCount(void);
+void __cdecl UnitTestInstallTestCase(undefined4 param_1);
+undefined * __cdecl GetVAtom(uint param_1);
+void __cdecl FUN_10018030(int param_1,int param_2,int param_3,undefined4 *param_4,undefined *param_5);
+undefined4 * __thiscall FUN_10018130(void *this,undefined4 *param_1);
+void Catch@1001819c(void);
+undefined4 * __thiscall FUN_100181c0(void *this,undefined4 *param_1);
+void Catch@10018228(void);
+void __cdecl FUN_10018240(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void __thiscall FUN_10018270(void *this,int **param_1,char param_2,int **param_3,undefined4 param_4,int *param_5);
+void __thiscall FUN_10018480(void *this,int **param_1,char param_2,int **param_3,undefined4 param_4,int *param_5);
+void __thiscall FUN_10018690(void *this,undefined4 *param_1,char param_2,int **param_3,int *param_4);
+void Catch@10018781(void);
+void __thiscall FUN_100187a0(void *this,undefined4 *param_1,char param_2,int **param_3,int *param_4);
+void Catch@10018891(void);
+void __cdecl FUN_100188b0(undefined4 *param_1,undefined4 *param_2,undefined *param_3);
+void __cdecl FUN_100189b0(int param_1,int param_2,undefined *param_3);
+void __cdecl FUN_10018ac0(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3,undefined *param_4);
+void __cdecl FUN_10018b70(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3,undefined *param_4);
+void __cdecl FUN_10018c10(int param_1,int param_2,int param_3,undefined4 *param_4,undefined *param_5);
+void __cdecl FUN_10018c90(undefined4 *param_1,undefined4 *param_2,int param_3,undefined *param_4);
+void __cdecl FUN_10018d70(undefined4 *param_1,int param_2,undefined *param_3);
+void FUN_10018df0(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void FUN_10018e20(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void __cdecl FUN_10018e50(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3,undefined *param_4);
+undefined4 * __cdecl FUN_100190f0(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void Catch@10019156(void);
+void FUN_10019160(undefined4 *param_1,undefined4 *param_2);
+undefined4 __fastcall FUN_10019190(undefined4 param_1);
+CVProfile * __thiscall CVProfile::CVProfile(CVProfile *this);
+void __thiscall CVProfNode::~CVProfNode(CVProfNode *this);
+void __thiscall CVProfile::~CVProfile(CVProfile *this);
+int * __thiscall FUN_10019810(void *this,int *param_1);
+void Catch@1001990a(void);
+int ** __fastcall FUN_10019920(int **param_1);
+int ** __fastcall FUN_10019970(int **param_1);
+int __thiscall CVProfile::AddBudgetGroupName(CVProfile *this,char *param_1,int param_2);
+bool __cdecl FUN_10019ae0(int param_1,int param_2);
+bool __cdecl FUN_10019b50(int param_1,int param_2);
+int __thiscall CVProfile::BudgetGroupNameToBudgetGroupID(CVProfile *this,char *param_1);
+int __thiscall CVProfile::BudgetGroupNameToBudgetGroupID(CVProfile *this,char *param_1,int param_2);
+void __thiscall CVProfile::DumpNodes(CVProfile *this,CVProfNode *param_1,int param_2,bool param_3);
+void FUN_10019f40(undefined4 param_1,double param_2,undefined *param_3,uint param_4);
+void __thiscall CVProfNode::EnterScope(CVProfNode *this);
+bool __thiscall CVProfNode::ExitScope(CVProfNode *this);
+int __thiscall CVProfile::FindBudgetGroupName(CVProfile *this,char *param_1);
+CVProfNode * __thiscall CVProfile::FindNode(CVProfile *this,CVProfNode *param_1,char *param_2);
+int * __thiscall CVProfile::FindOrCreateCounter(CVProfile *this,char *param_1,CounterGroup_t param_2);
+void __thiscall CVProfile::FreeNodes_R(CVProfile *this,CVProfNode *param_1);
+void __thiscall CVProfile::GetBudgetGroupColor(CVProfile *this,int param_1,int *param_2,int *param_3,int *param_4,int *param_5);
+CounterGroup_t __thiscall CVProfile::GetCounterGroup(CVProfile *this,int param_1);
+char * __thiscall CVProfile::GetCounterName(CVProfile *this,int param_1);
+char * __thiscall CVProfile::GetCounterNameAndValue(CVProfile *this,int param_1,int *param_2);
+int __thiscall CVProfile::GetCounterValue(CVProfile *this,int param_1);
+int __thiscall CVProfile::GetNumBudgetGroups(CVProfile *this);
+int __thiscall CVProfile::GetNumCounters(CVProfile *this);
+CVProfNode * __thiscall CVProfNode::GetSubNode(CVProfNode *this,char *param_1,int param_2,char *param_3);
+CVProfNode * __thiscall CVProfNode::GetSubNode(CVProfNode *this,char *param_1,int param_2,char *param_3,int param_4);
+void __thiscall CVProfile::HideBudgetGroup(CVProfile *this,int param_1,bool param_2);
+void __thiscall CVProfNode::MarkFrame(CVProfNode *this);
+void __thiscall CVProfile::OutputReport(CVProfile *this,int param_1,char *param_2,int param_3);
+void __thiscall CVProfNode::Pause(CVProfNode *this);
+bool __cdecl FUN_1001ab60(int param_1,int param_2);
+bool __cdecl FUN_1001ab80(int param_1,int param_2);
+void __thiscall CVProfile::RegisterNumBudgetGroupsChangedCallBack(CVProfile *this,FuncDef4 *param_1);
+void __thiscall CVProfNode::Reset(CVProfNode *this);
+void __thiscall CVProfile::ResetCounters(CVProfile *this,CounterGroup_t param_1);
+void __thiscall CVProfNode::ResetPeak(CVProfNode *this);
+void __thiscall CVProfNode::Resume(CVProfNode *this);
+void __thiscall CVProfNode::SetCurFrameTime(CVProfNode *this,ulong param_1);
+void __thiscall CVProfile::SumTimes(CVProfile *this,CVProfNode *param_1,int param_2);
+void __thiscall CVProfile::SumTimes(CVProfile *this,char *param_1,int param_2);
+void __thiscall CVProfile::Term(CVProfile *this);
+bool __cdecl FUN_1001b110(int param_1,int param_2);
+bool __cdecl FUN_1001b130(int param_1,int param_2);
+uint __thiscall FUN_1001b150(void *this,uint param_1);
+void FUN_1001b1c0(void);
+void Catch@1001b230(void);
+void FUN_1001b250(void);
+void Catch@1001b2c0(void);
+undefined4 * __fastcall FUN_1001b2e0(undefined4 *param_1);
+void Catch@1001b356(void);
+undefined4 * __fastcall FUN_1001b370(undefined4 *param_1);
+void Catch@1001b3e6(void);
+void FUN_1001b400(int *param_1);
+void __thiscall FUN_1001b440(void *this,int *param_1);
+void Catch@1001b54d(void);
+void __thiscall FUN_1001b570(void *this,uint param_1);
+void __thiscall FUN_1001b5f0(void *this,int *param_1);
+void __fastcall FUN_1001b650(void **param_1);
+void __fastcall FUN_1001b680(int *param_1);
+int ** __thiscall FUN_1001b6d0(void *this,int **param_1,int **param_2,int **param_3);
+void __thiscall FUN_1001b770(void *this,int **param_1,int **param_2);
+void __thiscall FUN_1001b9e0(void *this,int *param_1,uint *param_2);
+void __thiscall FUN_1001ba30(void *this,undefined4 *param_1);
+void __cdecl InitWin32ConsoleColorContext(uint *param_1);
+void __cdecl RestoreWin32ConsoleColor(int param_1,ushort param_2);
+undefined4 __cdecl SetWin32ConsoleColor(undefined2 *param_1,int param_2,int param_3,int param_4,int param_5);
+uint SetupWin32ConsoleIO(void);
+void __cdecl FUN_1001bd50(uint *param_1,uint param_2,uint param_3,uint param_4);
+undefined4 FUN_1001bff0(void);
+void __cdecl FUN_1001c0b0(int param_1,int param_2,int param_3);
+uint * __cdecl FUN_1001c0f0(uint param_1,uint param_2);
+int * __cdecl FUN_1001c1e0(int *param_1,int param_2);
+uint ** __cdecl FUN_1001c370(uint *param_1,uint *param_2,uint param_3);
+uint * __cdecl FUN_1001c5d0(uint param_1,uint param_2);
+int __cdecl FUN_1001c680(uint *param_1,int param_2,undefined4 *param_3,uint param_4);
+int __cdecl FUN_1001cae0(int param_1);
+void __cdecl FUN_1001ce50(int param_1,uint param_2);
+uint * __cdecl FUN_1001ce80(uint *param_1,uint param_2);
+bool __cdecl FUN_1001d070(int param_1,uint param_2);
+uint * __cdecl FUN_1001d170(uint *param_1,uint param_2);
+uint * __cdecl FUN_1001d640(uint *param_1,uint param_2);
+undefined4 __cdecl FUN_1001d900(LPCVOID param_1,uint param_2);
+uint * __cdecl FUN_1001d980(uint param_1,int param_2);
+void __cdecl FUN_1001da20(uint *param_1);
+uint * __cdecl FUN_1001e1a0(uint param_1);
+int __cdecl FUN_1001e520(int param_1);
+void __cdecl FUN_1001e540(uint *param_1,uint param_2);
+uint __cdecl FUN_1001e590(int param_1);
+void __cdecl FUN_1001e5c0(undefined4 param_1,uint *param_2);
+int * __cdecl FUN_1001ed40(int *param_1,int param_2);
+uint ** __cdecl FUN_1001edb0(uint *param_1,uint param_2);
+uint __cdecl FUN_1001f0f0(int param_1);
+bool __cdecl FUN_1001f120(int param_1,uint param_2);
+int __cdecl __errcode(uint param_1);
+void __cdecl __except1(uint param_1,int param_2,undefined8 param_3,double param_4,uint param_5);
+bool __cdecl __handle_exc(uint param_1,double *param_2,uint param_3);
+void __cdecl __raise_exc(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6);
+void __cdecl FUN_1001f4b9(uint *param_1,uint *param_2,uint param_3,int param_4,undefined8 *param_5,undefined8 *param_6,int param_7);
+void __cdecl __set_errno_from_matherr(int param_1);
+float10 __cdecl __umatherr(int param_1,int param_2);
+void FUN_1001f86b(void);
+undefined4 * __thiscall FUN_1001f88d(void *this,exception *param_1);
+void __cdecl FUN_1001f8b3(size_t param_1);
+undefined4 * __thiscall FUN_1001f904(void *this,byte param_1);
+void __cdecl FID_conflict:_free(void *_Memory);
+pthreadlocinfo * __thiscall FUN_1001f92e(void *this,pthreadlocinfo *param_1);
+void __cdecl FUN_1001f9b6(byte *param_1,byte *param_2);
+int __cdecl FUN_1001f9cb(byte *param_1,byte *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_1001fb78(uint *param_1,byte *param_2,uint param_3);
+uint * __cdecl FUN_1001fb90(uint *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_1001fc56(undefined (*param_1) [16],undefined (*param_2) [16]);
+undefined (*) [16] __cdecl FUN_1001fc6b(undefined (*param_1) [16],undefined (*param_2) [16],pthreadlocinfo *param_3);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_1002003c(int param_1,int param_2);
+void __fastcall FUN_100201d8(int param_1,int param_2);
+void __thiscall type_info::~type_info(type_info *this);
+bool __thiscall type_info::operator==(type_info *this,type_info *param_1);
+void * __thiscall type_info::`scalar_deleting_destructor'(type_info *this,uint param_1);
+undefined4 FUN_100203df(void);
+PVOID __cdecl FUN_1002040e(PVOID param_1);
+void FUN_1002044c(void);
+PVOID __cdecl FUN_10020452(PVOID param_1);
+int __cdecl FUN_1002050a(PVOID param_1);
+void * __cdecl FID_conflict:_memcpy(void *_Dst,void *_Src,size_t _Size);
+void __fastcall FUN_1002080c(int param_1,int param_2);
+void __fastcall FUN_100209a8(int param_1,int param_2);
+char * __cdecl _strncat(char *_Dest,char *_Source,size_t _Count);
+void __cdecl FUN_10020ca5(byte *param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_10020d43(byte *param_1);
+void FUN_10020d54(char *param_1);
+long __cdecl _atol(char *_Str);
+int __cdecl __fclose_nolock(FILE *_File);
+int __cdecl _fclose(FILE *_File);
+void FUN_10020e4c(void);
+uint __cdecl FUN_10020e54(FILE *param_1);
+void FUN_10020f45(void);
+FILE * __cdecl __fsopen(char *_Filename,char *_Mode,int _ShFlag);
+void FUN_10021009(void);
+FILE * __cdecl _fopen(char *_Filename,char *_Mode);
+bool FUN_10021026(void);
+undefined4 __cdecl FUN_1002103b(byte *param_1);
+void FUN_100210d7(void);
+uint __cdecl FUN_100210ea(uint param_1,pthreadlocinfo *param_2);
+int __cdecl _tolower(int _C);
+void __alloca_probe(void);
+uint * __cdecl FUN_10021290(uint *param_1,byte param_2,uint param_3);
+void __cdecl __fpmath(int param_1);
+void FUN_10021337(void);
+undefined4 __cdecl FUN_100213a8(int param_1,uint *param_2,undefined4 param_3);
+void FUN_100214a6(int param_1);
+void FUN_100214a7(undefined4 param_1,int param_2);
+void __cdecl FID_conflict:_free(void *_Memory);
+void * __cdecl _malloc(size_t _Size);
+int __cdecl FUN_1002158b(FILE *param_1,byte *param_2);
+void FUN_10021695(void);
+undefined4 __cdecl FUN_1002169d(char *param_1,uint param_2,byte *param_3);
+void __cdecl FUN_10021749(char *param_1,uint param_2,byte *param_3,int **param_4);
+undefined4 __cdecl FUN_10021764(char *param_1,uint param_2,byte *param_3,pthreadlocinfo *param_4,int **param_5);
+uint __alloca_probe_16(undefined1 param_1);
+uint __alloca_probe_8(undefined1 param_1);
+int __cdecl FUN_1002183c(undefined *param_1,char *param_2,uint param_3,int param_4,undefined4 param_5,undefined4 param_6);
+int __cdecl __vsprintf_s_l(char *_DstBuf,size_t _DstSize,char *_Format,_locale_t _Locale,va_list _ArgList);
+int __cdecl _vsprintf_s(char *_DstBuf,size_t _SizeInBytes,char *_Format,va_list _ArgList);
+char * __cdecl _strncpy(char *_Dest,char *_Source,size_t _Count);
+undefined (*) [16] __fastcall FUN_10021ad0(undefined4 param_1,undefined4 param_2,undefined (*param_3) [16],undefined (*param_4) [16]);
+void __cdecl FUN_10021d33(char *param_1,uint param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_10021ea8(int param_1);
+char * __cdecl __strupr(char *_String);
+void __cdecl FUN_10021f21(char *param_1,uint param_2,pthreadlocinfo *param_3);
+int __cdecl FUN_10021f55(LPCVOID *param_1);
+char * __cdecl _strrchr(char *_Str,int _Ch);
+void __cdecl FID_conflict:_free(void *_Memory);
+undefined8 __alldiv(uint param_1,uint param_2,uint param_3,uint param_4);
+void __cdecl FUN_1002226a(uint param_1,uint param_2);
+void __cdecl _abort(void);
+void __cdecl FUN_100222d0(undefined *param_1,uint param_2,uint param_3,undefined *param_4);
+void __cdecl _shortsort(undefined *param_1,undefined *param_2,int param_3,undefined *param_4);
+void __cdecl FUN_100226a0(undefined *param_1,undefined *param_2,int param_3);
+void __cdecl FUN_100226d7(byte *param_1,uint param_2);
+byte * __cdecl FUN_100226ec(byte *param_1,uint param_2,pthreadlocinfo *param_3);
+int __cdecl FUN_1002277d(LPCSTR param_1,LPCSTR param_2);
+tm * __cdecl FUN_10022840(longlong *param_1);
+int __cdecl FUN_10022865(tm *param_1,longlong *param_2);
+void __cdecl FUN_10022adf(undefined4 *param_1);
+char * __cdecl FUN_10022b30(int *param_1);
+undefined4 __cdecl FUN_10022d3d(undefined *param_1,uint param_2,int *param_3);
+void __cdecl FUN_10022f24(undefined *param_1,uint param_2,longlong *param_3);
+undefined4 __cdecl FUN_10022fb6(uint *param_1,longlong *param_2);
+void __cdecl FUN_100231e1(int *param_1,int param_2);
+void __cdecl FUN_100234a0(LPSTR param_1,uint param_2);
+LPSTR __cdecl FUN_100234b5(uint param_1,LPSTR param_2,uint param_3);
+int __cdecl is_valid_drive(uint param_1);
+void FUN_1002364d(int *param_1,byte *param_2);
+void __cdecl FUN_100236b0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3);
+undefined4 __cdecl __TranslatorGuardHandler(_CONTEXT *param_1,EHRegistrationNode *param_2,_CONTEXT *param_3);
+void * __cdecl _CallCatchBlock2(EHRegistrationNode *param_1,_s_FuncInfo *param_2,void *param_3,int param_4,ulong param_5);
+void FID_conflict:_CallMemberFunction1(undefined4 param_1,undefined *UNRECOVERED_JUMPTABLE);
+undefined4 __cdecl FUN_100237e7(undefined4 *param_1,undefined4 *param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7);
+int __cdecl FUN_100238be(int param_1,int param_2,int param_3,uint *param_4,uint *param_5);
+void _JumpToContinuation(void *param_1,EHRegistrationNode *param_2);
+void _UnwindNestedFrames(EHRegistrationNode *param_1,EHExceptionRecord *param_2);
+undefined4 * __cdecl __CreateFrameInfo(undefined4 *param_1,undefined4 param_2);
+void __cdecl __FindAndUnlinkFrame(void *param_1);
+undefined4 __cdecl __IsExceptionObjectToBeDestroyed(int param_1);
+undefined4 __cdecl FID_conflict:___CxxFrameHandler3(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10023a9c(byte *param_1,byte *param_2);
+uint __cdecl FUN_10023ab1(byte *param_1,byte *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_10023b7a(size_t param_1);
+uint __cdecl FUN_10023b83(uint *param_1,uint param_2,uint param_3,uint param_4,FILE *param_5);
+size_t __cdecl _fread(void *_DstBuf,size_t _ElementSize,size_t _Count,FILE *_File);
+size_t __cdecl _fread_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
+void FUN_10023dec(void);
+int __cdecl FUN_10023df4(FILE *param_1,int param_2,DWORD param_3);
+int __cdecl FUN_10023e83(FILE *param_1,int param_2,DWORD param_3);
+void FUN_10023efe(void);
+void __cdecl FUN_10023f06(FILE *param_1);
+undefined4 __cdecl FUN_10024296(FILE *param_1);
+void FUN_100242fa(void);
+uint __cdecl FUN_10024302(WCHAR *param_1,uint param_2,uint param_3,FILE *param_4);
+uint __cdecl FUN_1002445b(WCHAR *param_1,uint param_2,uint param_3,FILE *param_4);
+void FUN_100244d5(void);
+uint FUN_100244dd(void);
+void __cdecl FUN_100244fe(ulong param_1);
+undefined4 FUN_1002450e(void);
+void FUN_10024581(void);
+undefined ** FUN_100245a8(void);
+void __cdecl __lock_file(FILE *_File);
+void __cdecl __lock_file2(int _Index,void *_File);
+void __cdecl __unlock_file(FILE *_File);
+void __cdecl __unlock_file2(int _Index,void *_File);
+undefined4 * __cdecl FUN_10024684(uint param_1,char *param_2);
+void FUN_100247f1(void);
+int __cdecl _setvbuf(FILE *_File,char *_Buf,int _Mode,size_t _Size);
+void FUN_100248f7(void);
+undefined4 __cdecl FUN_100248ff(uint param_1);
+void FUN_10024984(void);
+uint FUN_1002498d(void);
+void FUN_10024a65(void);
+void FUN_10024b2d(void);
+undefined4 __cdecl FUN_10024b36(uint param_1);
+undefined4 __cdecl FUN_10024bbc(uint param_1);
+int __cdecl __open_osfhandle(intptr_t _OSFileHandle,int _Flags);
+void FUN_10024d14(void);
+undefined4 __cdecl FUN_10024d39(uint param_1,HANDLE param_2);
+void __cdecl FUN_10024dbb(uint param_1);
+undefined4 FUN_10024de1(undefined4 param_1,int param_2,int param_3);
+void FUN_10024ec3(void);
+void entry(undefined4 param_1,int param_2,int param_3);
+uint __cdecl ___DllMainCRTStartup(undefined4 param_1,int param_2,int param_3);
+void __cdecl ___DllXcptFilter(undefined4 param_1,int param_2,int param_3,ulong param_4,_EXCEPTION_POINTERS *param_5);
+void __cdecl __decomp(int param_1,uint param_2,int *param_3);
+float10 __cdecl __set_exp(ulonglong param_1,short param_2);
+void ___set_fpsr_sse2(uint param_1);
+int FUN_10025220(void);
+int __ctrlfp(undefined4 param_1,undefined4 param_2);
+void __set_statfp(uint param_1);
+int FUN_100252b4(void);
+ulong * __cdecl ___doserrno(void);
+void __cdecl FID_conflict:__dosmaperr(ulong param_1);
+int * __cdecl __errno(void);
+int __cdecl __get_errno_from_oserr(ulong param_1);
+void __fastcall FUN_1002534c(int param_1,undefined param_2,undefined param_3);
+void __cdecl FUN_1002535b(undefined4 param_1);
+exception * __thiscall std::exception::exception(exception *this,char **param_1);
+undefined4 * __thiscall FUN_1002538d(void *this,undefined4 *param_1);
+exception * __thiscall std::exception::exception(exception *this,exception *param_1);
+void __fastcall FUN_100253cb(undefined4 *param_1);
+exception * __thiscall std::exception::operator=(exception *this,exception *param_1);
+undefined4 * __thiscall FUN_10025409(void *this,byte param_1);
+void __thiscall FUN_1002542e(void *this,char *param_1);
+void __thiscall std::exception::_Tidy(exception *this);
+char * __fastcall FUN_10025488(int param_1);
+int __cdecl __callnewh(size_t _Size);
+void __cdecl FUN_100254bb(undefined4 param_1);
+void __cdecl FUN_100254c8(int param_1,DWORD param_2,DWORD param_3);
+void __cdecl FUN_100255ed(undefined4 param_1);
+void __invalid_parameter(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+void FUN_10025625(void);
+void __cdecl __invoke_watson(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5);
+void __cdecl FUN_10025660(int *param_1);
+void __cdecl FUN_100256f5(void *param_1);
+int * __cdecl FUN_1002584f(int *param_1);
+pthreadlocinfo FUN_100258ef(void);
+void FUN_10025966(void);
+int * __cdecl __updatetlocinfoEx_nolock(int **param_1,int *param_2);
+undefined4 FUN_100259ba(void);
+wchar_t * __cdecl CPtoLocaleName(int param_1);
+UINT __cdecl FUN_10025a12(UINT param_1);
+void __cdecl FUN_10025a80(int param_1);
+void __cdecl setSBUpLow(__crt_multibyte_data *param_1);
+pthreadmbcinfo FUN_10025c71(void);
+void FUN_10025d0e(void);
+int __cdecl FUN_10025d17(UINT param_1);
+void FUN_10025e89(void);
+void __cdecl FUN_10025ebf(UINT param_1,__crt_multibyte_data *param_2);
+int __cdecl ___ascii_stricmp(char *_Str1,char *_Str2);
+int __cdecl FUN_100260e3(char *param_1,byte *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_10026178(int *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void __cdecl FUN_1002637c(pthreadlocinfo *param_1,wchar_t *param_2,uint param_3,LPCSTR param_4,int param_5,LPWSTR param_6,int param_7,UINT param_8,int param_9);
+void FUN_100263c2(void *param_1);
+void FUN_100264e2(void);
+void FUN_100264ee(void);
+void __cdecl FUN_100264f7(void *param_1);
+_ptiddata __cdecl __getptd(void);
+_ptiddata __cdecl __getptd_noexit(void);
+void __cdecl FUN_100265b4(int param_1,int param_2);
+void FUN_10026655(void);
+void FUN_1002665e(void);
+undefined4 FUN_10026667(void);
+void FUN_100266dd(void);
+size_t __cdecl _strlen(char *_Str);
+undefined4 FUN_1002678b(void);
+int __cdecl _strcmp(char *_Str1,char *_Str2);
+void __cdecl type_info::_Type_info_dtor(type_info *param_1);
+void FUN_10026a04(void);
+undefined4 __cdecl FUN_10026a0d(LPCSTR param_1,LPWSTR *param_2);
+void __cdecl FUN_10026abf(undefined4 param_1);
+void __cdecl ___crtExitProcess(int param_1);
+void FUN_10026b09(void);
+void __cdecl __amsg_exit(int param_1);
+void __cdecl __cexit(void);
+int __cdecl FUN_10026c41(int param_1);
+void __cdecl __exit(int _Code);
+void FUN_10026cd9(void);
+void __cdecl FUN_10026d11(undefined **param_1,undefined **param_2);
+void __cdecl __initterm_e(undefined **param_1,undefined **param_2);
+void FUN_10026d69(void);
+void FUN_10026d72(void);
+void __cdecl _doexit(int param_1,int param_2,int param_3);
+void FUN_10026e95(void);
+SIZE_T __cdecl FUN_10026eaa(LPCVOID param_1);
+LPVOID __cdecl FUN_10026edb(uint param_1,uint param_2);
+void * __cdecl FUN_10026f23(size_t param_1);
+void * __cdecl FUN_10026f6a(void *param_1,size_t param_2);
+void * __cdecl FUN_10026fb4(LPCVOID param_1,uint param_2,uint param_3);
+void __cdecl __SEH_prolog4(undefined4 param_1,int param_2);
+void __SEH_epilog4(void);
+undefined4 __cdecl FUN_10027070(PEXCEPTION_RECORD param_1,PVOID param_2,undefined4 param_3);
+void __cdecl FUN_10027204(uint *param_1,char *param_2,int *param_3);
+void __cdecl FUN_100272ab(ushort *param_1,char **param_2,char *param_3,int param_4,int param_5,int param_6,int param_7,int *param_8);
+ushort __cdecl FUN_10027a53(int param_1,ushort param_2,pthreadlocinfo *param_3);
+uint __cdecl FUN_10027b04(pthreadlocinfo *param_1,byte *param_2,byte **param_3,uint param_4,uint param_5);
+void __cdecl FUN_10027d2a(byte *param_1,byte **param_2,uint param_3);
+int __cdecl __fileno(FILE *_File);
+undefined4 __cdecl FUN_10027d78(uint param_1);
+void FUN_10027e2b(void);
+undefined4 __cdecl FUN_10027e53(uint param_1);
+void __cdecl __freebuf(FILE *_File);
+int __cdecl FUN_10027f1d(FILE *param_1);
+undefined4 __cdecl FUN_10027f63(FILE *param_1);
+void FUN_10027fc7(void);
+int __cdecl _flsall(int param_1);
+void FUN_10028078(void);
+void FUN_100280ab(void);
+uint __cdecl FUN_100280b4(FILE *param_1);
+undefined4 FUN_100281d5(void);
+void FUN_10028480(void);
+void __cdecl __ioterm(void);
+undefined4 * FUN_100284db(void);
+void FUN_100285f1(void);
+undefined4 * __cdecl FUN_100285fa(LPCSTR param_1,WCHAR *param_2,int param_3,undefined4 *param_4);
+void __cdecl __local_unwind4(uint *param_1,int param_2,uint param_3);
+undefined4 __fastcall FUN_10028910(undefined4 param_1,undefined param_2,int param_3,uint param_4,undefined4 param_5,uint *param_6);
+void FUN_10028956(int param_1);
+void FUN_10028957(undefined4 param_1,int param_2);
+void __fastcall @_EH4_CallFilterFunc@8(undefined *param_1);
+void __fastcall @_EH4_TransferToHandler@8(undefined *UNRECOVERED_JUMPTABLE);
+void __fastcall @_EH4_GlobalUnwind2@8(PVOID param_1,PEXCEPTION_RECORD param_2);
+void __fastcall @_EH4_LocalUnwind@16(int param_1,uint param_2,undefined4 param_3,uint *param_4);
+void __cdecl __ftbuf(int _Flag,FILE *_File);
+undefined4 __cdecl FUN_10028a03(FILE *param_1);
+void __cdecl FUN_10028aa9(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+void __cdecl _write_char(byte param_1,FILE *param_2,int *param_3);
+void __cdecl _write_multi_char(byte param_1,int param_2,FILE *param_3,int *param_4);
+void __cdecl FUN_1002969d(byte *param_1,int param_2,FILE *param_3,int *param_4,int *param_5);
+ushort __cdecl FUN_10029715(uint param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_1002974f(uint param_1);
+void FUN_10029760(void);
+void FUN_100297a9(void);
+errno_t __cdecl __cfltcvt(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps);
+errno_t __cdecl __cfltcvt_l(double *arg,char *buffer,size_t sizeInBytes,int format,int precision,int caps,_locale_t plocinfo);
+int __cdecl FUN_10029921(uint *param_1,undefined *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_10029c7d(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5);
+int __cdecl FUN_10029c9b(undefined *param_1,uint param_2,int param_3,int param_4,int *param_5,char param_6,pthreadlocinfo *param_7);
+void __cdecl FUN_10029dec(undefined4 *param_1,undefined *param_2,uint param_3,int param_4,int param_5,pthreadlocinfo *param_6);
+undefined4 __cdecl FUN_10029eba(char *param_1,int param_2,uint param_3,int *param_4,char param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_10029fa6(undefined4 *param_1,char *param_2,int param_3,uint param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_1002a067(undefined4 *param_1,char *param_2,uint param_3,uint param_4,int param_5,pthreadlocinfo *param_6);
+void __cdecl FUN_1002a166(char *param_1);
+void __cdecl FUN_1002a177(char *param_1,pthreadlocinfo *param_2);
+void __cdecl FUN_1002a1f7(uint param_1,uint *param_2,char *param_3);
+void __cdecl FUN_1002a20f(uint param_1,uint *param_2,char *param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_1002a251(byte *param_1);
+void __cdecl FUN_1002a262(byte *param_1,pthreadlocinfo *param_2);
+int __cdecl __positive(double *arg);
+void __cdecl __shift(char *param_1,int param_2);
+void __setdefaultprecision(void);
+void FUN_1002a33f(void);
+void __cdecl _CallDestructExceptionObject(int *param_1);
+void __cdecl __global_unwind2(PVOID param_1);
+undefined4 __fastcall FUN_1002a3c0(undefined4 param_1,undefined param_2,int param_3,undefined4 param_4,undefined4 param_5,undefined4 *param_6,uint param_7);
+void __cdecl __local_unwind2(int param_1,uint param_2);
+undefined4 __fastcall __NLG_Notify1(undefined4 param_1);
+void __NLG_Notify(ulong param_1);
+void FUN_1002a4d4(void);
+undefined4 __cdecl _ValidateScopeTableHandlers(PBYTE param_1,int param_2,int param_3);
+undefined4 __cdecl __ValidateEH3RN(uint *param_1);
+undefined8 FUN_1002a910(void);
+undefined8 __fastcall FUN_1002a92d(undefined4 param_1,uint param_2,int param_3,uint param_4);
+bool FUN_1002a9ca(void);
+void FUN_1002a9df(void);
+void __cdecl __FF_MSGBANNER(void);
+wchar_t * __cdecl __GET_RTERRMSG(int param_1);
+void __cdecl FUN_1002aa44(int param_1);
+uint __cdecl FUN_1002ac01(uint param_1,FILE *param_2);
+void __cdecl FUN_1002ad50(FILE *param_1,byte *param_2,pthreadlocinfo *param_3,int **param_4);
+uint * __cdecl FUN_1002b8f0(uint *param_1,char param_2);
+errno_t __cdecl _strcpy_s(char *_Dst,rsize_t _SizeInBytes,char *_Src);
+size_t __cdecl _strnlen(char *_Str,size_t _MaxCount);
+void FUN_1002ba8b(void);
+void __cdecl FUN_1002ba98(undefined4 param_1);
+undefined4 __cdecl FUN_1002bab4(int param_1);
+void FUN_1002bc35(void);
+uint __cdecl FUN_1002bc6f(int param_1,uint param_2);
+int __cdecl __wrename(wchar_t *_OldFilename,wchar_t *_NewFilename);
+void __cdecl FUN_1002bcdc(undefined4 param_1);
+void __cdecl FUN_1002bcfa(DWORD param_1);
+void __cdecl FUN_1002bd19(DWORD param_1);
+void __cdecl FUN_1002bd38(DWORD param_1,LPVOID param_2);
+undefined4 __cdecl FUN_1002bd5a(LPCRITICAL_SECTION param_1,DWORD param_2,undefined4 param_3);
+bool FUN_1002bd88(void);
+void __cdecl CThread::Sleep(uint param_1);
+LONG __cdecl ___crtUnhandledException(EXCEPTION_POINTERS *exceptionInfo);
+undefined4 * FUN_1002c084(void);
+undefined4 * FUN_1002c08a(void);
+undefined4 * FUN_1002c090(void);
+undefined ** FUN_1002c096(void);
+undefined4 __cdecl FUN_1002c09c(undefined4 *param_1);
+undefined4 __cdecl FUN_1002c0c6(undefined4 *param_1);
+undefined4 __cdecl FUN_1002c0f0(undefined4 *param_1);
+void __cdecl ___tzset(void);
+void FUN_1002c161(void);
+int __cdecl __isindst(tm *_Time);
+void FUN_1002c1ab(void);
+uint __cdecl FUN_1002c1b4(int *param_1);
+void FUN_1002c398(void);
+void FUN_1002c628(void);
+void __cdecl FUN_1002c6ca(int param_1,int param_2,uint param_3,int param_4,int param_5,int param_6,int param_7,int param_8,int param_9,int param_10,int param_11);
+void * FUN_1002c8ae(void);
+undefined8 __allrem(uint param_1,uint param_2,uint param_3,uint param_4);
+undefined8 __aulldiv(uint param_1,uint param_2,uint param_3,uint param_4);
+ulonglong __allmul(uint param_1,uint param_2,uint param_3,uint param_4);
+LPVOID __cdecl FUN_1002ca54(uint param_1,uint param_2);
+void FUN_1002ca94(void);
+void __CallSettingFrame@12(undefined4 param_1,undefined4 param_2,int param_3);
+void __cdecl _inconsistency(void);
+void __cdecl terminate(void);
+void FUN_1002cc28(void);
+void FUN_1002cc3b(void);
+void __cdecl ___DestructExceptionObject(int *param_1);
+undefined4 * __thiscall FUN_1002ccd7(void *this,exception *param_1);
+undefined4 * __thiscall FUN_1002ccfd(void *this,byte param_1);
+void * __cdecl CallCatchBlock(EHExceptionRecord *param_1,EHRegistrationNode *param_2,_CONTEXT *param_3,_s_FuncInfo *param_4,void *param_5,int param_6,ulong param_7);
+void FUN_1002ce69(void);
+void FUN_1002cee8(void *param_1);
+void Catch_All@1002cf10(void);
+void __cdecl CatchIt(EHExceptionRecord *param_1,EHRegistrationNode *param_2,_CONTEXT *param_3,void *param_4,_s_FuncInfo *param_5,_s_HandlerType *param_6,_s_CatchableType *param_7,_s_TryBlockMapEntry *param_8,int param_9,EHRegistrationNode *param_10,uchar param_11);
+int __cdecl ExFilterRethrow(_EXCEPTION_POINTERS *param_1);
+void __cdecl FUN_1002cff0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4,char *param_5,char param_6,int param_7,undefined4 *param_8);
+void __cdecl FUN_1002d38d(int *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4,_s_FuncInfo *param_5,int param_6,int param_7,EHRegistrationNode *param_8);
+uint __cdecl FUN_1002d4a9(int param_1,int *param_2);
+int __cdecl ___AdjustPointer(int param_1,int *param_2);
+void __cdecl ___BuildCatchObject(int param_1,int *param_2,uint *param_3,byte *param_4);
+char __cdecl FUN_1002d5e4(int param_1,int *param_2,uint *param_3,byte *param_4);
+_ptiddata __cdecl ___FrameUnwindFilter(int **param_1);
+void __cdecl ___FrameUnwindToState(int param_1,undefined4 param_2,int param_3,int param_4);
+void FUN_1002d8b3(void);
+undefined4 __cdecl FUN_1002d8cd(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4,uint *param_5,int param_6,undefined4 *param_7,char param_8);
+undefined4 __cdecl FUN_1002d9ae(byte *param_1,byte *param_2,byte *param_3);
+errno_t __cdecl _memcpy_s(void *_Dst,rsize_t _DstSize,void *_Src,rsize_t _MaxCount);
+uint __cdecl FUN_1002da94(uint param_1,LPWSTR param_2,uint param_3);
+void FUN_1002db80(void);
+uint __cdecl FUN_1002dba8(uint param_1,LPWSTR param_2,uint param_3);
+undefined4 __cdecl FUN_1002e339(uint param_1,int param_2,DWORD param_3);
+void FUN_1002e400(void);
+undefined4 __cdecl FUN_1002e428(uint param_1,int param_2,DWORD param_3);
+undefined8 __cdecl FUN_1002e4cf(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+void FUN_1002e5a1(void);
+undefined8 __cdecl FUN_1002e5cb(uint param_1,undefined4 param_2,undefined4 param_3,DWORD param_4);
+undefined4 __cdecl FUN_1002e63e(WCHAR *param_1,WCHAR *param_2,uint param_3);
+void FUN_1002e705(void);
+void __cdecl FUN_1002e72d(WCHAR *param_1,WCHAR *param_2,uint param_3);
+int FUN_1002ef92(void);
+void FUN_1002f026(void);
+void __cdecl __lock(int _File);
+undefined4 __cdecl FUN_1002f0b7(int param_1);
+void FUN_1002f157(void);
+undefined4 FUN_1002f160(void);
+void __cdecl FUN_1002f199(int param_1);
+_ptiddata __cdecl FUN_1002f1ae(int param_1,void *param_2);
+int __cdecl ___CppXcptFilter(ulong _ExceptionNum,_EXCEPTION_POINTERS *_ExceptionPtr);
+undefined4 FUN_1002f327(void);
+void __cdecl FUN_1002f3da(byte *param_1,byte **param_2,byte *param_3,int *param_4,int *param_5);
+undefined4 FUN_1002f556(void);
+void __cdecl ___security_init_cookie(void);
+LPSTR FUN_1002f6d3(void);
+void FUN_1002f760(void);
+void FUN_1002f780(void);
+void __cdecl ___raise_securityfailure(EXCEPTION_POINTERS *param_1);
+int __cdecl FUN_1002f8d8(char *param_1,int param_2,char *param_3,int param_4);
+undefined4 __cdecl FID_conflict:GetTableIndexFromLocaleName(wchar_t *param_1);
+void __cdecl FUN_1002f9ca(wchar_t *param_1,DWORD param_2,PCNZWCH param_3,int param_4,PCNZWCH param_5,int param_6);
+undefined4 __cdecl FID_conflict:_AtlDownlevelLocaleNameToLCID(wchar_t *param_1);
+void __cdecl FUN_1002fa40(wchar_t *param_1,DWORD param_2,LPCWSTR param_3,int param_4,LPWSTR param_5,int param_6);
+int __cdecl __wcsnicmp(wchar_t *_Str1,wchar_t *_Str2,size_t _MaxCount);
+void FUN_1002fafa(void);
+void __cdecl FID_conflict:___acrt_locale_free_monetary(int param_1);
+void __cdecl FID_conflict:___free_lconv_num(void **param_1);
+void __cdecl ___free_lc_time(void **param_1);
+void __cdecl FUN_1002ffe5(int *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+void __cdecl FUN_100300dd(pthreadlocinfo *param_1,DWORD param_2,LPCSTR param_3,int param_4,LPWORD param_5,UINT param_6,int param_7);
+PIMAGE_SECTION_HEADER __cdecl __FindPESection(PBYTE pImageBase,DWORD_PTR rva);
+BOOL __cdecl __IsNonwritableInCurrentImage(PBYTE pTarget);
+BOOL __cdecl __ValidateImageBase(PBYTE pImageBase);
+void __cdecl FUN_10030261(undefined4 param_1);
+void * __cdecl _realloc(void *_Memory,size_t _NewSize);
+void * __cdecl FUN_10030319(LPCVOID param_1,uint param_2,uint param_3);
+LPVOID __cdecl __calloc_impl(uint param_1,uint param_2,int *param_3);
+void __cdecl FUN_100303fc(ushort *param_1,uint *param_2);
+void __cdecl FUN_1003096e(ushort *param_1,uint *param_2);
+void __cdecl FUN_10030ee0(char *param_1,int param_2,uint *param_3);
+void __cdecl FUN_100310c0(uint *param_1,char *param_2,pthreadlocinfo *param_3,char **param_4);
+void __cdecl FUN_10031164(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+void __cdecl FUN_100311f2(uint *param_1,char *param_2,pthreadlocinfo *param_3);
+undefined8 __aulldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+DWORD __cdecl FUN_100312a5(uint param_1);
+void FUN_1003136d(void);
+void __cdecl __getbuf(FILE *_File);
+int __cdecl FUN_100313d4(LPCSTR param_1,uint param_2,int param_3,uint param_4,WCHAR **param_5,int param_6);
+void FUN_10031471(void);
+int __cdecl FUN_1003149d(undefined4 *param_1,WCHAR **param_2,LPCSTR param_3,uint param_4,int param_5,byte param_6);
+void __cdecl FUN_100314eb(WCHAR **param_1,LPCSTR param_2,uint param_3,int param_4,uint param_5);
+void __cdecl FUN_10031509(byte *param_1,byte *param_2,size_t param_3);
+uint __cdecl FUN_10031521(byte *param_1,byte *param_2,size_t param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_10031638(byte *param_1,byte *param_2,size_t param_3);
+int __cdecl FUN_10031650(byte *param_1,byte *param_2,size_t param_3,pthreadlocinfo *param_4);
+byte __cdecl FUN_1003180b(uint param_1);
+int __cdecl FUN_1003185f(int *param_1,uint *param_2,uint param_3,WCHAR param_4,pthreadlocinfo *param_5);
+void __cdecl FUN_10031983(int *param_1,uint *param_2,uint param_3,WCHAR param_4);
+uint FUN_1003199e(void);
+errno_t __cdecl _wcscat_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+errno_t __cdecl _wcscpy_s(wchar_t *_Dst,rsize_t _SizeInWords,wchar_t *_Src);
+size_t __cdecl _wcslen(wchar_t *_Str);
+int __cdecl FUN_10031aa5(short *param_1,int param_2,short *param_3,int param_4);
+ushort __cdecl FUN_10031b63(int param_1,pthreadlocinfo *param_2);
+int __cdecl _isdigit(int _C);
+int __cdecl FUN_10031be0(char *param_1,uint param_2,int param_3,int param_4);
+void __cdecl FUN_10031c90(uint *param_1,uint *param_2);
+void __cdecl FUN_10031d58(uint param_1,undefined4 param_2,int *param_3,char *param_4,rsize_t param_5);
+undefined8 __alldvrm(uint param_1,uint param_2,uint param_3,uint param_4);
+ulonglong __fastcall __aullshr(byte param_1,uint param_2);
+errno_t __cdecl __controlfp_s(uint *_CurrentState,uint _NewValue,uint _Mask);
+void FUN_10031f4c(void);
+float10 __fastcall FUN_10032130(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8);
+float10 __fastcall __startOneArgErrorHandling(undefined4 param_1,int param_2,ushort param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6);
+void FUN_100321a5(undefined4 param_1);
+undefined4 FUN_100321bc(void);
+uint __cdecl FUN_10032218(undefined4 param_1,uint param_2);
+int __cdecl __set_error_mode(int _Mode);
+void __cdecl FUN_1003235c(LPCWSTR param_1,undefined4 param_2,uint param_3);
+char * __cdecl __getenv_helper_nolock(char *param_1);
+byte __cdecl FUN_100325c6(int param_1);
+void __cdecl __EH_prolog3_catch(int param_1);
+undefined4 __cdecl FUN_1003260b(LPWSTR param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_10032700(LPWSTR param_1,byte *param_2,uint param_3);
+wint_t __cdecl __putwch_nolock(wchar_t _WCh);
+undefined4 __cdecl FUN_1003275b(pthreadlocinfo *param_1,uint param_2,uint param_3,byte param_4);
+void __cdecl FUN_100327b5(uint param_1);
+HANDLE __cdecl FUN_100327d0(LPCWSTR param_1,DWORD param_2,DWORD param_3,LPSECURITY_ATTRIBUTES param_4,DWORD param_5,uint param_6,uint param_7);
+int __cdecl FUN_10032858(undefined4 *param_1,WCHAR **param_2,LPCWSTR param_3,uint param_4,int param_5,byte param_6);
+int __cdecl _strncmp(char *_Str1,char *_Str2,size_t _MaxCount);
+int __cdecl __strnicmp(char *_Str1,char *_Str2,size_t _MaxCount);
+int __cdecl FUN_10033093(char *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_10033144(int param_1,uint param_2,ushort param_3,int param_4,byte param_5,short *param_6);
+uint __cdecl ___hw_cw_sse2(uint param_1);
+uint __cdecl FUN_10033bc1(uint param_1,uint param_2);
+uint __cdecl __hw_cw(uint param_1);
+void __cdecl __87except(int param_1,int *param_2,ushort *param_3);
+undefined4 FUN_10034063(void);
+int __cdecl __mbsnbicoll(uchar *_Str1,uchar *_Str2,size_t _MaxCount);
+int __cdecl FUN_1003410a(byte *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void FUN_100341c0(void);
+void ___dcrt_lowio_initialize_console_output(void);
+int __cdecl FUN_100341f6(WCHAR *param_1,uint param_2,int param_3);
+undefined4 __cdecl FUN_100343ac(undefined4 *param_1);
+int __cdecl __setmode_nolock(int _FileHandle,int _Mode);
+int __cdecl ___ascii_strnicmp(char *_Str1,char *_Str2,size_t _MaxCount);
+undefined4 __cdecl FUN_10034511(uint **param_1,int param_2);
+char ** __cdecl FUN_10034759(char **param_1);
+int __cdecl _findenv(uchar *param_1,size_t param_2);
+int __cdecl FUN_10034814(byte *param_1,byte *param_2,uint param_3,pthreadlocinfo *param_4);
+void __cdecl FUN_100348d9(int *param_1,wchar_t *param_2,DWORD param_3,byte *param_4,int param_5,byte *param_6,int param_7,UINT param_8);
+int __cdecl ___strncnt(char *param_1,int param_2);
+void __cdecl FUN_10034b7d(pthreadlocinfo *param_1,wchar_t *param_2,DWORD param_3,byte *param_4,int param_5,byte *param_6,int param_7,UINT param_8);
+char * __cdecl __strdup(char *_Src);
+void __cdecl FUN_10034c10(uint *param_1,uint param_2);
+uint * __cdecl FUN_10034c25(uint *param_1,uint param_2,pthreadlocinfo *param_3);
+undefined4 * __thiscall FUN_10034cc2(void *this,exception *param_1);
+undefined4 * __thiscall FUN_10034cdd(void *this,exception *param_1);
+undefined4 * __thiscall FUN_10034cf8(void *this,exception *param_1);
+undefined4 * __thiscall FUN_10034d18(void *this,byte param_1);
+void FUN_10034d37(void);
+void FUN_10034d68(char *param_1);
+void FUN_10034d96(char *param_1);
+int __cdecl FUN_10034dc4(int param_1);
+int __cdecl FUN_10034dee(int param_1);
+undefined4 __fastcall FUN_10034e18(undefined4 param_1);
+_Lockit * __thiscall std::_Lockit::_Lockit(_Lockit *this,int param_1);
+int FUN_10034e79(void);
+void __thiscall std::_Lockit::~_Lockit(_Lockit *this);
+void __cdecl FUN_10034ec5(LPCRITICAL_SECTION param_1);
+void __cdecl FUN_10034ed3(LPCRITICAL_SECTION param_1);
+void __cdecl __Mtxlock(_Rmtx *param_1);
+void __cdecl __Mtxunlock(_Rmtx *param_1);
+void CallNtPowerInformation(void);
+BOOL IsProcessorFeaturePresent(DWORD ProcessorFeature);
+void RtlUnwind(PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
+undefined4 __cdecl FUN_10034f18(LPCSTR param_1);
+undefined4 __cdecl FUN_10034f63(LPCWSTR param_1);
+void __cdecl FUN_10034fa0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10034fb0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10034fc0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10034fd0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10034fe0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10034ff0(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035000(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035010(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035020(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035030(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035040(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035050(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_10035060(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void __cdecl FUN_1003506a(_CONTEXT *param_1,undefined4 *param_2,_CONTEXT *param_3,void *param_4);
+void FUN_10035090(void);
+void FUN_100350a0(void);
+void __fastcall FUN_100350b0(CThreadSyncObject *param_1);
+void FUN_10035100(void);
+void FUN_10035140(void);
+void FUN_10035150(void);
+void FUN_10035170(void);
+ulonglong __fastcall FUN_10035180(undefined4 param_1,uint param_2);
+ulonglong __fastcall FUN_100351b0(undefined4 param_1,uint param_2);
+ulonglong __fastcall FUN_100351e0(undefined4 param_1,uint param_2);
+void __fastcall FUN_10035210(undefined4 param_1,uint param_2);
+void FUN_10035220(void);
+void FUN_10035230(void);
+void FUN_10035240(void);
+void FUN_10035250(void);
+void FUN_10035260(void);
+void FUN_10035270(void);
+void FUN_10035280(void);
+void FUN_10035290(void);
+void FUN_100352c0(void);
+void FUN_10035310(void);
+void FUN_10035320(void);
+void FUN_10035340(void);
+ulonglong __fastcall FUN_10035360(undefined4 param_1,uint param_2);
+ulonglong __fastcall FUN_10035370(undefined4 param_1,uint param_2);
+ulonglong FUN_100353b0(void);
+void FUN_100353e0(void);
+void FUN_10035440(void);
+void FUN_100354c0(void);
+void FUN_10035540(void);
+void FUN_10035554(void);
+
