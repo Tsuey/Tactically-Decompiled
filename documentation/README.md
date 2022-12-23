@@ -1,3 +1,7 @@
+File "CVAR_LIST_CONDEBUG.TXT" is all CVAR's dumped through official means, while "CVAR_LIST_DECOMPILED.TXT" is directly from the binaries with additional information that's useful so they can be identified and edited in hexadecimal.
+
+"DUMPENTITYFACTORIES.TXT" contains all the entity classes that exist. "STRINGS_ONLY_SORTED.TXT" is just a lazy collection of all strings in those same binaries.
+
 Version:
 
 	Engine Version: Tactical Intervention - STEAM (MAPKIT)
